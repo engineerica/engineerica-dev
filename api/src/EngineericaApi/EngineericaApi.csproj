@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.0</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E1C52714-4C86-44D2-B36D-FA4B9F0DA044}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>EngineericaApi</RootNamespace>
+    <AssemblyName>EngineericaApi</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MyClass.cs" />
+    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Core\ActionSet.cs" />
+    <Compile Include="Core\ActionResult.cs" />
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.addnote.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.addnote.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.delete.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.get.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.getuser.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.getuser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.list.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.listclass.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.listclass.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.listsummary.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.listsummary.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.save.cs">
+      <Link>GeneratedFiles\AccuClass\attendancelog.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\bgjob.getstatus.cs">
+      <Link>GeneratedFiles\AccuClass\bgjob.getstatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\captcha.getchallenge.cs">
+      <Link>GeneratedFiles\AccuClass\captcha.getchallenge.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\captcha.getimage.cs">
+      <Link>GeneratedFiles\AccuClass\captcha.getimage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\class.checksessions.cs">
+      <Link>GeneratedFiles\AccuClass\class.checksessions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\class.delete.cs">
+      <Link>GeneratedFiles\AccuClass\class.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\class.get.cs">
+      <Link>GeneratedFiles\AccuClass\class.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\class.list.cs">
+      <Link>GeneratedFiles\AccuClass\class.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\class.save.cs">
+      <Link>GeneratedFiles\AccuClass\class.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\classroom.delete.cs">
+      <Link>GeneratedFiles\AccuClass\classroom.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\classroom.get.cs">
+      <Link>GeneratedFiles\AccuClass\classroom.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\classroom.list.cs">
+      <Link>GeneratedFiles\AccuClass\classroom.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\classroom.save.cs">
+      <Link>GeneratedFiles\AccuClass\classroom.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\department.delete.cs">
+      <Link>GeneratedFiles\AccuClass\department.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\department.get.cs">
+      <Link>GeneratedFiles\AccuClass\department.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\department.list.cs">
+      <Link>GeneratedFiles\AccuClass\department.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\department.save.cs">
+      <Link>GeneratedFiles\AccuClass\department.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\device.get.cs">
+      <Link>GeneratedFiles\AccuClass\device.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\device.save.cs">
+      <Link>GeneratedFiles\AccuClass\device.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\doc.cs">
+      <Link>GeneratedFiles\AccuClass\doc.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\enrollment.add.cs">
+      <Link>GeneratedFiles\AccuClass\enrollment.add.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\enrollment.getclass.cs">
+      <Link>GeneratedFiles\AccuClass\enrollment.getclass.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\enrollment.getuser.cs">
+      <Link>GeneratedFiles\AccuClass\enrollment.getuser.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\enrollment.remove.cs">
+      <Link>GeneratedFiles\AccuClass\enrollment.remove.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\export.cs">
+      <Link>GeneratedFiles\AccuClass\export.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\holiday.list.cs">
+      <Link>GeneratedFiles\AccuClass\holiday.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\holiday.save.cs">
+      <Link>GeneratedFiles\AccuClass\holiday.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\holiday.suggest.cs">
+      <Link>GeneratedFiles\AccuClass\holiday.suggest.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\import.cs">
+      <Link>GeneratedFiles\AccuClass\import.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\listtimezones.cs">
+      <Link>GeneratedFiles\AccuClass\listtimezones.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\login.cs">
+      <Link>GeneratedFiles\AccuClass\login.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\logout.cs">
+      <Link>GeneratedFiles\AccuClass\logout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\my.profile.cs">
+      <Link>GeneratedFiles\AccuClass\my.profile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\my.rights.cs">
+      <Link>GeneratedFiles\AccuClass\my.rights.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\my.shortcuts.cs">
+      <Link>GeneratedFiles\AccuClass\my.shortcuts.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\search.cs">
+      <Link>GeneratedFiles\AccuClass\search.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\semester.delete.cs">
+      <Link>GeneratedFiles\AccuClass\semester.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\semester.get.cs">
+      <Link>GeneratedFiles\AccuClass\semester.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\semester.list.cs">
+      <Link>GeneratedFiles\AccuClass\semester.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\semester.save.cs">
+      <Link>GeneratedFiles\AccuClass\semester.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\session.bulkupdate.cs">
+      <Link>GeneratedFiles\AccuClass\session.bulkupdate.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\session.getschedule.cs">
+      <Link>GeneratedFiles\AccuClass\session.getschedule.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\session.list.cs">
+      <Link>GeneratedFiles\AccuClass\session.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\setting.get.cs">
+      <Link>GeneratedFiles\AccuClass\setting.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\setting.save.cs">
+      <Link>GeneratedFiles\AccuClass\setting.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\station.delete.cs">
+      <Link>GeneratedFiles\AccuClass\station.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\station.get.cs">
+      <Link>GeneratedFiles\AccuClass\station.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\station.getinfo.cs">
+      <Link>GeneratedFiles\AccuClass\station.getinfo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\station.list.cs">
+      <Link>GeneratedFiles\AccuClass\station.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\station.save.cs">
+      <Link>GeneratedFiles\AccuClass\station.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\station.unlock.cs">
+      <Link>GeneratedFiles\AccuClass\station.unlock.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\swipe.delete.cs">
+      <Link>GeneratedFiles\AccuClass\swipe.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\swipe.get.cs">
+      <Link>GeneratedFiles\AccuClass\swipe.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\swipe.listunresolved.cs">
+      <Link>GeneratedFiles\AccuClass\swipe.listunresolved.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\swipe.resolve.cs">
+      <Link>GeneratedFiles\AccuClass\swipe.resolve.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\swipe.save.cs">
+      <Link>GeneratedFiles\AccuClass\swipe.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\swipe.saveanonym.cs">
+      <Link>GeneratedFiles\AccuClass\swipe.saveanonym.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\texttoimage.cs">
+      <Link>GeneratedFiles\AccuClass\texttoimage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.assigncard.cs">
+      <Link>GeneratedFiles\AccuClass\user.assigncard.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.changepwd.cs">
+      <Link>GeneratedFiles\AccuClass\user.changepwd.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.delete.cs">
+      <Link>GeneratedFiles\AccuClass\user.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.get.cs">
+      <Link>GeneratedFiles\AccuClass\user.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.list.cs">
+      <Link>GeneratedFiles\AccuClass\user.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.listexpected.cs">
+      <Link>GeneratedFiles\AccuClass\user.listexpected.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.loadphoto.cs">
+      <Link>GeneratedFiles\AccuClass\user.loadphoto.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuClass\user.save.cs">
+      <Link>GeneratedFiles\AccuClass\user.save.cs</Link>
+    </Compile>
+    <Compile Include="ExtensionFiles\AccuClass\ExportType.cs" />
+    <Compile Include="ExtensionFiles\AccuClass\ImportType.cs" />
+    <Compile Include="ExtensionFiles\AccuClass\SwipeType.cs" />
+    <Compile Include="Core\ConnectionInformation.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="GeneratedFiles\" />
+    <Folder Include="GeneratedFiles\AccuClass\" />
+    <Folder Include="Core\" />
+    <Folder Include="ExtensionFiles\" />
+    <Folder Include="ExtensionFiles\AccuClass\" />
+  </ItemGroup>
+</Project>

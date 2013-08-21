@@ -1,0 +1,4 @@
+<% for (var r=0;r<IterateParams.length;r++) {
+%><%- (r > 0) ? ", " : "" 
+%><%- language.GetType(IterateParams[r].TypeName) + " _" + IterateParams[r].Name 
+%><% } %>
