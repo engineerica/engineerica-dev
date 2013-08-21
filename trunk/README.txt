@@ -3,6 +3,8 @@ DESCRIPTION
 
 This repository contains 2 separated main projects, a code generator that provides updates to the APIs and the API by themselves that you can use to connect to AccuClass, Conference Tracker and/or AccuWB.
 
+NOTE: Accudemia users, please look at the project hosted on code.google.com/p/accudemiaext
+
 If you want to use the client, just download the latest release from Google Code and include it in your project.
 
 If you want to update the API to include the latest changes in the server, you can read below.  The code generator is built in Node.js.
