@@ -2,7 +2,7 @@
 
 = Exporting Data =
 
-Currently you can only export data from either AccuClass or Conference-Tracker.  AccuWB does not support exporting or importing data.
+Currently you can only export data from either `AccuClass` or Conference-Tracker.  AccuWB does not support exporting or importing data.
 
 To do so, you first need to connect to the server, for example executing the following code:
 
