@@ -10,7 +10,7 @@ To do so, you first need to connect to the server, for example executing the fol
 var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
 }}}
 
-For more information, please see ConnectingToAnApplication
+For more information, please see [ConnectingToAnApplication Connecting to an Application].
 
 Then, you can create a job requesting the data to be exported, as follows:
 
