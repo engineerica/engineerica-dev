@@ -6,7 +6,9 @@ Below you can see a simple example where we connect the `AccuClass` server, then
 
 {{{
 var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+
 var res = EngineericaApi.AccuClass.Classroom.List(0, 100);
+
 foreach (var cl in res.Response.results)
 {
 	Console.WriteLine (" - " + cl.Name);
