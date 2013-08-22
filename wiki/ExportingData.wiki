@@ -1,0 +1,44 @@
+#summary This shows how to export data from one of our systems.
+
+= Exporting Data =
+
+Currently you can only export data from either AccuClass or Conference-Tracker.  AccuWB does not support exporting or importing data.
+
+To do so, you first need to connect to the server, for example executing the following code:
+
+{{{
+var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+}}}
+
+For more information, please see ConnectingToAnApplication
+
+Then, you can create a job requesting the data to be exported, as follows:
+
+{{{
+// Request the data to be exported
+var exp = EngineericaApi.AccuClass.Export.Execute(EngineericaApi.AccuClass.ExportType.Students, "XLS");
+}}}
+
+Once the request was issued, you can monitor the job until it's completed.  It's recommended to check every a couple seconds to avoid overloading the server.
+
+{{{
+var jobId = new Guid(exp.Response.JobId.ToString());
+do {
+	System.Threading.Thread.Sleep(5000);
+
+	// Get the job status
+	var res = EngineericaApi.AccuClass.Bgjob.Getstatus(jobId, null);
+
+	// Check it's completed
+	if (res.Response.results[0].Succeed.Value) break;
+} while(true);
+}}}
+
+Once we confirmed the job was executed successfully, you can download the file that will be hosted in either www.accuclass.net or www.conftrac.com, under the path `/JobResults/` with a name matching the job id and the extension _.html_, _.csv_ or _.xlsx_.
+
+For example, if you want to open that file, you can do the following:
+
+{{{
+// Once it's ready, you can open the file, download it or do whatever you want.
+System.Diagnostics.Process.Start("http://www.accuclass.net/JobResults/" + jobId + ".xlsx");
+}}}
