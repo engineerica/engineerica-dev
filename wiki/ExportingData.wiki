@@ -16,7 +16,7 @@ Then, you can create a job requesting the data to be exported, as follows:
 
 {{{
 // Request the data to be exported
-var exp = EngineericaApi.AccuClass.Export.Execute(EngineericaApi.AccuClass.ExportType.Students, "XLS");
+var exp = EngineericaApi.AccuClass.Export.Execute(EngineericaApi.AccuClass.ExportType.Students, "XLSX");
 }}}
 
 Once the request was issued, you can monitor the job until it's completed.  It's recommended to check every a couple seconds to avoid overloading the server.
