@@ -1,0 +1,16 @@
+#summary Using the API
+
+= Example: Listing the Classrooms in AccuClass =
+
+Below you can see a simple example where we connect the `AccuClass` server, then list the classrooms and show them to the user using a `Console.WriteLine`.
+
+{{{
+var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+var res = EngineericaApi.AccuClass.Classroom.List(0, 100);
+foreach (var cl in res.Response.results)
+{
+	Console.WriteLine (" - " + cl.Name);
+}
+}}}
+
+You can find the full API under the `EngineericaApi` namespace.
