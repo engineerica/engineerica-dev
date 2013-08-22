@@ -37,6 +37,10 @@ namespace EngineericaApi.Example
 					Console.Clear();
 					RunAccuClassExportExample();
 					break;
+				case "5":
+					Console.Clear();
+					ViewAccuClassAttendanceExample();
+					break;
 				default:
 					Console.Clear();
 					Console.WriteLine ("Example not valid.");
@@ -55,6 +59,7 @@ namespace EngineericaApi.Example
 			Console.WriteLine ("2. Conference-Tracker: basic list rooms");
 			Console.WriteLine ("3. AccuWB: basic list rooms");
 			Console.WriteLine ("4. AccuClass: export students");
+			Console.WriteLine ("5. AccuClass: view student attendance");
 			Console.WriteLine ("");
 			Console.Write ("Type the example number and press enter: ");
 			
@@ -125,6 +130,31 @@ namespace EngineericaApi.Example
 			Console.WriteLine();
 			Console.WriteLine("==> Data ready, opening file...");
 			System.Diagnostics.Process.Start("http://www.accuclass.net/JobResults/" + jobId + ".html");
+		}
+		
+		public static void ViewAccuClassAttendanceExample()
+		{
+			Console.Clear();
+			Console.WriteLine ("Enter user id (36 characters): ");
+			var userId = new Guid(Console.ReadLine ());
+			
+			Console.Clear();
+			var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+			
+			var user = EngineericaApi.AccuClass.Enrollment.Getuser(userId);
+			
+			Console.WriteLine ("Enrollment for: \t" + user.Response.Student.FullName);
+			Console.WriteLine ("In semester: \t" + user.Response.Semester.Name);
+			foreach(var cl in user.Response.Classes)
+			{
+				Console.WriteLine ("------------------------------------------------------");
+				Console.WriteLine (cl.Name + ":");
+				var att = EngineericaApi.AccuClass.Attendancelog.Getuser(userId, new Guid(cl.Id.Value));
+				foreach (var attres in att.Response.results)
+				{
+					Console.WriteLine(" - " + attres.Key + ": " + attres.@Value);
+				}
+			}
 		}
 		
 		public static void RunCTExample()
