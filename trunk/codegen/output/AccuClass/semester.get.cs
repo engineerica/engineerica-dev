@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Semesters.
 	/// </summary>
-	public partial class Semester : ActionSet
+	public static partial class Semester
 	{
 		
 		/// <summary>
 		/// Gets a semester by Id.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the semester to get.</param>
+		/// <param name="@id">The id of the semester to get.</param>
 
 
-		public ActionResult Get(Guid _id
+		public static ActionResult Get(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "semester.get", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "semester.get", new {@id
 });
 		}
 

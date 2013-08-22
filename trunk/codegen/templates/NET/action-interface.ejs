@@ -5,17 +5,16 @@ namespace EngineericaApi.<%= app.Name %>
 	/// <summary>
 	/// Contains access to all the actions related to <%= ClassName %>s.
 	/// </summary>
-	public partial class <%- ClassName %> : ActionSet
+	public static partial class <%- ClassName %>
 	{
 		<% IterateParams = RequiredParameters %>
 		/// <summary>
 		/// <%= Name %><%- requiresAuth ? ".  This action requires authentication." : "" %>
 		/// </summary>
 <%- include helpers/functionparam-doc %>
-		public ActionResult <%= FunctionName %>(<%- include helpers/functionparam %>)
+		public static ActionResult <%= FunctionName %>(<%- include helpers/functionparam %>)
 		{
-			<%- requiresAuth ? "EnsureIsAuthenticated();" : "" %>
-			return ExecuteActionInternal(ConnectionInformation.<%- app.Name %>, "<%- CommandName %>", new {<%- include helpers/functionparam-call %>});
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.<%- app.Name %>, <%- requiresAuth ? "true" : "false" %>, "<%- CommandName %>", new {<%- include helpers/functionparam-call %>});
 		}
 
 		<% if (OptionalParameters.length > 0) { 
@@ -24,10 +23,9 @@ namespace EngineericaApi.<%= app.Name %>
 		/// <%= Name %>
 		/// </summary>
 <%- include helpers/functionparam-doc %>
-		public ActionResult <%= FunctionName %>(<%- include helpers/functionparam %>)
+		public static ActionResult <%= FunctionName %>(<%- include helpers/functionparam %>)
 		{
-			<%- requiresAuth ? "EnsureIsAuthenticated();" : "" %>
-			return ExecuteActionInternal(ConnectionInformation.<%- app.Name %>, "<%- CommandName %>", new {<%- include helpers/functionparam-call %>});
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.<%- app.Name %>, <%- requiresAuth ? "true" : "false" %>, "<%- CommandName %>", new {<%- include helpers/functionparam-call %>});
 		}
 
 		<% } %>

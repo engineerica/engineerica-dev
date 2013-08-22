@@ -49,7 +49,7 @@ if (!app) {
 	return;
 }
 
-deleteFolderRecursive("output/" + app.Name + "/");
+/*deleteFolderRecursive("output/" + app.Name + "/");*/
 fs.mkdir("output/" + app.Name + "/", function() {/*ignore error if folder exists*/});
 
 

@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Bgjobs.
 	/// </summary>
-	public partial class Bgjob : ActionSet
+	public static partial class Bgjob
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Getstatus(
+		public static ActionResult Getstatus(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "bgjob.getstatus", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "bgjob.getstatus", new {
 });
 		}
 
@@ -25,15 +24,14 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Get background job status
 		/// </summary>
-		/// <param name="_jobid">The ID of the job to get the status. 10 most recent will be returned if not specified.</param>
-		/// <param name="_jobtype">The job type to filter by.</param>
+		/// <param name="@jobid">The ID of the job to get the status. 10 most recent will be returned if not specified.</param>
+		/// <param name="@jobtype">The job type to filter by.</param>
 
 
-		public ActionResult Getstatus(Guid _jobid, string _jobtype
+		public static ActionResult Getstatus(Guid @jobid, string @jobtype
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "bgjob.getstatus", new {_jobid, _jobtype
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "bgjob.getstatus", new {@jobid, @jobtype
 });
 		}
 

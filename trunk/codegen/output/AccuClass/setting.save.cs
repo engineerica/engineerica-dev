@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Settings.
 	/// </summary>
-	public partial class Setting : ActionSet
+	public static partial class Setting
 	{
 		
 		/// <summary>
 		/// Saves setting(s) for the current account.  This action requires authentication.
 		/// </summary>
-		/// <param name="_optionsjson">The options to save in the account, in JSON format.</param>
+		/// <param name="@optionsjson">The options to save in the account, in JSON format.</param>
 
 
-		public ActionResult Save(string _optionsjson
+		public static ActionResult Save(string @optionsjson
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "setting.save", new {_optionsjson
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "setting.save", new {@optionsjson
 });
 		}
 

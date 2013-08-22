@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Searchs.
 	/// </summary>
-	public partial class Search : ActionSet
+	public static partial class Search
 	{
 		
 		/// <summary>
 		/// Search.  This action requires authentication.
 		/// </summary>
-		/// <param name="_query">The query to search for.</param>
+		/// <param name="@query">The query to search for.</param>
 
 
-		public ActionResult Execute(string _query
+		public static ActionResult Execute(string @query
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "search", new {_query
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "search", new {@query
 });
 		}
 

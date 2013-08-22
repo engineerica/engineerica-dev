@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Listtimezoness.
 	/// </summary>
-	public partial class Listtimezones : ActionSet
+	public static partial class Listtimezones
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Execute(
+		public static ActionResult Execute(
 )
 		{
-			
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "listtimezones", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, false, "listtimezones", new {
 });
 		}
 

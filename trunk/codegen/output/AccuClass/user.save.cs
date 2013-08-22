@@ -5,22 +5,21 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Users.
 	/// </summary>
-	public partial class User : ActionSet
+	public static partial class User
 	{
 		
 		/// <summary>
 		/// Saves user.  This action requires authentication.
 		/// </summary>
-		/// <param name="_firstname">The first name of the user.</param>
-		/// <param name="_lastname">The last name of the user.</param>
-		/// <param name="_roles">Comma separated list of roles of the user.</param>
+		/// <param name="@firstname">The first name of the user.</param>
+		/// <param name="@lastname">The last name of the user.</param>
+		/// <param name="@roles">Comma separated list of roles of the user.</param>
 
 
-		public ActionResult Save(string _firstname, string _lastname, string _roles
+		public static ActionResult Save(string @firstname, string @lastname, string @roles
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "user.save", new {_firstname, _lastname, _roles
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "user.save", new {@firstname, @lastname, @roles
 });
 		}
 
@@ -28,23 +27,22 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Saves user
 		/// </summary>
-		/// <param name="_firstname">The first name of the user.</param>
-		/// <param name="_lastname">The last name of the user.</param>
-		/// <param name="_roles">Comma separated list of roles of the user.</param>
-		/// <param name="_id">The id of the user to save (leave empty to create a new one).</param>
-		/// <param name="_customid">The ID of the user, unique but can be  anything the user wants.</param>
-		/// <param name="_middlename">The middle name of the user.</param>
-		/// <param name="_email">The email of the user.</param>
-		/// <param name="_card">The card number (can be text) of the user.</param>
-		/// <param name="_password">The new password of the user.</param>
-		/// <param name="_photoid">The ID of a photo uploaded using user.loadphoto.</param>
+		/// <param name="@firstname">The first name of the user.</param>
+		/// <param name="@lastname">The last name of the user.</param>
+		/// <param name="@roles">Comma separated list of roles of the user.</param>
+		/// <param name="@id">The id of the user to save (leave empty to create a new one).</param>
+		/// <param name="@customid">The ID of the user, unique but can be  anything the user wants.</param>
+		/// <param name="@middlename">The middle name of the user.</param>
+		/// <param name="@email">The email of the user.</param>
+		/// <param name="@card">The card number (can be text) of the user.</param>
+		/// <param name="@password">The new password of the user.</param>
+		/// <param name="@photoid">The ID of a photo uploaded using user.loadphoto.</param>
 
 
-		public ActionResult Save(string _firstname, string _lastname, string _roles, Guid _id, string _customid, string _middlename, string _email, string _card, string _password, Guid _photoid
+		public static ActionResult Save(string @firstname, string @lastname, string @roles, Guid @id, string @customid, string @middlename, string @email, string @card, string @password, Guid @photoid
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "user.save", new {_firstname, _lastname, _roles, _id, _customid, _middlename, _email, _card, _password, _photoid
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "user.save", new {@firstname, @lastname, @roles, @id, @customid, @middlename, @email, @card, @password, @photoid
 });
 		}
 

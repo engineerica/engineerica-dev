@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Docs.
 	/// </summary>
-	public partial class Doc : ActionSet
+	public static partial class Doc
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Execute(
+		public static ActionResult Execute(
 )
 		{
-			
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "doc", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, false, "doc", new {
 });
 		}
 

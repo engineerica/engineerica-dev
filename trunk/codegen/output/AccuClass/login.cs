@@ -5,23 +5,22 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Logins.
 	/// </summary>
-	public partial class Login : ActionSet
+	public static partial class Login
 	{
 		
 		/// <summary>
 		/// Login
 		/// </summary>
-		/// <param name="_domain">The account domain to login.</param>
-		/// <param name="_username">The username (email) of the user to login as.</param>
-		/// <param name="_password">The password of the user to login as.</param>
-		/// <param name="_method">The authentication method. Valid values are 'token' and 'cookie'.</param>
+		/// <param name="@domain">The account domain to login.</param>
+		/// <param name="@username">The username (email) of the user to login as.</param>
+		/// <param name="@password">The password of the user to login as.</param>
+		/// <param name="@method">The authentication method. Valid values are 'token' and 'cookie'.</param>
 
 
-		public ActionResult Execute(string _domain, string _username, string _password, string _method
+		public static ActionResult Execute(string @domain, string @username, string @password, string @method
 )
 		{
-			
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "login", new {_domain, _username, _password, _method
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, false, "login", new {@domain, @username, @password, @method
 });
 		}
 

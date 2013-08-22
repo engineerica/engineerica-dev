@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Classrooms.
 	/// </summary>
-	public partial class Classroom : ActionSet
+	public static partial class Classroom
 	{
 		
 		/// <summary>
 		/// Deletes a classroom.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the classroom to delete.</param>
+		/// <param name="@id">The id of the classroom to delete.</param>
 
 
-		public ActionResult Delete(Guid _id
+		public static ActionResult Delete(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "classroom.delete", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "classroom.delete", new {@id
 });
 		}
 

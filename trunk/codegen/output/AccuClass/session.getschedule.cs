@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Sessions.
 	/// </summary>
-	public partial class Session : ActionSet
+	public static partial class Session
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Getschedule(
+		public static ActionResult Getschedule(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "session.getschedule", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "session.getschedule", new {
 });
 		}
 
@@ -25,17 +24,16 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Gets the schedule for a classroom, instructor or students
 		/// </summary>
-		/// <param name="_day">The day to return. It will also return the whole week for that day.</param>
-		/// <param name="_student">The Id of the student to get the schedule.</param>
-		/// <param name="_classroom">The Id of the classroom to get the schedule.</param>
-		/// <param name="_instructor">The Id of the instructor to get the schedule.</param>
+		/// <param name="@day">The day to return. It will also return the whole week for that day.</param>
+		/// <param name="@student">The Id of the student to get the schedule.</param>
+		/// <param name="@classroom">The Id of the classroom to get the schedule.</param>
+		/// <param name="@instructor">The Id of the instructor to get the schedule.</param>
 
 
-		public ActionResult Getschedule(DateTime _day, Guid _student, Guid _classroom, Guid _instructor
+		public static ActionResult Getschedule(DateTime @day, Guid @student, Guid @classroom, Guid @instructor
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "session.getschedule", new {_day, _student, _classroom, _instructor
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "session.getschedule", new {@day, @student, @classroom, @instructor
 });
 		}
 

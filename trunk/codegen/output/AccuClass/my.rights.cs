@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Mys.
 	/// </summary>
-	public partial class My : ActionSet
+	public static partial class My
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Rights(
+		public static ActionResult Rights(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "my.rights", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "my.rights", new {
 });
 		}
 

@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Semesters.
 	/// </summary>
-	public partial class Semester : ActionSet
+	public static partial class Semester
 	{
 		
 		/// <summary>
 		/// Deletes a semester.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the semester to delete.</param>
+		/// <param name="@id">The id of the semester to delete.</param>
 
 
-		public ActionResult Delete(Guid _id
+		public static ActionResult Delete(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "semester.delete", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "semester.delete", new {@id
 });
 		}
 
