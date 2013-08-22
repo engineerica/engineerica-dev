@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Users.
 	/// </summary>
-	public partial class User : ActionSet
+	public static partial class User
 	{
 		
 		/// <summary>
 		/// Deletes an user.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the user to delete.</param>
+		/// <param name="@id">The id of the user to delete.</param>
 
 
-		public ActionResult Delete(Guid _id
+		public static ActionResult Delete(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "user.delete", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "user.delete", new {@id
 });
 		}
 

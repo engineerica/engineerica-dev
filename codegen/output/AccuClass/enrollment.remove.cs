@@ -5,22 +5,21 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Enrollments.
 	/// </summary>
-	public partial class Enrollment : ActionSet
+	public static partial class Enrollment
 	{
 		
 		/// <summary>
 		/// Removes a class from the student enrollment.  This action requires authentication.
 		/// </summary>
-		/// <param name="_userid">The id of the user to enroll.</param>
-		/// <param name="_classid">The id of the class to enroll.</param>
-		/// <param name="_drop">True to mark it as dropped, false to completely remove the class</param>
+		/// <param name="@userid">The id of the user to enroll.</param>
+		/// <param name="@classid">The id of the class to enroll.</param>
+		/// <param name="@drop">True to mark it as dropped, false to completely remove the class</param>
 
 
-		public ActionResult Remove(Guid _userid, Guid _classid, bool _drop
+		public static ActionResult Remove(Guid @userid, Guid @classid, bool @drop
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "enrollment.remove", new {_userid, _classid, _drop
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "enrollment.remove", new {@userid, @classid, @drop
 });
 		}
 

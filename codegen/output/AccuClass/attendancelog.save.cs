@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Attendancelogs.
 	/// </summary>
-	public partial class Attendancelog : ActionSet
+	public static partial class Attendancelog
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Save(
+		public static ActionResult Save(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "attendancelog.save", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.save", new {
 });
 		}
 
@@ -25,20 +24,19 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Saves an attendance log
 		/// </summary>
-		/// <param name="_id">The id of the att log to save (leave empty to create a new one).</param>
-		/// <param name="_date">The sign-in date and time in ISO format, if not specified the session date and time will be used.</param>
-		/// <param name="_session">The id of the session where the user signed in.</param>
-		/// <param name="_user">The id of the student. If null then all the class session will be updated.</param>
-		/// <param name="_status">The attendance status of the student in this session.</param>
-		/// <param name="_notes">The text of the note to add.</param>
-		/// <param name="_totalminutes">The total time, in minutes, the students was in.</param>
+		/// <param name="@id">The id of the att log to save (leave empty to create a new one).</param>
+		/// <param name="@date">The sign-in date and time in ISO format, if not specified the session date and time will be used.</param>
+		/// <param name="@session">The id of the session where the user signed in.</param>
+		/// <param name="@user">The id of the student. If null then all the class session will be updated.</param>
+		/// <param name="@status">The attendance status of the student in this session.</param>
+		/// <param name="@notes">The text of the note to add.</param>
+		/// <param name="@totalminutes">The total time, in minutes, the students was in.</param>
 
 
-		public ActionResult Save(Guid _id, DateTime _date, Guid _session, Guid _user, string _status, string _notes, int _totalminutes
+		public static ActionResult Save(Guid @id, DateTime @date, Guid @session, Guid @user, string @status, string @notes, int @totalminutes
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "attendancelog.save", new {_id, _date, _session, _user, _status, _notes, _totalminutes
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.save", new {@id, @date, @session, @user, @status, @notes, @totalminutes
 });
 		}
 

@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>EngineericaApi</RootNamespace>
     <AssemblyName>EngineericaApi</AssemblyName>
-    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,14 +27,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
+    <GenerateDocumentation>true</GenerateDocumentation>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\lib\Json.NET\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClass.cs" />
     <Compile Include="AssemblyInfo.cs" />
-    <Compile Include="Core\ActionSet.cs" />
     <Compile Include="Core\ActionResult.cs" />
     <Compile Include="..\..\..\codegen\output\AccuClass\attendancelog.addnote.cs">
       <Link>GeneratedFiles\AccuClass\attendancelog.addnote.cs</Link>
@@ -260,6 +263,288 @@
     <Compile Include="ExtensionFiles\AccuClass\ImportType.cs" />
     <Compile Include="ExtensionFiles\AccuClass\SwipeType.cs" />
     <Compile Include="Core\ConnectionInformation.cs" />
+    <Compile Include="Core\ActionExecutor.cs" />
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\attendancelog.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\attendancelog.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\attendancelog.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\attendancelog.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\attendancelog.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\attendancelog.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\attendancelog.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\attendancelog.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\attendee.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\attendee.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\bgjob.getstatus.cs">
+      <Link>GeneratedFiles\ConferenceTracker\bgjob.getstatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\card.autoassign.cs">
+      <Link>GeneratedFiles\ConferenceTracker\card.autoassign.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\card.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\card.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\card.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\card.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\card.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\card.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\card.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\card.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\conference.addlogo.cs">
+      <Link>GeneratedFiles\ConferenceTracker\conference.addlogo.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\conference.next.cs">
+      <Link>GeneratedFiles\ConferenceTracker\conference.next.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\conference.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\conference.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\device.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\device.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\device.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\device.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\doc.cs">
+      <Link>GeneratedFiles\ConferenceTracker\doc.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.attendancelogs.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.attendancelogs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.attendancelogswithdetails.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.attendancelogswithdetails.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.attendees.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.attendees.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.cards.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.cards.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.leads.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.leads.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.operators.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.operators.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.rawswipes.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.rawswipes.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\export.workshops.cs">
+      <Link>GeneratedFiles\ConferenceTracker\export.workshops.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\form.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\form.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\form.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\form.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\form.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\form.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\form.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\form.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\formsubmitted.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\formsubmitted.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\formsubmitted.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\formsubmitted.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\formsubmitted.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\formsubmitted.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\import.cs">
+      <Link>GeneratedFiles\ConferenceTracker\import.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\lead.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\lead.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\lead.exportpublic.cs">
+      <Link>GeneratedFiles\ConferenceTracker\lead.exportpublic.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\lead.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\lead.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\lead.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\lead.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\lead.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\lead.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\listtimezones.cs">
+      <Link>GeneratedFiles\ConferenceTracker\listtimezones.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\login.cs">
+      <Link>GeneratedFiles\ConferenceTracker\login.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\logout.cs">
+      <Link>GeneratedFiles\ConferenceTracker\logout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\my.profile.cs">
+      <Link>GeneratedFiles\ConferenceTracker\my.profile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\my.rights.cs">
+      <Link>GeneratedFiles\ConferenceTracker\my.rights.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\my.saveprofile.cs">
+      <Link>GeneratedFiles\ConferenceTracker\my.saveprofile.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\registration.enable.cs">
+      <Link>GeneratedFiles\ConferenceTracker\registration.enable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\registration.getsuccessmessage.cs">
+      <Link>GeneratedFiles\ConferenceTracker\registration.getsuccessmessage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\registration.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\registration.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\room.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\room.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\room.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\room.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\room.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\room.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\room.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\room.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\search.cs">
+      <Link>GeneratedFiles\ConferenceTracker\search.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\setting.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\setting.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\setting.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\setting.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\stats.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\stats.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\swipe.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\swipe.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\swipe.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\swipe.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\swipe.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\swipe.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\swipe.resolve.cs">
+      <Link>GeneratedFiles\ConferenceTracker\swipe.resolve.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\swipe.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\swipe.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\template.addimage.cs">
+      <Link>GeneratedFiles\ConferenceTracker\template.addimage.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\template.create.cs">
+      <Link>GeneratedFiles\ConferenceTracker\template.create.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\template.getgenerated.cs">
+      <Link>GeneratedFiles\ConferenceTracker\template.getgenerated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\template.getlayout.cs">
+      <Link>GeneratedFiles\ConferenceTracker\template.getlayout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\template.savelayout.cs">
+      <Link>GeneratedFiles\ConferenceTracker\template.savelayout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\template.sendgenerated.cs">
+      <Link>GeneratedFiles\ConferenceTracker\template.sendgenerated.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\user.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\user.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\user.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\user.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\user.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\user.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\user.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\user.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\workshop.delete.cs">
+      <Link>GeneratedFiles\ConferenceTracker\workshop.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\workshop.get.cs">
+      <Link>GeneratedFiles\ConferenceTracker\workshop.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\workshop.list.cs">
+      <Link>GeneratedFiles\ConferenceTracker\workshop.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\ConferenceTracker\workshop.save.cs">
+      <Link>GeneratedFiles\ConferenceTracker\workshop.save.cs</Link>
+    </Compile>
+    <Compile Include="ExtensionFiles\ConferenceTracker\ImportType.cs" />
+    <Compile Include="ExtensionFiles\ConferenceTracker\AttendanceType.cs" />
+    <Compile Include="..\..\..\codegen\output\AccuWB\appointment.delete.cs">
+      <Link>GeneratedFiles\AccuWB\appointment.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\appointment.get.cs">
+      <Link>GeneratedFiles\AccuWB\appointment.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\appointment.list.cs">
+      <Link>GeneratedFiles\AccuWB\appointment.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\appointment.save.cs">
+      <Link>GeneratedFiles\AccuWB\appointment.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\bgjob.getstatus.cs">
+      <Link>GeneratedFiles\AccuWB\bgjob.getstatus.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\doc.cs">
+      <Link>GeneratedFiles\AccuWB\doc.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\listtimezones.cs">
+      <Link>GeneratedFiles\AccuWB\listtimezones.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\login.cs">
+      <Link>GeneratedFiles\AccuWB\login.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\logout.cs">
+      <Link>GeneratedFiles\AccuWB\logout.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\my.rights.cs">
+      <Link>GeneratedFiles\AccuWB\my.rights.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\room.delete.cs">
+      <Link>GeneratedFiles\AccuWB\room.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\room.get.cs">
+      <Link>GeneratedFiles\AccuWB\room.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\room.list.cs">
+      <Link>GeneratedFiles\AccuWB\room.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\room.save.cs">
+      <Link>GeneratedFiles\AccuWB\room.save.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\search.cs">
+      <Link>GeneratedFiles\AccuWB\search.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\user.delete.cs">
+      <Link>GeneratedFiles\AccuWB\user.delete.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\user.get.cs">
+      <Link>GeneratedFiles\AccuWB\user.get.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\user.list.cs">
+      <Link>GeneratedFiles\AccuWB\user.list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\..\codegen\output\AccuWB\user.save.cs">
+      <Link>GeneratedFiles\AccuWB\user.save.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
@@ -268,5 +553,8 @@
     <Folder Include="Core\" />
     <Folder Include="ExtensionFiles\" />
     <Folder Include="ExtensionFiles\AccuClass\" />
+    <Folder Include="GeneratedFiles\ConferenceTracker\" />
+    <Folder Include="GeneratedFiles\AccuWB\" />
+    <Folder Include="ExtensionFiles\ConferenceTracker\" />
   </ItemGroup>
 </Project>

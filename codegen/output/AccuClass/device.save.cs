@@ -5,21 +5,20 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Devices.
 	/// </summary>
-	public partial class Device : ActionSet
+	public static partial class Device
 	{
 		
 		/// <summary>
 		/// Saves a device.  This action requires authentication.
 		/// </summary>
-		/// <param name="_deviceId">The id of the device to save.</param>
-		/// <param name="_name">The name of the device.</param>
+		/// <param name="@deviceId">The id of the device to save.</param>
+		/// <param name="@name">The name of the device.</param>
 
 
-		public ActionResult Save(Guid _deviceId, string _name
+		public static ActionResult Save(Guid @deviceId, string @name
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "device.save", new {_deviceId, _name
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "device.save", new {@deviceId, @name
 });
 		}
 

@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Enrollments.
 	/// </summary>
-	public partial class Enrollment : ActionSet
+	public static partial class Enrollment
 	{
 		
 		/// <summary>
 		/// Gets the enrollment for the specified user.  This action requires authentication.
 		/// </summary>
-		/// <param name="_userid">The id of the user to get enrollment.</param>
+		/// <param name="@userid">The id of the user to get enrollment.</param>
 
 
-		public ActionResult Getuser(Guid _userid
+		public static ActionResult Getuser(Guid @userid
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "enrollment.getuser", new {_userid
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "enrollment.getuser", new {@userid
 });
 		}
 
@@ -26,15 +25,14 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Gets the enrollment for the specified user
 		/// </summary>
-		/// <param name="_userid">The id of the user to get enrollment.</param>
-		/// <param name="_semesterid">The id of the semester to get enrollment, the current one will be used if not specified.</param>
+		/// <param name="@userid">The id of the user to get enrollment.</param>
+		/// <param name="@semesterid">The id of the semester to get enrollment, the current one will be used if not specified.</param>
 
 
-		public ActionResult Getuser(Guid _userid, Guid _semesterid
+		public static ActionResult Getuser(Guid @userid, Guid @semesterid
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "enrollment.getuser", new {_userid, _semesterid
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "enrollment.getuser", new {@userid, @semesterid
 });
 		}
 

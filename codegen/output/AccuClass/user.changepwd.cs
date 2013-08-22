@@ -5,21 +5,20 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Users.
 	/// </summary>
-	public partial class User : ActionSet
+	public static partial class User
 	{
 		
 		/// <summary>
 		/// Get user.  This action requires authentication.
 		/// </summary>
-		/// <param name="_oldpass">The old password of the authenticated user.</param>
-		/// <param name="_newpass">The new password of the authenticated user.</param>
+		/// <param name="@oldpass">The old password of the authenticated user.</param>
+		/// <param name="@newpass">The new password of the authenticated user.</param>
 
 
-		public ActionResult Changepwd(Guid _oldpass, Guid _newpass
+		public static ActionResult Changepwd(Guid @oldpass, Guid @newpass
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "user.changepwd", new {_oldpass, _newpass
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "user.changepwd", new {@oldpass, @newpass
 });
 		}
 

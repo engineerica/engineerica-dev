@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Swipes.
 	/// </summary>
-	public partial class Swipe : ActionSet
+	public static partial class Swipe
 	{
 		
 		/// <summary>
 		/// Get swipe.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the swipe to get.</param>
+		/// <param name="@id">The id of the swipe to get.</param>
 
 
-		public ActionResult Get(Guid _id
+		public static ActionResult Get(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "swipe.get", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "swipe.get", new {@id
 });
 		}
 

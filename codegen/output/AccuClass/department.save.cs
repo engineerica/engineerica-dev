@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Departments.
 	/// </summary>
-	public partial class Department : ActionSet
+	public static partial class Department
 	{
 		
 		/// <summary>
 		/// Saves a department.  This action requires authentication.
 		/// </summary>
-		/// <param name="_name">The name of the department.</param>
+		/// <param name="@name">The name of the department.</param>
 
 
-		public ActionResult Save(string _name
+		public static ActionResult Save(string @name
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "department.save", new {_name
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "department.save", new {@name
 });
 		}
 
@@ -26,15 +25,14 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Saves a department
 		/// </summary>
-		/// <param name="_name">The name of the department.</param>
-		/// <param name="_id">The id of the department to save (leave empty to create a new one).</param>
+		/// <param name="@name">The name of the department.</param>
+		/// <param name="@id">The id of the department to save (leave empty to create a new one).</param>
 
 
-		public ActionResult Save(string _name, Guid _id
+		public static ActionResult Save(string @name, Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "department.save", new {_name, _id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "department.save", new {@name, @id
 });
 		}
 

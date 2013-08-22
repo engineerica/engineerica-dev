@@ -5,21 +5,20 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Users.
 	/// </summary>
-	public partial class User : ActionSet
+	public static partial class User
 	{
 		
 		/// <summary>
 		/// Assigns a card to a student.  This action requires authentication.
 		/// </summary>
-		/// <param name="_student">The id of the user to assign the card.</param>
-		/// <param name="_card">The card number (can be text) of the student.</param>
+		/// <param name="@student">The id of the user to assign the card.</param>
+		/// <param name="@card">The card number (can be text) of the student.</param>
 
 
-		public ActionResult Assigncard(Guid _student, string _card
+		public static ActionResult Assigncard(Guid @student, string @card
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "user.assigncard", new {_student, _card
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "user.assigncard", new {@student, @card
 });
 		}
 

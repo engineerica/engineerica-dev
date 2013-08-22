@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Texttoimages.
 	/// </summary>
-	public partial class Texttoimage : ActionSet
+	public static partial class Texttoimage
 	{
 		
 		/// <summary>
 		/// Generates a dynamic image from text.  This action requires authentication.
 		/// </summary>
-		/// <param name="_text">The text to convert to an image, use double pipes (||) as a new line.</param>
+		/// <param name="@text">The text to convert to an image, use double pipes (||) as a new line.</param>
 
 
-		public ActionResult Execute(string _text
+		public static ActionResult Execute(string @text
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "texttoimage", new {_text
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "texttoimage", new {@text
 });
 		}
 
@@ -26,18 +25,17 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Generates a dynamic image from text
 		/// </summary>
-		/// <param name="_text">The text to convert to an image, use double pipes (||) as a new line.</param>
-		/// <param name="_fontcolor">The color of the text, in hex format, without the #.</param>
-		/// <param name="_fontsize">The size of the text, in points.</param>
-		/// <param name="_direction">Either vertical or horizontal, default horizontal.</param>
-		/// <param name="_width">The image width in pixels (or height if the direction is vertical).</param>
+		/// <param name="@text">The text to convert to an image, use double pipes (||) as a new line.</param>
+		/// <param name="@fontcolor">The color of the text, in hex format, without the #.</param>
+		/// <param name="@fontsize">The size of the text, in points.</param>
+		/// <param name="@direction">Either vertical or horizontal, default horizontal.</param>
+		/// <param name="@width">The image width in pixels (or height if the direction is vertical).</param>
 
 
-		public ActionResult Execute(string _text, string _fontcolor, int _fontsize, string _direction, int _width
+		public static ActionResult Execute(string @text, string @fontcolor, int @fontsize, string @direction, int @width
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "texttoimage", new {_text, _fontcolor, _fontsize, _direction, _width
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "texttoimage", new {@text, @fontcolor, @fontsize, @direction, @width
 });
 		}
 

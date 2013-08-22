@@ -5,21 +5,20 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Attendancelogs.
 	/// </summary>
-	public partial class Attendancelog : ActionSet
+	public static partial class Attendancelog
 	{
 		
 		/// <summary>
 		/// Gets the attendance information for a specific student.  This action requires authentication.
 		/// </summary>
-		/// <param name="_student">The id of the student to get statistic for.</param>
-		/// <param name="_classid">The id of the class whose student statatistics have to be returned.</param>
+		/// <param name="@student">The id of the student to get statistic for.</param>
+		/// <param name="@classid">The id of the class whose student statatistics have to be returned.</param>
 
 
-		public ActionResult Getuser(Guid _student, Guid _classid
+		public static ActionResult Getuser(Guid @student, Guid @classid
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "attendancelog.getuser", new {_student, _classid
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.getuser", new {@student, @classid
 });
 		}
 

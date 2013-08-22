@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Holidays.
 	/// </summary>
-	public partial class Holiday : ActionSet
+	public static partial class Holiday
 	{
 		
 		/// <summary>
 		/// List holidays.  This action requires authentication.
 		/// </summary>
-		/// <param name="_semester">The semester to get holidays from.</param>
+		/// <param name="@semester">The semester to get holidays from.</param>
 
 
-		public ActionResult List(Guid _semester
+		public static ActionResult List(Guid @semester
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "holiday.list", new {_semester
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "holiday.list", new {@semester
 });
 		}
 

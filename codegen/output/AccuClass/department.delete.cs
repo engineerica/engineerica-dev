@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Departments.
 	/// </summary>
-	public partial class Department : ActionSet
+	public static partial class Department
 	{
 		
 		/// <summary>
 		/// Deletes a department.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the department to delete.</param>
+		/// <param name="@id">The id of the department to delete.</param>
 
 
-		public ActionResult Delete(Guid _id
+		public static ActionResult Delete(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "department.delete", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "department.delete", new {@id
 });
 		}
 

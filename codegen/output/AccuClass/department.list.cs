@@ -5,21 +5,20 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Departments.
 	/// </summary>
-	public partial class Department : ActionSet
+	public static partial class Department
 	{
 		
 		/// <summary>
 		/// List departments.  This action requires authentication.
 		/// </summary>
-		/// <param name="_from">The first record to return.</param>
-		/// <param name="_count">The max number of records to return.</param>
+		/// <param name="@from">The first record to return.</param>
+		/// <param name="@count">The max number of records to return.</param>
 
 
-		public ActionResult List(int _from, int _count
+		public static ActionResult List(int @from, int @count
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "department.list", new {_from, _count
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "department.list", new {@from, @count
 });
 		}
 

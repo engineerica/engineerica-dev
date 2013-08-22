@@ -2,7 +2,7 @@ using System;
 
 namespace EngineericaApi
 {
-	public class ConnectionInformation
+	internal class ConnectionInformation
 	{
 		private static ConnectionInformation _accuClass;
 		private static ConnectionInformation _ct;
@@ -25,15 +25,12 @@ namespace EngineericaApi
 		}
 		private ConnectionInformation() {}
 		
-		public string Name { get; set; }
-		public string ServiceUrl { get; set; }
-		
 		public static ConnectionInformation AccuClass
 		{
 			get { return _accuClass; }
 		}
 		
-		public static ConnectionInformation CT
+		public static ConnectionInformation ConferenceTracker
 		{
 			get { return _ct; }
 		}
@@ -41,6 +38,16 @@ namespace EngineericaApi
 		public static ConnectionInformation AccuWB
 		{
 			get { return _accuWb; }
+		}
+		
+		public string Name { get; set; }
+		public string ServiceUrl { get; set; }
+		
+		public string LoginToken { get; set; }
+		public bool IsLoggedIn {
+			get {
+				return LoginToken != null;
+			}
 		}
 	}
 }

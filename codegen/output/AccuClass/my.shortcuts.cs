@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Mys.
 	/// </summary>
-	public partial class My : ActionSet
+	public static partial class My
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Shortcuts(
+		public static ActionResult Shortcuts(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "my.shortcuts", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "my.shortcuts", new {
 });
 		}
 

@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Captchas.
 	/// </summary>
-	public partial class Captcha : ActionSet
+	public static partial class Captcha
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Getchallenge(
+		public static ActionResult Getchallenge(
 )
 		{
-			
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "captcha.getchallenge", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, false, "captcha.getchallenge", new {
 });
 		}
 

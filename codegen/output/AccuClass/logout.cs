@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Logouts.
 	/// </summary>
-	public partial class Logout : ActionSet
+	public static partial class Logout
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Execute(
+		public static ActionResult Execute(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "logout", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "logout", new {
 });
 		}
 

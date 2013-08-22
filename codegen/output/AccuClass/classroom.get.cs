@@ -5,20 +5,19 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Classrooms.
 	/// </summary>
-	public partial class Classroom : ActionSet
+	public static partial class Classroom
 	{
 		
 		/// <summary>
 		/// Gets a classroom by Id.  This action requires authentication.
 		/// </summary>
-		/// <param name="_id">The id of the classroom to get.</param>
+		/// <param name="@id">The id of the classroom to get.</param>
 
 
-		public ActionResult Get(Guid _id
+		public static ActionResult Get(Guid @id
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "classroom.get", new {_id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "classroom.get", new {@id
 });
 		}
 

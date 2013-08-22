@@ -5,7 +5,7 @@ namespace EngineericaApi.AccuClass
 	/// <summary>
 	/// Contains access to all the actions related to Attendancelogs.
 	/// </summary>
-	public partial class Attendancelog : ActionSet
+	public static partial class Attendancelog
 	{
 		
 		/// <summary>
@@ -13,11 +13,10 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 
 
-		public ActionResult Listsummary(
+		public static ActionResult Listsummary(
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "attendancelog.listsummary", new {
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.listsummary", new {
 });
 		}
 
@@ -25,17 +24,16 @@ namespace EngineericaApi.AccuClass
 		/// <summary>
 		/// Gets the attendance summary for a class and/or a student
 		/// </summary>
-		/// <param name="_classid">The id of the class whose students attendance have to be returned.</param>
-		/// <param name="_studentid">The id of the student whom attendance have to be returned.</param>
-		/// <param name="_start">The start date to filter (beginning of time by default).</param>
-		/// <param name="_end">The end date to filter (today by default).</param>
+		/// <param name="@classid">The id of the class whose students attendance have to be returned.</param>
+		/// <param name="@studentid">The id of the student whom attendance have to be returned.</param>
+		/// <param name="@start">The start date to filter (beginning of time by default).</param>
+		/// <param name="@end">The end date to filter (today by default).</param>
 
 
-		public ActionResult Listsummary(Guid _classid, Guid _studentid, string _start, string _end
+		public static ActionResult Listsummary(Guid @classid, Guid @studentid, string @start, string @end
 )
 		{
-			EnsureIsAuthenticated();
-			return ExecuteActionInternal(ConnectionInformation.AccuClass, "attendancelog.listsummary", new {_classid, _studentid, _start, _end
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.listsummary", new {@classid, @studentid, @start, @end
 });
 		}
 
