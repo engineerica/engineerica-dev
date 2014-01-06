@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -260,6 +260,7 @@
       <Link>GeneratedFiles\AccuClass\user.save.cs</Link>
     </Compile>
     <Compile Include="ExtensionFiles\AccuClass\ExportType.cs" />
+    <Compile Include="ExtensionFiles\AccuClass\ImportAction.cs" />
     <Compile Include="ExtensionFiles\AccuClass\ImportType.cs" />
     <Compile Include="ExtensionFiles\AccuClass\SwipeType.cs" />
     <Compile Include="Core\ConnectionInformation.cs" />
@@ -547,14 +548,5 @@
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
-  <ItemGroup>
-    <Folder Include="GeneratedFiles\" />
-    <Folder Include="GeneratedFiles\AccuClass\" />
-    <Folder Include="Core\" />
-    <Folder Include="ExtensionFiles\" />
-    <Folder Include="ExtensionFiles\AccuClass\" />
-    <Folder Include="GeneratedFiles\ConferenceTracker\" />
-    <Folder Include="GeneratedFiles\AccuWB\" />
-    <Folder Include="ExtensionFiles\ConferenceTracker\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

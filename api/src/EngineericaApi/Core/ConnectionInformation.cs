@@ -12,7 +12,7 @@ namespace EngineericaApi
 		{
 			_accuClass = new ConnectionInformation() { 
 				Name ="AccuClass", 
-				ServiceUrl = "http://www.accuclass.net/" 
+				ServiceUrl = "http://www.accuclass.net/"
 			};
 			_ct = new ConnectionInformation() { 
 				Name ="Conference-Tracker", 
