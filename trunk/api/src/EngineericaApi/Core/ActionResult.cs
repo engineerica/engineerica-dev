@@ -1,8 +1,4 @@
-using System;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Dynamic;
-using Mono.CSharp;
 
 namespace EngineericaApi
 {
@@ -28,7 +24,6 @@ namespace EngineericaApi
 				return Response.success;
 			}
 		}
-		
 		
 		private void Deserialize()
 		{
