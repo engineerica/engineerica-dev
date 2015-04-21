@@ -1,0 +1,26 @@
+# Connecting to `AccuClass` #
+
+In order to connect to `AccuClass`, you need to execute the **Login** command and pass your _domain_, _email_ and _password_. The last argument should always be set to _"token"_.
+
+```
+var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
+```
+
+# Connecting to Conference-Tracker #
+
+In order to connect to Conference-Tracker, you need to execute the **Login** command and pass your _domain_, _email_ and _password_. The last argument should always be set to _"token"_.
+
+```
+var loginRes = EngineericaApi.ConferenceTracker.Login.Execute(domain, email, password, "token");
+Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
+```
+
+# Connecting to AccuWB #
+
+In order to connect to AccuWB, you need to execute the **Login** command and pass your _domain_, _email_ and _password_. The last argument should always be set to _"token"_.
+
+```
+var loginRes = EngineericaApi.AccuWB.Login.Execute(domain, email, password, "token");
+Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
+```
