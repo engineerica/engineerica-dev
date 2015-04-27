@@ -9,7 +9,7 @@ namespace EngineericaApi.AccuClass
 	{
 		
 		/// <summary>
-		/// Get user.  This action requires authentication.
+		/// Changes the user password.  This action requires authentication.
 		/// </summary>
 		/// <param name="@oldpass">The old password of the authenticated user.</param>
 		/// <param name="@newpass">The new password of the authenticated user.</param>

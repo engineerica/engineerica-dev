@@ -10,6 +10,9 @@ var apps = {
 	"AccuClass": {Name: "AccuClass", Url: "www.accuclass.net" },
 	"CT": {Name: "ConferenceTracker", Url: "www.conftrac.com" },
 	"AccuWB": {Name: "AccuWB", Url: "www.accuwb.com" },
+	"AccuCampus": {Name: "AccuCampus", Url: "www.accucampus.net" },
+	"AccuTraining": {Name: "AccuTraining", Url: "www.accutraining.net" },
+	"AccuClub": {Name: "AccuClub", Url: "www.accuclub.net" }
 };
 
 var langDefs = {
@@ -32,7 +35,7 @@ if (process.argv.length != 4) {
 	console.log(info("Format: node main.js <language> <application>"));
 	console.log(info("where: "));
 	console.log(info("- language:	either NET, PHP, ASP or anyone available as a template."));
-	console.log(info("- application:	either AccuClass, CT or AccuWB."));
+	console.log(info("- application:	either AccuClass, CT, AccuWB, AccuTraining, AccuClub or AccuCampus."));
 	console.log("");
 	console.log(info("For example: node main.js NET AccuClass"));
 	console.log("");
@@ -60,7 +63,6 @@ var options = {
 	path: "/Service/?action=doc",
 	method: "GET"
 };
-
 
 console.log(info("Reading document information..."));
 http.get(options, function(res) {

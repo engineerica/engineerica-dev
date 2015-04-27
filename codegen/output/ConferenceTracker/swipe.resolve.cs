@@ -9,7 +9,7 @@ namespace EngineericaApi.ConferenceTracker
 	{
 		
 		/// <summary>
-		/// Resolves a swipe and creates the attendance log.  This action requires authentication.
+		/// Resolves a swipe and creates the attendance log. It might return the id of the att log created..  This action requires authentication.
 		/// </summary>
 		/// <param name="@id">The id of the swipe to resolve.</param>
 
@@ -23,7 +23,7 @@ namespace EngineericaApi.ConferenceTracker
 
 		
 		/// <summary>
-		/// Resolves a swipe and creates the attendance log
+		/// Resolves a swipe and creates the attendance log. It might return the id of the att log created.
 		/// </summary>
 		/// <param name="@id">The id of the swipe to resolve.</param>
 		/// <param name="@workshop">The id of the workshop whose swipe has to be saved.</param>

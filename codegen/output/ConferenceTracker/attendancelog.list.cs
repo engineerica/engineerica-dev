@@ -29,12 +29,13 @@ namespace EngineericaApi.ConferenceTracker
 		/// <param name="@from">The first record to return.</param>
 		/// <param name="@count">The max number of records to return.</param>
 		/// <param name="@conference">The id of the conference whose attendance logs have to be returned.</param>
+		/// <param name="@filter">Filter the logs, valid values are: invalid, not-signed-in, not-signed-out, stayed-less-than-required, valid.</param>
 
 
-		public static ActionResult List(int @from, int @count, Guid @conference
+		public static ActionResult List(int @from, int @count, Guid @conference, string @filter
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "attendancelog.list", new {@from, @count, @conference
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "attendancelog.list", new {@from, @count, @conference, @filter
 });
 		}
 

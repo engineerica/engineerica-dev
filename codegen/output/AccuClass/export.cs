@@ -27,12 +27,13 @@ namespace EngineericaApi.AccuClass
 		/// </summary>
 		/// <param name="@exporttype">The kind of data that you want to download.</param>
 		/// <param name="@exportformat">The format of the resulting file. Valid types are CSV, HTML, XLS.</param>
+		/// <param name="@args">The comma separated args for the report.  For example studentid=XXX,semesterid=YYY.</param>
 
 
-		public static ActionResult Execute(ExportType @exporttype, string @exportformat
+		public static ActionResult Execute(ExportType @exporttype, string @exportformat, string @args
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "export", new {@exporttype, @exportformat
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "export", new {@exporttype, @exportformat, @args
 });
 		}
 

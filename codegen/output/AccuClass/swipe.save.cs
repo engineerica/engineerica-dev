@@ -32,14 +32,15 @@ namespace EngineericaApi.AccuClass
 		/// <param name="@cardnumber">The number of the swipped card, used if the id was not specified.</param>
 		/// <param name="@session">The id of the session whose swipe has to be saved.</param>
 		/// <param name="@classroom">The id of the classroom whose swipe has to be saved.</param>
+		/// <param name="@clazz">The id of the clazz whose swipe has to be saved.</param>
 		/// <param name="@devicename">The name of the device whose swipe has to be saved.</param>
 		/// <param name="@metadata">The swipe's metadata in JSON format.</param>
 
 
-		public static ActionResult Save(SwipeType @type, string @device, DateTime @time, string @cardnumber, Guid @session, Guid @classroom, string @devicename, string @metadata
+		public static ActionResult Save(SwipeType @type, string @device, DateTime @time, string @cardnumber, Guid @session, Guid @classroom, Guid @clazz, string @devicename, string @metadata
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "swipe.save", new {@type, @device, @time, @cardnumber, @session, @classroom, @devicename, @metadata
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "swipe.save", new {@type, @device, @time, @cardnumber, @session, @classroom, @clazz, @devicename, @metadata
 });
 		}
 

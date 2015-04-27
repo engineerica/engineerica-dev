@@ -22,6 +22,21 @@ namespace EngineericaApi.ConferenceTracker
 		}
 
 		
+		/// <summary>
+		/// Gets setting(s) for a specific conference
+		/// </summary>
+		/// <param name="@keys">The option keys to get values for. Enter multiple separated by comma.</param>
+		/// <param name="@domain">The account domain, in case of reading settings annonymously.</param>
+
+
+		public static ActionResult Get(string @keys, string @domain
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "setting.get", new {@keys, @domain
+});
+		}
+
+		
 
 	}
 }

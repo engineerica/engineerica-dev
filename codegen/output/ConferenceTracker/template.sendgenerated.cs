@@ -12,12 +12,33 @@ namespace EngineericaApi.ConferenceTracker
 		/// Send generated templates by email for a specific job..  This action requires authentication.
 		/// </summary>
 		/// <param name="@jobid">The id of the job that is creating the templates.</param>
+		/// <param name="@emailsubject">Args depending on the send-to flag.</param>
+		/// <param name="@emailbody">Args depending on the send-to flag.</param>
 
 
-		public static ActionResult Sendgenerated(string @jobid
+		public static ActionResult Sendgenerated(string @jobid, string @emailsubject, string @emailbody
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "template.sendgenerated", new {@jobid
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "template.sendgenerated", new {@jobid, @emailsubject, @emailbody
+});
+		}
+
+		
+		/// <summary>
+		/// Send generated templates by email for a specific job.
+		/// </summary>
+		/// <param name="@jobid">The id of the job that is creating the templates.</param>
+		/// <param name="@emailsubject">Args depending on the send-to flag.</param>
+		/// <param name="@emailbody">Args depending on the send-to flag.</param>
+		/// <param name="@templatekind">The kind of the template you're sending. Valid values are certificates and badges.</param>
+		/// <param name="@emailfrom">The name of the sender to be displayed in the receipients inbox</param>
+		/// <param name="@emailreplyto">The reply-to field for the emails.</param>
+
+
+		public static ActionResult Sendgenerated(string @jobid, string @emailsubject, string @emailbody, string @templatekind, string @emailfrom, string @emailreplyto
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "template.sendgenerated", new {@jobid, @emailsubject, @emailbody, @templatekind, @emailfrom, @emailreplyto
 });
 		}
 

@@ -22,6 +22,21 @@ namespace EngineericaApi.AccuClass
 		}
 
 		
+		/// <summary>
+		/// Search
+		/// </summary>
+		/// <param name="@query">The query to search for.</param>
+		/// <param name="@page">Current page to show, zero-based.</param>
+
+
+		public static ActionResult Execute(string @query, int @page
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "search", new {@query, @page
+});
+		}
+
+		
 
 	}
 }

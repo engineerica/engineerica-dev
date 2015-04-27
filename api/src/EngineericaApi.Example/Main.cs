@@ -84,6 +84,10 @@ namespace EngineericaApi.Example
 		public static void RunAccuClassExample()
 		{
 			var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+			if (!loginRes.Succeed) {
+				Console.WriteLine("Unable to login. " + loginRes.ResponseText);
+				return;
+			}
 			Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
 			Console.WriteLine ();
 			Console.WriteLine ();
@@ -100,12 +104,16 @@ namespace EngineericaApi.Example
 		public static void RunAccuClassExportExample()
 		{
 			var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+			if (!loginRes.Succeed) {
+				Console.WriteLine("Unable to login. " + loginRes.ResponseText);
+				return;
+			}
 			Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
 			Console.WriteLine ();
 			Console.WriteLine ();
 			Console.WriteLine ();
 						
-			var exp = EngineericaApi.AccuClass.Export.Execute(EngineericaApi.AccuClass.ExportType.Students, "HTML");
+			var exp = EngineericaApi.AccuClass.Export.Execute(EngineericaApi.AccuClass.ExportType.Students, "HTML", "");
 			
 			var jobId = new Guid(exp.Response.JobId.ToString());
 			do {
@@ -140,6 +148,10 @@ namespace EngineericaApi.Example
 			
 			Console.Clear();
 			var loginRes = EngineericaApi.AccuClass.Login.Execute(domain, email, password, "token");
+			if (!loginRes.Succeed) {
+				Console.WriteLine("Unable to login. " + loginRes.ResponseText);
+				return;
+			}
 			
 			var user = EngineericaApi.AccuClass.Enrollment.Getuser(userId);
 			
@@ -160,6 +172,10 @@ namespace EngineericaApi.Example
 		public static void RunCTExample()
 		{
 			var loginRes = EngineericaApi.ConferenceTracker.Login.Execute(domain, email, password, "token");
+			if (!loginRes.Succeed) {
+				Console.WriteLine("Unable to login. " + loginRes.ResponseText);
+				return;
+			}
 			Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
 			Console.WriteLine ();
 			Console.WriteLine ();
@@ -176,6 +192,10 @@ namespace EngineericaApi.Example
 		public static void RunAccuWBExample()
 		{
 			var loginRes = EngineericaApi.AccuWB.Login.Execute(domain, email, password, "token");
+			if (!loginRes.Succeed) {
+				Console.WriteLine("Unable to login. " + loginRes.ResponseText);
+				return;
+			}
 			Console.WriteLine ("Logged in as: " + loginRes.Response.FullName);
 			Console.WriteLine ();
 			Console.WriteLine ();

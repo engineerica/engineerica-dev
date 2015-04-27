@@ -24,6 +24,23 @@ namespace EngineericaApi.ConferenceTracker
 		}
 
 		
+		/// <summary>
+		/// List conference registrations
+		/// </summary>
+		/// <param name="@conference">The id of the conference whose registrations are to be retrieved.</param>
+		/// <param name="@from">The first record to return.</param>
+		/// <param name="@count">The max number of records to return.</param>
+		/// <param name="@status">A comma separated list of the forms to return. Valid values are: pending, paid, paid+accepted, accepted, deleted, error.</param>
+
+
+		public static ActionResult List(int @conference, int @from, int @count, int @status
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "registration.list", new {@conference, @from, @count, @status
+});
+		}
+
+		
 
 	}
 }
