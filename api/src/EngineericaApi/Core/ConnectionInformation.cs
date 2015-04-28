@@ -79,6 +79,11 @@ namespace EngineericaApi
 				return LoginToken != null;
 			}
 		}
+		
+		public override string ToString ()
+		{
+			return Name;
+		}
 	}
 }
 
