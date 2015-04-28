@@ -5,7 +5,7 @@ using System.IO;
 
 namespace EngineericaApi
 {
-	internal static class ActionExecutor
+	public static class ActionExecutor
 	{
         private static ActionResult ExecuteInternal(ConnectionInformation conn, bool sendLoginToken, string action, IEnumerable<KeyValuePair<string, string>> queryArgs, object streamArgs, string filePathToUpload)
         {

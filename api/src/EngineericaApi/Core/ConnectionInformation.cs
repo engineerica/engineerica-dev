@@ -2,7 +2,7 @@ using System;
 
 namespace EngineericaApi
 {
-	internal class ConnectionInformation
+	public class ConnectionInformation
 	{
 		private static ConnectionInformation _accuClass;
 		private static ConnectionInformation _ct;
