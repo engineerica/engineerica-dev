@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuTraining
 {
@@ -9,7 +10,7 @@ namespace EngineericaApi.AccuTraining
 	{
 		
 		/// <summary>
-		/// Saves settings for the account.  This action requires authentication.
+		/// Save settings for the account or the specified scope.  This action requires authentication.
 		/// </summary>
 		/// <param name="@optionsjson">The options to save in the account, in JSON format.</param>
 
@@ -18,6 +19,21 @@ namespace EngineericaApi.AccuTraining
 )
 		{
 			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "setting.save", new {@optionsjson
+});
+		}
+
+		
+		/// <summary>
+		/// Save settings for the account or the specified scope
+		/// </summary>
+		/// <param name="@optionsjson">The options to save in the account, in JSON format.</param>
+		/// <param name="@scope">The scope of the settings to save.</param>
+
+
+		public static ActionResult Save(string @optionsjson, string @scope
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "setting.save", new {@optionsjson, @scope
 });
 		}
 

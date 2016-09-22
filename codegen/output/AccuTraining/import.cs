@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuTraining
 {
@@ -29,12 +30,13 @@ namespace EngineericaApi.AccuTraining
 		/// <param name="@importtype">The kind of data that is being uploaded.</param>
 		/// <param name="@upload">Set 'file' as value to indicate that a file is being submitted in the body (instead of a JSON object).</param>
 		/// <param name="@filename">The local name of the uploaded file. For later reference.</param>
+		/// <param name="@settings">Import settings, in a key-value pair JSON-serialized object. Eg {'setting':'value'}.</param>
 
 
-		public static ActionResult Execute(string @importtype, string @upload, string @filename
+		public static ActionResult Execute(string @importtype, string @upload, string @filename, string @settings
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "import", new {@importtype, @upload, @filename
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "import", new {@importtype, @upload, @filename, @settings
 });
 		}
 

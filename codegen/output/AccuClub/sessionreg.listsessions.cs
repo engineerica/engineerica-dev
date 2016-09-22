@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuClub
 {
@@ -9,7 +10,7 @@ namespace EngineericaApi.AccuClub
 	{
 		
 		/// <summary>
-		/// LIsts the sessions available for a specific event.  This action requires authentication.
+		/// List the sessions available for a specific event.  This action requires authentication.
 		/// </summary>
 		/// <param name="@eventid">The event id to list sessions.</param>
 
@@ -23,7 +24,7 @@ namespace EngineericaApi.AccuClub
 
 		
 		/// <summary>
-		/// LIsts the sessions available for a specific event
+		/// List the sessions available for a specific event
 		/// </summary>
 		/// <param name="@eventid">The event id to list sessions.</param>
 		/// <param name="@sessiondate">The date of the session to find.</param>

@@ -31,12 +31,13 @@ namespace EngineericaApi.AccuClass
 		/// <param name="@start">The date when the semester starts.</param>
 		/// <param name="@end">The date when the semester ends.</param>
 		/// <param name="@id">The id of the semester to save (leave empty to create a new one).</param>
+		/// <param name="@checksessions">True to check sessions in all classes. Defaults to false.</param>
 
 
-		public static ActionResult Save(string @name, DateTime @start, DateTime @end, Guid @id
+		public static ActionResult Save(string @name, DateTime @start, DateTime @end, Guid @id, bool @checksessions
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "semester.save", new {@name, @start, @end, @id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "semester.save", new {@name, @start, @end, @id, @checksessions
 });
 		}
 

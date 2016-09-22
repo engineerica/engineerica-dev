@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuClub
 {
@@ -17,6 +18,20 @@ namespace EngineericaApi.AccuClub
 )
 		{
 			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "my.profile", new {
+});
+		}
+
+		
+		/// <summary>
+		/// Returns the logged user's information.
+		/// </summary>
+		/// <param name="@photosize">The size in pixels of the photo URLs returned. Defaults to 40. If the size specified is not available, a similar one will be returned.</param>
+
+
+		public static ActionResult Profile(int @photosize
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "my.profile", new {@photosize
 });
 		}
 

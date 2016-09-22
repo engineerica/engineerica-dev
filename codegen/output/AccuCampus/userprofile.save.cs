@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuCampus
 {
@@ -33,13 +34,14 @@ namespace EngineericaApi.AccuCampus
 		/// <param name="@caneditown">Whether the user can edit it's own profile.</param>
 		/// <param name="@viewroles">The roles that can view the answers, in JSON format.</param>
 		/// <param name="@editroles">The roles that can edit the answers, in JSON format.</param>
+		/// <param name="@appliestoroles">The roles this profile questionnaire can be used for, in JSON format.</param>
 		/// <param name="@scopes">The scopes that have access to this questionnaire, in JSON format.</param>
 
 
-		public static ActionResult Save(string @name, string @questions, Guid @id, bool @canviewown, bool @caneditown, string @viewroles, string @editroles, string @scopes
+		public static ActionResult Save(string @name, string @questions, Guid @id, bool @canviewown, bool @caneditown, string @viewroles, string @editroles, string @appliestoroles, string @scopes
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "userprofile.save", new {@name, @questions, @id, @canviewown, @caneditown, @viewroles, @editroles, @scopes
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "userprofile.save", new {@name, @questions, @id, @canviewown, @caneditown, @viewroles, @editroles, @appliestoroles, @scopes
 });
 		}
 

@@ -23,6 +23,22 @@ namespace EngineericaApi.ConferenceTracker
 		}
 
 		
+		/// <summary>
+		/// Gets the devices of the specified conference
+		/// </summary>
+		/// <param name="@from">The first record to return.</param>
+		/// <param name="@count">The max number of records to return.</param>
+		/// <param name="@session">The ID of the session to filter devices used there.</param>
+
+
+		public static ActionResult List(int @from, int @count, Guid @session
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "device.list", new {@from, @count, @session
+});
+		}
+
+		
 
 	}
 }

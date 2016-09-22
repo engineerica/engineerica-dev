@@ -35,12 +35,14 @@ namespace EngineericaApi.ConferenceTracker
 		/// <param name="@forsending">It specifies the purpose of the creation of the templates. If true then is for sending via e-mail, otherwise is just for downloading</param>
 		/// <param name="@onlymodifiedafter">When printing all badges, print only those modified after a certain date.</param>
 		/// <param name="@role">When printing all badges, filter by person type, can be either: attendee, presenter or exhibitor</param>
+		/// <param name="@onlysessionid">When printing certificates, filter only by those who attended a specific session</param>
+		/// <param name="@preview">Whether to generate a preview for a random user</param>
 
 
-		public static ActionResult Create(string @conference, bool @singlefile, string @kind, string @userid, bool @excludezerocredit, bool @forsending, DateTime @onlymodifiedafter, string @role
+		public static ActionResult Create(string @conference, bool @singlefile, string @kind, string @userid, bool @excludezerocredit, bool @forsending, DateTime @onlymodifiedafter, string @role, Guid @onlysessionid, bool @preview
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "template.create", new {@conference, @singlefile, @kind, @userid, @excludezerocredit, @forsending, @onlymodifiedafter, @role
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "template.create", new {@conference, @singlefile, @kind, @userid, @excludezerocredit, @forsending, @onlymodifiedafter, @role, @onlysessionid, @preview
 });
 		}
 

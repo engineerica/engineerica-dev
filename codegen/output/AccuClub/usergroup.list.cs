@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuClub
 {
@@ -11,14 +12,28 @@ namespace EngineericaApi.AccuClub
 		/// <summary>
 		/// List user groups.  This action requires authentication.
 		/// </summary>
-		/// <param name="@from">The first record to return.</param>
-		/// <param name="@count">The max number of records to return.</param>
 
 
-		public static ActionResult List(int @from, int @count
+		public static ActionResult List(
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "usergroup.list", new {@from, @count
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "usergroup.list", new {
+});
+		}
+
+		
+		/// <summary>
+		/// List user groups
+		/// </summary>
+		/// <param name="@from">The first record to return.</param>
+		/// <param name="@count">The max number of records to return.</param>
+		/// <param name="@type">The type of the groups to return. Either 'user', 'dynamic' or any other type of group.</param>
+
+
+		public static ActionResult List(int @from, int @count, string @type
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "usergroup.list", new {@from, @count, @type
 });
 		}
 

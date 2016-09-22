@@ -32,12 +32,13 @@ namespace EngineericaApi.AccuClass
 		/// <param name="@notes">The text of the note to add.</param>
 		/// <param name="@totalminutes">The total time, in minutes, the students was in.</param>
 		/// <param name="@logdetails">A JSON-serialized array of details, containing Id, Time and Type.</param>
+		/// <param name="@autoselectstatus">Set status based on swipes.</param>
 
 
-		public static ActionResult Save(Guid @id, DateTime @date, Guid @session, Guid @user, string @status, string @notes, int @totalminutes, string @logdetails
+		public static ActionResult Save(Guid @id, DateTime @date, Guid @session, Guid @user, string @status, string @notes, int @totalminutes, string @logdetails, bool @autoselectstatus
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.save", new {@id, @date, @session, @user, @status, @notes, @totalminutes, @logdetails
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClass, true, "attendancelog.save", new {@id, @date, @session, @user, @status, @notes, @totalminutes, @logdetails, @autoselectstatus
 });
 		}
 

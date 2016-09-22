@@ -11,7 +11,20 @@ namespace EngineericaApi.ConferenceTracker
 		/// <summary>
 		/// Gets the list of workshops where an attendee is registered.  This action requires authentication.
 		/// </summary>
-		/// <param name="@userid">The id of the user to return the list of registered workshops.</param>
+
+
+		public static ActionResult Listworkshops(
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "workshopreg.listworkshops", new {
+});
+		}
+
+		
+		/// <summary>
+		/// Gets the list of workshops where an attendee is registered
+		/// </summary>
+		/// <param name="@userid">The id of the user to return the list of registered workshops. If not specified, 'mine' are returned.</param>
 
 
 		public static ActionResult Listworkshops(Guid @userid

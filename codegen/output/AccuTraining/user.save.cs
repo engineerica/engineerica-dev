@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuTraining
 {
@@ -32,7 +33,9 @@ namespace EngineericaApi.AccuTraining
 		/// <param name="@email">The email of the user.</param>
 		/// <param name="@id">The id of the user to save (leave empty to create a new one).</param>
 		/// <param name="@middlename">The middle name of the user.</param>
-		/// <param name="@phonenumber">The phone number of the user.</param>
+		/// <param name="@mobilephonenumber">The mobile phone number of the user.</param>
+		/// <param name="@homephonenumber">The home phone number of the user.</param>
+		/// <param name="@workphonenumber">The work phone number of the user.</param>
 		/// <param name="@streetaddress">The street address of the user.</param>
 		/// <param name="@city">The city of the user.</param>
 		/// <param name="@state">The state of the user.</param>
@@ -47,10 +50,10 @@ namespace EngineericaApi.AccuTraining
 		/// <param name="@photoid">The ID of a photo uploaded using user.loadphoto.</param>
 
 
-		public static ActionResult Save(string @firstname, string @lastname, string @email, Guid @id, string @middlename, string @phonenumber, string @streetaddress, string @city, string @state, string @zipcode, string @title, string @company, string @password, string @roles, string @assigncard, string @cardnumber, string @more, Guid @photoid
+		public static ActionResult Save(string @firstname, string @lastname, string @email, Guid @id, string @middlename, string @mobilephonenumber, string @homephonenumber, string @workphonenumber, string @streetaddress, string @city, string @state, string @zipcode, string @title, string @company, string @password, string @roles, string @assigncard, string @cardnumber, string @more, Guid @photoid
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "user.save", new {@firstname, @lastname, @email, @id, @middlename, @phonenumber, @streetaddress, @city, @state, @zipcode, @title, @company, @password, @roles, @assigncard, @cardnumber, @more, @photoid
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "user.save", new {@firstname, @lastname, @email, @id, @middlename, @mobilephonenumber, @homephonenumber, @workphonenumber, @streetaddress, @city, @state, @zipcode, @title, @company, @password, @roles, @assigncard, @cardnumber, @more, @photoid
 });
 		}
 

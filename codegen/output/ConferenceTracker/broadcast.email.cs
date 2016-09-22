@@ -32,13 +32,15 @@ namespace EngineericaApi.ConferenceTracker
 		/// <param name="@body">Args depending on the send-to flag.</param>
 		/// <param name="@args">Args depending on the send-to flag.</param>
 		/// <param name="@from">The name of the sender to be displayed in the receipients inbox</param>
+		/// <param name="@cc">Cc address(es)</param>
 		/// <param name="@replyto">The reply-to field for the emails.</param>
+		/// <param name="@attachments">Array of items with 'id' and 'name' of the files to attach.</param>
 
 
-		public static ActionResult Email(string @sendto, string @subject, string @body, string @args, string @from, string @replyto
+		public static ActionResult Email(string @sendto, string @subject, string @body, string @args, string @from, string @cc, string @replyto, string @attachments
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "broadcast.email", new {@sendto, @subject, @body, @args, @from, @replyto
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "broadcast.email", new {@sendto, @subject, @body, @args, @from, @cc, @replyto, @attachments
 });
 		}
 

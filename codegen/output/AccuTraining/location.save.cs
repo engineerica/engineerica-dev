@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuTraining
 {
@@ -12,13 +13,12 @@ namespace EngineericaApi.AccuTraining
 		/// Saves location.  This action requires authentication.
 		/// </summary>
 		/// <param name="@name">The name of the location.</param>
-		/// <param name="@mapinfo">The map information of the location.</param>
 
 
-		public static ActionResult Save(string @name, string @mapinfo
+		public static ActionResult Save(string @name
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "location.save", new {@name, @mapinfo
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "location.save", new {@name
 });
 		}
 
@@ -27,14 +27,20 @@ namespace EngineericaApi.AccuTraining
 		/// Saves location
 		/// </summary>
 		/// <param name="@name">The name of the location.</param>
-		/// <param name="@mapinfo">The map information of the location.</param>
 		/// <param name="@id">The id of the location save (leave empty to create a new one).</param>
+		/// <param name="@categoryid">The id of location's LocationCategory.</param>
+		/// <param name="@categoryname">The name of the location's LocationCategory.</param>
+		/// <param name="@streetaddress">The street address of the location.</param>
+		/// <param name="@latitude">The latitude of the location.</param>
+		/// <param name="@longitude">The longitude of the location.</param>
+		/// <param name="@websiteurl">The web site url of the location.</param>
+		/// <param name="@email">The e-mail address of the location.</param>
 
 
-		public static ActionResult Save(string @name, string @mapinfo, Guid @id
+		public static ActionResult Save(string @name, Guid @id, Guid @categoryid, string @categoryname, string @streetaddress, decimal @latitude, decimal @longitude, string @websiteurl, string @email
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "location.save", new {@name, @mapinfo, @id
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuTraining, true, "location.save", new {@name, @id, @categoryid, @categoryname, @streetaddress, @latitude, @longitude, @websiteurl, @email
 });
 		}
 

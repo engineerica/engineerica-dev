@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuClub
 {
@@ -36,13 +37,14 @@ namespace EngineericaApi.AccuClub
 		/// <param name="@location">Id of the location Title to display in the station.</param>
 		/// <param name="@shownames">Whether to show the visitor names in the sign-in station.</param>
 		/// <param name="@showphotos">Whether to show the visitor photos in the sign-in station.</param>
+		/// <param name="@photopixelwidth">Specifies the pixel width of the photos in the sign-in station.</param>
 		/// <param name="@allowcreatingvisitors">Whether to allow creating visitors from the sign-in station.</param>
 
 
-		public static ActionResult Save(string @name, string @mode, string @passcode, Guid @id, string @title, string @instructions, Guid @location, bool @shownames, bool @showphotos, bool @allowcreatingvisitors
+		public static ActionResult Save(string @name, string @mode, string @passcode, Guid @id, string @title, string @instructions, Guid @location, bool @shownames, bool @showphotos, int @photopixelwidth, bool @allowcreatingvisitors
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "station.save", new {@name, @mode, @passcode, @id, @title, @instructions, @location, @shownames, @showphotos, @allowcreatingvisitors
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "station.save", new {@name, @mode, @passcode, @id, @title, @instructions, @location, @shownames, @showphotos, @photopixelwidth, @allowcreatingvisitors
 });
 		}
 

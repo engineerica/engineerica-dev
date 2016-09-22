@@ -21,6 +21,20 @@ namespace EngineericaApi.ConferenceTracker
 		}
 
 		
+		/// <summary>
+		/// Gets the current time zone's iana name
+		/// </summary>
+		/// <param name="@domain">The account's name.</param>
+
+
+		public static ActionResult Execute(string @domain
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "getianatimezone", new {@domain
+});
+		}
+
+		
 
 	}
 }

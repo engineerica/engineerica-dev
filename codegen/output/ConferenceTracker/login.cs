@@ -25,6 +25,24 @@ namespace EngineericaApi.ConferenceTracker
 		}
 
 		
+		/// <summary>
+		/// Login
+		/// </summary>
+		/// <param name="@domain">The account domain to login.</param>
+		/// <param name="@username">The username (email) of the user to login as.</param>
+		/// <param name="@password">The password of the user to login as.</param>
+		/// <param name="@method">The authentication method. Valid values are 'token' and 'cookie'.</param>
+		/// <param name="@application">The application where the user is trying to login.</param>
+
+
+		public static ActionResult Execute(string @domain, string @username, string @password, string @method, string @application
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, false, "login", new {@domain, @username, @password, @method, @application
+});
+		}
+
+		
 
 	}
 }

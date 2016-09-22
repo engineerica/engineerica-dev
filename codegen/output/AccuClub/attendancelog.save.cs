@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuClub
 {
@@ -29,13 +30,15 @@ namespace EngineericaApi.AccuClub
 		/// <param name="@user">The id of the user.</param>
 		/// <param name="@location">The id of the location where the user signed in.</param>
 		/// <param name="@event">The id of the event the user signed in to.</param>
+		/// <param name="@useeventschedule">Specifies whether the event schedule should be used to set the log status.</param>
+		/// <param name="@notes">The notes of the log.</param>
 		/// <param name="@logdetails">The log details in JSON format</param>
 
 
-		public static ActionResult Save(Guid @id, Guid @cardnumber, Guid @user, Guid @location, Guid @event, Guid @logdetails
+		public static ActionResult Save(Guid @id, Guid @cardnumber, Guid @user, Guid @location, Guid @event, bool @useeventschedule, string @notes, Guid @logdetails
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "attendancelog.save", new {@id, @cardnumber, @user, @location, @event, @logdetails
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "attendancelog.save", new {@id, @cardnumber, @user, @location, @event, @useeventschedule, @notes, @logdetails
 });
 		}
 

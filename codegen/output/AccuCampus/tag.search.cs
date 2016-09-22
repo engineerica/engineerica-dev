@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuCampus
 {
@@ -9,7 +10,7 @@ namespace EngineericaApi.AccuCampus
 	{
 		
 		/// <summary>
-		/// Searches for tags in the account.  This action requires authentication.
+		/// Search for tags in the account.  This action requires authentication.
 		/// </summary>
 		/// <param name="@query">The query to search tags. Use group:<group> to search in a specific group (mandatory).</param>
 
@@ -18,6 +19,21 @@ namespace EngineericaApi.AccuCampus
 )
 		{
 			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "tag.search", new {@query
+});
+		}
+
+		
+		/// <summary>
+		/// Search for tags in the account
+		/// </summary>
+		/// <param name="@query">The query to search tags. Use group:<group> to search in a specific group (mandatory).</param>
+		/// <param name="@allowcreatingnew">Specifies whether an option to create a new tag should be retrieved.</param>
+
+
+		public static ActionResult Search(string @query, bool @allowcreatingnew
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "tag.search", new {@query, @allowcreatingnew
 });
 		}
 

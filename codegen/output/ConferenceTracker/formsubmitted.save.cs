@@ -11,7 +11,7 @@ namespace EngineericaApi.ConferenceTracker
 		/// <summary>
 		/// Save a submitted form.  This action requires authentication.
 		/// </summary>
-		/// <param name="@form">The id of the submitted form .</param>
+		/// <param name="@form">The id of the form that is being completed.</param>
 		/// <param name="@responses">The submitted form's responses (in JSON)</param>
 
 
@@ -26,15 +26,16 @@ namespace EngineericaApi.ConferenceTracker
 		/// <summary>
 		/// Save a submitted form
 		/// </summary>
-		/// <param name="@form">The id of the submitted form .</param>
+		/// <param name="@form">The id of the form that is being completed.</param>
 		/// <param name="@responses">The submitted form's responses (in JSON)</param>
 		/// <param name="@domain">The account's domain.</param>
+		/// <param name="@id">The id of the submitted form.</param>
 
 
-		public static ActionResult Save(Guid @form, string @responses, string @domain
+		public static ActionResult Save(Guid @form, string @responses, string @domain, Guid @id
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "formsubmitted.save", new {@form, @responses, @domain
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.ConferenceTracker, true, "formsubmitted.save", new {@form, @responses, @domain, @id
 });
 		}
 

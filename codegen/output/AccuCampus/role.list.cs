@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuCampus
 {
@@ -17,6 +18,20 @@ namespace EngineericaApi.AccuCampus
 )
 		{
 			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "role.list", new {
+});
+		}
+
+		
+		/// <summary>
+		/// List roles
+		/// </summary>
+		/// <param name="@name">Filter by name of the role.</param>
+
+
+		public static ActionResult List(string @name
+)
+		{
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "role.list", new {@name
 });
 		}
 

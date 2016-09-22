@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuClub
 {
@@ -26,12 +27,13 @@ namespace EngineericaApi.AccuClub
 		/// </summary>
 		/// <param name="@includepolicies">True to include the policies, defaults to false.</param>
 		/// <param name="@includeinternal">True to include the internal roles too.</param>
+		/// <param name="@name">Filter by name of the role.</param>
 
 
-		public static ActionResult List(bool @includepolicies, bool @includeinternal
+		public static ActionResult List(bool @includepolicies, bool @includeinternal, string @name
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "advrole.list", new {@includepolicies, @includeinternal
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuClub, true, "advrole.list", new {@includepolicies, @includeinternal, @name
 });
 		}
 

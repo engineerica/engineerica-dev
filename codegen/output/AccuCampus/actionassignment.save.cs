@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuCampus
 {
@@ -36,12 +37,13 @@ namespace EngineericaApi.AccuCampus
 		/// <param name="@followers">A JSON array containing the ids of the users that are followers of this action item</param>
 		/// <param name="@notifyassignee">Specifies if the item's assignee must be notified of it.</param>
 		/// <param name="@notes">The assignment's notes.</param>
+		/// <param name="@autocomplete">Specifies if the assignment can be completed automatically or not.</param>
 
 
-		public static ActionResult Save(string @assignee, string @item, DateTime @datedue, bool @completed, string @event, bool @followers, bool @notifyassignee, string @notes
+		public static ActionResult Save(string @assignee, string @item, DateTime @datedue, bool @completed, string @event, bool @followers, bool @notifyassignee, string @notes, bool @autocomplete
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "actionassignment.save", new {@assignee, @item, @datedue, @completed, @event, @followers, @notifyassignee, @notes
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "actionassignment.save", new {@assignee, @item, @datedue, @completed, @event, @followers, @notifyassignee, @notes, @autocomplete
 });
 		}
 

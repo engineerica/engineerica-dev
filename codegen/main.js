@@ -1,18 +1,19 @@
 var http = require("http"),
+	https = require("https"),
 	fs = require("fs"),
 	ejs = require("ejs"),
 	colors = require("cli-color");
 
-var error = colors.red, success = colors.green, info = colors.blue;
+var error = colors.red, success = colors.green, info = colors.cyan;
 
 // VALID APPLICATIONS
 var apps = {
-	"AccuClass": {Name: "AccuClass", Url: "www.accuclass.net" },
-	"CT": {Name: "ConferenceTracker", Url: "www.conftrac.com" },
-	"AccuWB": {Name: "AccuWB", Url: "www.accuwb.com" },
-	"AccuCampus": {Name: "AccuCampus", Url: "www.accucampus.net" },
-	"AccuTraining": {Name: "AccuTraining", Url: "www.accutraining.net" },
-	"AccuClub": {Name: "AccuClub", Url: "www.accuclub.net" }
+	"AccuClass": {Name: "AccuClass", Url: "www.accuclass.net", Method: http },
+	"CT": {Name: "ConferenceTracker", Url: "www.conftrac.com", Method: https },
+	"AccuWB": {Name: "AccuWB", Url: "www.accuwb.com", Method: http },
+	"AccuCampus": {Name: "AccuCampus", Url: "www.accucampus.net", Method: http, Usings: "using EngineericaApi.ExtensionFiles.CommonTypes;" },
+	"AccuTraining": {Name: "AccuTraining", Url: "www.accutraining.net", Method: http, Usings: "using EngineericaApi.ExtensionFiles.CommonTypes;" },
+	"AccuClub": {Name: "AccuClub", Url: "www.accuclub.net", Method: http, Usings: "using EngineericaApi.ExtensionFiles.CommonTypes;" }
 };
 
 var langDefs = {
@@ -20,7 +21,8 @@ var langDefs = {
 						"guid": "Guid", 
 						"string": "string", 
 						"boolean": "bool",
-						"date-time": "DateTime"},
+						"date-time": "DateTime",
+						"Nullable`1": "Guid?"},
 				GetType: function(t) {
 					if (this.types[t]) return this.types[t];
 					else return t;
@@ -59,13 +61,13 @@ fs.mkdir("output/" + app.Name + "/", function() {/*ignore error if folder exists
 // GET THE DOCUMENTATION
 var options = {
 	host: app.Url,
-	port: 80,
+	//port: 80,
 	path: "/Service/?action=doc",
 	method: "GET"
 };
 
 console.log(info("Reading document information..."));
-http.get(options, function(res) {
+app.Method.get(options, function(res) {
 	var body = "";
 	res.on("data", function(chunk) {
 		body += chunk;

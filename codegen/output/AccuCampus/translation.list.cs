@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuCampus
 {
@@ -25,12 +26,14 @@ namespace EngineericaApi.AccuCampus
 		/// Lists all the available translations in the system
 		/// </summary>
 		/// <param name="@filter">Text to search/filter translations.</param>
+		/// <param name="@nondefaultonly">If true then it returns only the terms translated. Otherwise, it returns all.</param>
+		/// <param name="@appdefaultasuniversal">If true then it uses the app default translation as the universal term.</param>
 
 
-		public static ActionResult List(string @filter
+		public static ActionResult List(string @filter, bool @nondefaultonly, bool @appdefaultasuniversal
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "translation.list", new {@filter
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "translation.list", new {@filter, @nondefaultonly, @appdefaultasuniversal
 });
 		}
 

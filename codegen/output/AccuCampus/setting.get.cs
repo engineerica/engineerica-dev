@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuCampus
 {
@@ -9,7 +10,7 @@ namespace EngineericaApi.AccuCampus
 	{
 		
 		/// <summary>
-		/// Gets settings for the account.  This action requires authentication.
+		/// Get settings for the account or the specified scope.  This action requires authentication.
 		/// </summary>
 		/// <param name="@keys">The option keys to get values for. Enter multiple separated by comma.</param>
 
@@ -23,16 +24,17 @@ namespace EngineericaApi.AccuCampus
 
 		
 		/// <summary>
-		/// Gets settings for the account
+		/// Get settings for the account or the specified scope
 		/// </summary>
 		/// <param name="@keys">The option keys to get values for. Enter multiple separated by comma.</param>
 		/// <param name="@domain">The account domain, in case of reading settings annonymously.</param>
+		/// <param name="@scope">The scope of the settings to get.</param>
 
 
-		public static ActionResult Get(string @keys, string @domain
+		public static ActionResult Get(string @keys, string @domain, string @scope
 )
 		{
-			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "setting.get", new {@keys, @domain
+			return ActionExecutor.ExecuteInternal(ConnectionInformation.AccuCampus, true, "setting.get", new {@keys, @domain, @scope
 });
 		}
 

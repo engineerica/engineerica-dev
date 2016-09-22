@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.CommonTypes;
 
 namespace EngineericaApi.AccuTraining
 {
@@ -9,7 +10,7 @@ namespace EngineericaApi.AccuTraining
 	{
 		
 		/// <summary>
-		/// Gets the settings for session registration..  This action requires authentication.
+		/// Get the settings for session registration.  This action requires authentication.
 		/// </summary>
 
 
@@ -22,7 +23,7 @@ namespace EngineericaApi.AccuTraining
 
 		
 		/// <summary>
-		/// Gets the settings for session registration.
+		/// Get the settings for session registration
 		/// </summary>
 		/// <param name="@locationid">The id of the location to save settings.</param>
 		/// <param name="@eventid">The id of the event to save settings.</param>
