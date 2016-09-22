@@ -1,6 +1,5 @@
-using System;
 
-namespace EngineericaApi.AccuClass
+namespace EngineericaApi.ExtensionFiles.AccuClass
 {
 	public enum ExportType
 	{
@@ -9,7 +8,8 @@ namespace EngineericaApi.AccuClass
 		Enrollment,
 		Classes,
 		Swipes,
-		Attendance
+        Attendance,
+        AttendanceDetails,
+        AttendanceSummaryByStatus
 	}
 }
-

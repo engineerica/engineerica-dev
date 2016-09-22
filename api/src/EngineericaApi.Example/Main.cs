@@ -1,4 +1,5 @@
 using System;
+using EngineericaApi.ExtensionFiles.AccuClass;
 
 namespace EngineericaApi.Example
 {
@@ -113,7 +114,7 @@ namespace EngineericaApi.Example
 			Console.WriteLine ();
 			Console.WriteLine ();
 						
-			var exp = EngineericaApi.AccuClass.Export.Execute(EngineericaApi.AccuClass.ExportType.Students, "HTML", "");
+			var exp = EngineericaApi.AccuClass.Export.Execute(ExportType.Students, "HTML", "");
 			
 			var jobId = new Guid(exp.Response.JobId.ToString());
 			do {

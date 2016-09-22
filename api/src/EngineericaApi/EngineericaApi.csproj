@@ -28,6 +28,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <GenerateDocumentation>true</GenerateDocumentation>
+    <DocumentationFile>bin\Release\EngineericaApi.XML</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -2518,13 +2519,13 @@
     </Compile>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Core\ActionResult.cs" />
+    <Compile Include="ExtensionFiles\AccuClass\ExportType.cs" />
     <Compile Include="ExtensionFiles\CommonTypes\ActionAssignmentStatus.cs" />
     <Compile Include="ExtensionFiles\CommonTypes\DurationBasis.cs" />
     <Compile Include="ExtensionFiles\CommonTypes\AttendanceType.cs" />
     <Compile Include="ExtensionFiles\CommonTypes\CheckoutPeriodBasis.cs" />
     <Compile Include="ExtensionFiles\CommonTypes\Media.cs" />
     <Compile Include="ExtensionFiles\CommonTypes\NotificationStatus.cs" />
-    <Compile Include="ExtensionFiles\AccuClass\ExportType.cs" />
     <Compile Include="ExtensionFiles\AccuClass\ImportAction.cs" />
     <Compile Include="ExtensionFiles\AccuClass\ImportType.cs" />
     <Compile Include="ExtensionFiles\AccuClass\SwipeType.cs" />
