@@ -2,7 +2,7 @@
 
 This project provides a framework for connecting to **`AccuClass`**, **Conference Track** and **`AccuWB`**. Just download the generated API and connect your systems to our applications easily.
 
-Accudemia users, please visit: https://github.com/diegojancic/accudemiaext/
+Accudemia users, please visit: https://github.com/engineerica/accudemiaext/
 
 
 # Download #
