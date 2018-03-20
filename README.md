@@ -1,6 +1,6 @@
 # Engineerica Products Extensions #
 
-This project provides a framework for connecting to **`AccuClass`**, **Conference Track** and **`AccuWB`**. Just download the generated API and connect your systems to our applications easily.
+This project provides a framework for connecting to **AccuClass**, **Conference Track**, **AccuWB**, **AccuClub**, **AccuTraining** and **AccuCampus**. Just download the generated API and connect your systems to our applications easily.
 
 Accudemia users, please visit: https://github.com/engineerica/accudemiaext/
 
