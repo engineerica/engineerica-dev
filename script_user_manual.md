@@ -30,7 +30,7 @@ III. Required Software
 
 IV. Running the Script
 
-1. Place the script.sh file and the OpenAPI files in the same directory
+1. Place the script.sh file and the OpenAPI file in the same directory
 2. Open a terminal and enter the following command to run the script:
 
    bash script.sh
