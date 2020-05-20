@@ -35,7 +35,7 @@ hasChildren = true
   [[menu.main]]
   parent = "Docs"
   name = "AccuCampus"
-  url = "accucampus"
+  url = "accucampus/index.html"
   weight = 1
 
   [[menu.main]]
@@ -102,15 +102,15 @@ copyright = "The Hugo Documents are copyright © [gethugothemes](https://gethugo
 # banner
 [Languages.en.params.banner]
 title = "Engineerica API Documentation"
-subtitle = "Find advice and answers from our support team fast or get in touch"
-bg_image = "images/banner.jpg"
-placeholder = "Have a question? Just ask here or enter terms"
+subtitle = "Explore the RESTful APIs for our software products or get in touch"
+bg_image = "images/binary-4437419_1280.jpg" 
+placeholder = "Search for a product or page"
 
 # call to action
 [Languages.en.params.cta]
 enable = true
-title = "Didn't find an answer to your question?"
-content = "Musce libero nunc, dignissim quis turpis quis, semper vehicula dolor. Suspendisse tincidunt consequat quam."
+title = "Couldn't find what you were looking for?"
+content = "Don't worry, we've got you covered!"
 # call to action button
 [Languages.en.params.cta.button]
 enable = true
