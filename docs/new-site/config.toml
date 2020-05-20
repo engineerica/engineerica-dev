@@ -35,7 +35,7 @@ hasChildren = true
   [[menu.main]]
   parent = "Docs"
   name = "AccuCampus"
-  url = "accucampus/index.html"
+  url = "accucampus"
   weight = 1
 
   [[menu.main]]
