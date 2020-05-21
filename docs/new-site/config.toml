@@ -17,19 +17,25 @@ unsafe= true
 
 ################################# navigation ################################
 [[menu.main]]
-name = "Getting Started"
-url = "gettingstarted"
+name = "About"
+url = "about"
 weight = 1
 
 [[menu.main]]
-name = "Contact Us"
-url = "contact"
+name = "Getting Started"
+url = "gettingstarted"
 weight = 2
+
+[[menu.main]]
+name = "Contact Us"
+url = "contactus"
+weight = 3
 
 # Dropdown menu
 [[menu.main]]
-weight = 3
+weight = 4
 name = "Docs"
+url = "contactus"
 hasChildren = true
 
   [[menu.main]]
@@ -109,11 +115,11 @@ placeholder = "Search for a product or page"
 # call to action
 [Languages.en.params.cta]
 enable = true
-title = "Couldn't find what you were looking for?"
-content = "Don't worry, we've got you covered!"
+title = "Stay up to date with Engineerica's Developers"
+content = "The latest version of the source code for our API documentation websites can be viewed or downloaded here:"
 # call to action button
 [Languages.en.params.cta.button]
 enable = true
-label = "contact us"
-link = "contact"
+label = "GitHub repository"
+link = "https://github.com/engineerica/engineerica-dev"
 
