@@ -2,7 +2,7 @@
 # provide your domain here
 baseURL = "api.engineerica.com"
 # theme
-theme = "dot"
+theme = "dot-theme"
 # site title
 title = "Engineerica Systems, Inc."
 # disable language
