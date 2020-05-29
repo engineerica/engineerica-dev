@@ -107,7 +107,7 @@ copyright = "The Hugo Documents are copyright © [gethugothemes](https://gethugo
 
 # banner
 [Languages.en.params.banner]
-title = "Engineerica API Documentation"
+title = "Engineerica Developer Hub"
 subtitle = "Explore the RESTful APIs for our software products or get in touch"
 bg_image = "images/binary-4437419_1280.jpg" 
 placeholder = "Search for a product or page"

@@ -1,0 +1,66 @@
+import { ResolvedThemeInterface, ThemeInterface } from '../theme';
+import { LabelsConfigRaw } from './Labels';
+import { MDXComponentMeta } from './MarkdownRenderer';
+export interface RedocRawOptions {
+    theme?: ThemeInterface;
+    scrollYOffset?: number | string | (() => number);
+    hideHostname?: boolean | string;
+    expandResponses?: string | 'all';
+    requiredPropsFirst?: boolean | string;
+    sortPropsAlphabetically?: boolean | string;
+    noAutoAuth?: boolean | string;
+    nativeScrollbars?: boolean | string;
+    pathInMiddlePanel?: boolean | string;
+    untrustedSpec?: boolean | string;
+    hideLoading?: boolean | string;
+    hideDownloadButton?: boolean | string;
+    disableSearch?: boolean | string;
+    onlyRequiredInSamples?: boolean | string;
+    showExtensions?: boolean | string | string[];
+    hideSingleRequestSampleTab?: boolean | string;
+    menuToggle?: boolean | string;
+    jsonSampleExpandLevel?: number | string | 'all';
+    hideSchemaTitles?: boolean | string;
+    payloadSampleIdx?: number;
+    expandSingleSchemaField?: boolean | string;
+    unstable_ignoreMimeParameters?: boolean;
+    allowedMdComponents?: Dict<MDXComponentMeta>;
+    labels?: LabelsConfigRaw;
+    enumSkipQuotes?: boolean | string;
+    expandDefaultServerVariables?: boolean;
+}
+export declare class RedocNormalizedOptions {
+    static normalizeExpandResponses(value: RedocRawOptions['expandResponses']): {};
+    static normalizeHideHostname(value: RedocRawOptions['hideHostname']): boolean;
+    static normalizeScrollYOffset(value: RedocRawOptions['scrollYOffset']): () => number;
+    static normalizeShowExtensions(value: RedocRawOptions['showExtensions']): string[] | boolean;
+    static normalizePayloadSampleIdx(value: RedocRawOptions['payloadSampleIdx']): number;
+    private static normalizeJsonSampleExpandLevel;
+    theme: ResolvedThemeInterface;
+    scrollYOffset: () => number;
+    hideHostname: boolean;
+    expandResponses: {
+        [code: string]: boolean;
+    } | 'all';
+    requiredPropsFirst: boolean;
+    sortPropsAlphabetically: boolean;
+    noAutoAuth: boolean;
+    nativeScrollbars: boolean;
+    pathInMiddlePanel: boolean;
+    untrustedSpec: boolean;
+    hideDownloadButton: boolean;
+    disableSearch: boolean;
+    onlyRequiredInSamples: boolean;
+    showExtensions: boolean | string[];
+    hideSingleRequestSampleTab: boolean;
+    menuToggle: boolean;
+    jsonSampleExpandLevel: number;
+    enumSkipQuotes: boolean;
+    hideSchemaTitles: boolean;
+    payloadSampleIdx: number;
+    expandSingleSchemaField: boolean;
+    unstable_ignoreMimeParameters: boolean;
+    allowedMdComponents: Dict<MDXComponentMeta>;
+    expandDefaultServerVariables: boolean;
+    constructor(raw: RedocRawOptions, defaults?: RedocRawOptions);
+}
