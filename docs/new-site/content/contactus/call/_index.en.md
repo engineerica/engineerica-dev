@@ -8,8 +8,8 @@ keywords: ["phone","number", "office", "contact", "help", "call"]
 ---
 
 
-> Office Hours: Mon - Fri, 8 AM - 5 PM EST
+- Office Hours: Mon - Fri, 8 AM - 5 PM EST
 
-> Toll Free Phone: +1 (888) 249-7227
+- Toll Free Phone: +1 (888) 249-7227
 
-> Local Phone: (407) 542-4982
+- Local Phone: (407) 542-4982 <br><br>
