@@ -38,169 +38,158 @@ __Usage and SDK Examples:__
 {{< tabs >}}
 
 {{< tab "cURL" >}} 
-    curl --location --request GET 'https://accucampus.net/api/v1/login?domain=democampus&<br>username=demo@demo.com&password=password&method=token&rememberme=false' \<br><br>
-    --header 'Authorization: Bearer e13ef239-cac3-4440-92eb-3ead283598fa'
+{{< highlight js >}}
+curl --location --request GET 'https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false'
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "C" >}}
-CURL *curl;<br>
-CURLcode res;<br>
-curl = curl_easy_init();<br>
-if(curl) {<br>
-  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");<br>
-  curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false");<br>
-  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);<br>
-  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");<br>
-  struct curl_slist *headers = NULL;<br>
-  headers = curl_slist_append(headers, "Authorization: Bearer e13ef239-cac3-4440-92eb-3ead283598fa");<br>
-  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);<br>
-  res = curl_easy_perform(curl);<br>
-}<br>
+{{< highlight c >}}
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
+  curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  res = curl_easy_perform(curl);
+}
 curl_easy_cleanup(curl);
 
 {{< /tab >}}
+{{< /highlight >}}
 
-{{< tab "C#" >}} 
-    var client = new RestClient("https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false");<br>
-    client.Timeout = -1;<br>
-    var request = new RestRequest(Method.GET);<br>
-    request.AddHeader("Authorization", "Bearer e13ef239-cac3-4440-92eb-3ead283598fa");<br>
-    IRestResponse response = client.Execute(request);<br>
+{{< tab "C#" >}}
+{{< highlight cs >}} 
+    var client = new RestClient("https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false");
+    client.Timeout = -1;
+    var request = new RestRequest(Method.GET);
+    request.AddHeader("Authorization", "Bearer e13ef239-cac3-4440-92eb-3ead283598fa");
+    IRestResponse response = client.Execute(request);
     Console.WriteLine(response.Content);
+{{< /highlight >}}
 {{< /tab >}}
 
 
 {{< tab "Go" >}}
-package main <br><br>
+{{< highlight go >}}
+package main 
 
-import ( <br>
-  "fmt"<br>
-  "net/http"<br>
-  "io/ioutil"<br>
-)<br><br>
+import ( 
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
 
-func main() {<br><br>
+func main() {
 
-  url := "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false"<br>
-  method := "GET"<br><br>
+  url := "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false"
+  method := "GET"
 
-  client := &http.Client {<br>
-  }<br>
-  req, err := http.NewRequest(method, url, nil)<br><br>
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, nil)
 
-  if err != nil {<br>
-    fmt.Println(err)<br>
-  }<br>
-  req.Header.Add("Authorization", "Bearer e13ef239-cac3-4440-92eb-3ead283598fa")<br><br>
+  if err != nil {
+    fmt.Println(err)
+  }
+ 
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
 
-  res, err := client.Do(req)<br>
-  defer res.Body.Close()<br>
-  body, err := ioutil.ReadAll(res.Body)<br><br>
-
-  fmt.Println(string(body))<br>
+  fmt.Println(string(body))
 } 
-
+{{< /highlight  >}}
 {{< /tab >}}
 
 {{< tab "Java" >}}
-    OkHttpClient client = new OkHttpClient().newBuilder()<br>
-    .build();<br>
-    Request request = new Request.Builder()<br>
-    .url("https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false")<br>
-    .method("GET", null)<br>
-    .addHeader("Authorization", "Bearer e13ef239-cac3-4440-92eb-3ead283598fa")<br>
-    .build();<br>
+{{< highlight java >}}
+    OkHttpClient client = new OkHttpClient().newBuilder()
+    .build();
+    Request request = new Request.Builder()
+    .url("https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false")
+    .method("GET", null)
+    .build();
     Response response = client.newCall(request).execute();
-{{< /tab >}}
-
-{{< tab "JavaScript" >}}
-var settings = { <br>
-  "url": "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false",<br>
-  "method": "GET",<br>
-  "timeout": 0,<br>
-  "headers": {<br>
-    "Authorization": "Bearer e13ef239-cac3-4440-92eb-3ead283598fa"<br>
-  },<br>
-};<br><br>
-
-$.ajax(settings).done(function (response) {<br>
-  console.log(response);<br>
-});
+{{< /highlight  >}}
 {{< /tab >}}
 
 {{< tab "NodeJS" >}} 
+{{< highlight js >}}
+var request = require('request');
+var options = {
+  'method': 'GET',
+  'url': 'https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false',
+  'headers': {
 
-var request = require('request');<br>
-var options = {<br>
-  'method': 'GET',<br>
-  'url': 'https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false',<br>
-  'headers': {<br>
-    'Authorization': 'Bearer e13ef239-cac3-4440-92eb-3ead283598fa'<br>
-  }<br>
-};<br>
-request(options, function (error, response) { <br>
-  if (error) throw new Error(error);<br>
-  console.log(response.body);<br>
+  }
+};
+request(options, function (error, response) { 
+  if (error) throw new Error(error);
+  console.log(response.body);
 });
+{{< /highlight >}}
  {{< /tab >}}
 
 {{< tab "Python" >}} 
+{{< highlight py >}}
+import requests
 
-import requests<br><br>
+url = "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false"
 
-url = "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false"<br><br>
+payload = {}
+headers = {
+}
 
-payload = {}<br>
-headers = {<br>
-  'Authorization': 'Bearer e13ef239-cac3-4440-92eb-3ead283598fa'<br>
-}<br><br>
-
-response = requests.request("GET", url, headers=headers, data = payload)<br><br>
+response = requests.request("GET", url, headers=headers, data = payload)
 
 print(response.text.encode('utf8'))
-
+{{< /highlight  >}}
 {{< /tab >}}
 
 {{< tab "PHP" >}}
+{{< highlight php >}}
+<?php
 
-&lt?php<br><br>
+$curl = curl_init();
 
-$curl = curl_init();<br><br>
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "GET",
+));
 
-curl_setopt_array($curl, array(<br>
-  CURLOPT_URL => "https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false",<br>
-  CURLOPT_RETURNTRANSFER => true,<br>
-  CURLOPT_ENCODING => "",<br>
-  CURLOPT_MAXREDIRS => 10,<br>
-  CURLOPT_TIMEOUT => 0,<br>
-  CURLOPT_FOLLOWLOCATION => true,<br>
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,<br>
-  CURLOPT_CUSTOMREQUEST => "GET",<br>
-  CURLOPT_HTTPHEADER => array(<br>
-    "Authorization: Bearer e13ef239-cac3-4440-92eb-3ead283598fa"<br>
-  ),<br>
-));<br><br>
+$response = curl_exec($curl);
 
-$response = curl_exec($curl);<br><br>
-
-curl_close($curl);<br>
+curl_close($curl);
 echo $response;
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "Ruby" >}}
-require "uri"<br>
-require "net/http"<br><br>
+{{< highlight ruby >}}
+require "uri"
+require "net/http"
 
-url = URI("https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&<br>rememberme=false")<br><br>
+url = URI("https://accucampus.net/api/v1/login?domain=democampus&username=demo@demo.com&password=password&method=token&rememberme=false")
 
-https = Net::HTTP.new(url.host, url.port);<br>
-https.use_ssl = true<br><br>
+https = Net::HTTP.new(url.host, url.port);
+https.use_ssl = true
 
-request = Net::HTTP::Get.new(url)<br>
-request["Authorization"] = "Bearer e13ef239-cac3-4440-92eb-3ead283598fa"<br><br>
+request = Net::HTTP::Get.new(url)
 
-response = https.request(request)<br>
+response = https.request(request)
 
+{{< /highlight  >}}
 {{< /tab >}}
 
 
@@ -235,154 +224,158 @@ __Usage and SDK Examples:__
 {{< tabs >}}
 
 {{< tab "cURL" >}} 
+{{< highlight js >}}
     curl --location --request POST 'https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com'
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "C" >}}
-CURL *curl;<br>
-CURLcode res;<br>
-curl = curl_easy_init();<br>
-if(curl) {<br>
+{{< highlight c >}}
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
   curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
-  curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com");<br>
-  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);<br>
-  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");<br>
-  struct curl_slist *headers = NULL;<br>
-  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);<br>
-  res = curl_easy_perform(curl);<br>
-}<br>
+  curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  res = curl_easy_perform(curl);
+}
 curl_easy_cleanup(curl);
-
+{{< /highlight  >}}
 {{< /tab >}}
 
 {{< tab "C#" >}} 
- var client = new RestClient("https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com");<br>
-client.Timeout = -1;<br>
-var request = new RestRequest(Method.POST);<br>
-IRestResponse response = client.Execute(request);<br>
+{{< highlight cs >}}
+ var client = new RestClient("https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+IRestResponse response = client.Execute(request);
 Console.WriteLine(response.Content);
+{{< /highlight >}}
 {{< /tab >}}
 
 
 {{< tab "Go" >}}
-package main<br><br>
+{{< highlight go >}}
+package main
 
-import (<br>
-  "fmt"<br>
-  "net/http"<br>
-  "io/ioutil"<br>
-)<br><br>
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
+)
 
-func main() {<br><br>
+func main() {
 
-  url := "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com"<br>
-  method := "POST"<br><br>
+  url := "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com"
+  method := "POST"
 
-  client := &http.Client {<br>
-  }<br>
-  req, err := http.NewRequest(method, url, nil)<br><br>
+  client := &http.Client {
+  }
+  req, err := http.NewRequest(method, url, nil)
 
-  if err != nil {<br>
-    fmt.Println(err)<br>
-  }<br>
-  res, err := client.Do(req)<br>
-  defer res.Body.Close()<br>
-  body, err := ioutil.ReadAll(res.Body)<br><br>
+  if err != nil {
+    fmt.Println(err)
+  }
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
 
-  fmt.Println(string(body))<br>
+  fmt.Println(string(body))
 }
+{{< /highlight  >}}
 {{< /tab >}}
 
 {{< tab "Java" >}}
-    OkHttpClient client = new OkHttpClient().newBuilder()<br>
-    .build();<br>
-    MediaType mediaType = MediaType.parse("text/plain");<br>
-    RequestBody body = RequestBody.create(mediaType, "");<br>
-    Request request = new Request.Builder()<br>
-    .url("https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com")<br>
-    .method("POST", body)<br>
-    .build();<br>
+{{< highlight java >}}
+    OkHttpClient client = new OkHttpClient().newBuilder()
+    .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = RequestBody.create(mediaType, "");
+    Request request = new Request.Builder()
+    .url("https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com")
+    .method("POST", body)
+    .build();
     Response response = client.newCall(request).execute();
+{{< /highlight >}}
 {{< /tab >}}
 
-{{< tab "JavaScript" >}}
-    var settings = {<br>
-    "url": "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com",<br>
-    "method": "POST",<br>
-    "timeout": 0,<br>
-    };<br><br>
-
-    $.ajax(settings).done(function (response) {<br>
-    console.log(response);<br>
-    });<br>
-{{< /tab >}}
 
 {{< tab "NodeJS" >}} 
-
-    var request = require('request'); <br>
-    var options = {<br>
-    'method': 'POST',<br>
-    'url': 'https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com',<br>
-    'headers': {<br>
-    }<br>
-    };<br>
-    request(options, function (error, response) { <br>
-    if (error) throw new Error(error);<br>
-    console.log(response.body);<br>
+{{< highlight js >}}
+    var request = require('request'); 
+    var options = {
+    'method': 'POST',
+    'url': 'https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com',
+    'headers': {
+    }
+    };
+    request(options, function (error, response) { 
+    if (error) throw new Error(error);
+    console.log(response.body);
     });
+{{< /highlight  >}}
  {{< /tab >}}
 
 {{< tab "Python" >}} 
-    import requests<br><br>
+{{< highlight py >}}
+    import requests
 
-    url = "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com"<br><br>
+    url = "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com"
 
-    payload = {}<br>
-    headers= {}<br><br>
+    payload = {}
+    headers= {}
 
-    response = requests.request("POST", url, headers=headers, data = payload)<br><br>
+    response = requests.request("POST", url, headers=headers, data = payload)
 
     print(response.text.encode('utf8'))
+    {{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "PHP" >}}
+{{< highlight php >}}
+<?php
 
-&lt?php<br><br>
+$curl = curl_init();
 
-$curl = curl_init();<br><br>
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 0,
+  CURLOPT_FOLLOWLOCATION => true,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+));
 
-curl_setopt_array($curl, array(<br>
-  CURLOPT_URL => "https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com",<br>
-  CURLOPT_RETURNTRANSFER => true,<br>
-  CURLOPT_ENCODING => "",<br>
-  CURLOPT_MAXREDIRS => 10,<br>
-  CURLOPT_TIMEOUT => 0,<br>
-  CURLOPT_FOLLOWLOCATION => true,<br>
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,<br>
-  CURLOPT_CUSTOMREQUEST => "POST",<br>
-));<br><br>
+$response = curl_exec($curl);
 
-$response = curl_exec($curl);<br><br>
+curl_close($curl);
+echo $response;
 
-curl_close($curl);<br>
-echo $response;<br>
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "Ruby" >}}
-    require "uri"<br>
-    require "net/http"<br><br>
+{{< highlight ruby >}}
+    require "uri"
+    require "net/http"
 
-    url = URI("https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com")<br><br>
+    url = URI("https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&firstname=baby&lastname=yoda&email=babyyoda@sw.com")
 
-    https = Net::HTTP.new(url.host, url.port);<br>
-    https.use_ssl = true<br><br>
+    https = Net::HTTP.new(url.host, url.port);
+    https.use_ssl = true
 
-    request = Net::HTTP::Post.new(url)<br><br>
+    request = Net::HTTP::Post.new(url)
 
-    response = https.request(request)<br>
+    response = https.request(request)
     puts response.read_body
 
+{{< /highlight >}}
 {{< /tab >}}
 
 
@@ -422,156 +415,155 @@ __Usage and SDK Examples:__
 {{< tabs >}}
 
 {{< tab "cURL" >}} 
+{{< highlight js >}}
 curl --location --request POST 'https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!'
+{{< /highlight  >}}
 {{< /tab >}}
 
 {{< tab "C" >}}
-CURL *curl;<br>
-CURLcode res;<br>
-curl = curl_easy_init();<br>
-if(curl) {<br>
-  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");<br>
-  curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!");<br>
-  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);<br>
-  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");<br>
-  struct curl_slist *headers = NULL;<br>
-  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);<br>
-  res = curl_easy_perform(curl);<br>
-}<br>
+{{< highlight c >}}
+CURL *curl;
+CURLcode res;
+curl = curl_easy_init();
+if(curl) {
+  curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "POST");
+  curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!");
+  curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+  curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+  struct curl_slist *headers = NULL;
+  curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+  res = curl_easy_perform(curl);
+}
 curl_easy_cleanup(curl);
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "C#" >}} 
-var client = new RestClient("https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!");<br>
-client.Timeout = -1;<br>
-var request = new RestRequest(Method.POST);<br>
-IRestResponse response = client.Execute(request);<br>
+{{< highlight cs >}}
+var client = new RestClient("https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!");
+client.Timeout = -1;
+var request = new RestRequest(Method.POST);
+IRestResponse response = client.Execute(request);
 Console.WriteLine(response.Content);
+{{< /highlight >}}
 {{< /tab >}}
 
 
 {{< tab "Go" >}}
-package main<br><br>
+{{< highlight go >}}
+package main
 
-import (<br>
-  "fmt"<br>
-  "net/http"<br>
-  "io/ioutil"<br>
+import (
+  "fmt"
+  "net/http"
+  "io/ioutil"
 )
-<br><br>
-func main() {<br><br>
 
-  url := "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!"<br>
-  method := "POST"<br><br>
+func main() {
 
-  client := &http.Client {<br>
-  }<br>
-  req, err := http.NewRequest(method, url, nil)<br><br>
+  url := "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!"
+  method := "POST"
 
-  if err != nil {<br>
-    fmt.Println(err)<br><br>
+  client := &http.Client {
   }
-  res, err := client.Do(req)<br>
-  defer res.Body.Close()<br>
-  body, err := ioutil.ReadAll(res.Body)<br><br>
+  req, err := http.NewRequest(method, url, nil)
 
-  fmt.Println(string(body))<br>
+  if err != nil {
+    fmt.Println(err)
+  }
+  res, err := client.Do(req)
+  defer res.Body.Close()
+  body, err := ioutil.ReadAll(res.Body)
+
+  fmt.Println(string(body))
 }
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "Java" >}}
-    OkHttpClient client = new OkHttpClient().newBuilder()<br>
-    .build();<br>
-    MediaType mediaType = MediaType.parse("text/plain");<br>
-    RequestBody body = RequestBody.create(mediaType, "");<br>
-    Request request = new Request.Builder()<br>
-    .url("https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!")<br>
-    .method("POST", body)<br>
-    .build();<br>
-    Response response = client.newCall(request).execute();<br>
-{{< /tab >}}
-
-{{< tab "JavaScript" >}}
-    var settings = {<br>
-    "url": "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!",<br>
-    "method": "POST",<br>
-    "timeout": 0,<br>
-    };<br><br>
-
-    $.ajax(settings).done(function (response) {<br>
-    console.log(response);<br>
-    });
+{{< highlight java >}}
+    OkHttpClient client = new OkHttpClient().newBuilder()
+    .build();
+    MediaType mediaType = MediaType.parse("text/plain");
+    RequestBody body = RequestBody.create(mediaType, "");
+    Request request = new Request.Builder()
+    .url("https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!")
+    .method("POST", body)
+    .build();
+    Response response = client.newCall(request).execute();
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "NodeJS" >}} 
-
-    var request = require('request');<br>
-    var options = {<br>
-    'method': 'POST',<br>
-    'url': 'https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!',<br>
-    'headers': {<br>
-    }<br>
-    };<br>
-    request(options, function (error, response) { <br>
-    if (error) throw new Error(error);<br>
-    console.log(response.body);<br>
+{{< highlight js >}}
+    var request = require('request');
+    var options = {
+    'method': 'POST',
+    'url': 'https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!',
+    'headers': {
+    }
+    };
+    request(options, function (error, response) { 
+    if (error) throw new Error(error);
+    console.log(response.body);
     });
-
+{{< /highlight >}}
  {{< /tab >}}
 
 {{< tab "Python" >}} 
-    import requests<br><br>
+{{< highlight py >}}
+    import requests
 
-    url = "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!"<br><br>
+    url = "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!"
 
-    payload = {}<br>
-    headers= {}<br><br>
+    payload = {}
+    headers= {}
 
-    response = requests.request("POST", url, headers=headers, data = payload)<br><br>
+    response = requests.request("POST", url, headers=headers, data = payload)
 
     print(response.text.encode('utf8'))
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "PHP" >}}
+{{< highlight php >}}
+<?php
 
-&lt?php<br><br>
+    $curl = curl_init();
 
-    $curl = curl_init();<br><br>
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "POST",
+    ));
 
-    curl_setopt_array($curl, array(<br>
-    CURLOPT_URL => "https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic%20Beasts&details=We%20have%20unicorns!",<br>
-    CURLOPT_RETURNTRANSFER => true,<br>
-    CURLOPT_ENCODING => "",<br>
-    CURLOPT_MAXREDIRS => 10,<br>
-    CURLOPT_TIMEOUT => 0,<br>
-    CURLOPT_FOLLOWLOCATION => true,<br>
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,<br>
-    CURLOPT_CUSTOMREQUEST => "POST",<br>
-    ));<br><br>
+    $response = curl_exec($curl);
 
-    $response = curl_exec($curl);<br><br>
-
-    curl_close($curl);<br>
+    curl_close($curl);
     echo $response;
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "Ruby" >}}
-    require "uri"<br>
-    require "net/http"<br><br>
+{{< highlight ruby >}}
+    require "uri"
+    require "net/http"
 
-    url = URI("https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!")<br><br>
+    url = URI("https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&name=Fantastic Beasts&details=We have unicorns!")
 
-    https = Net::HTTP.new(url.host, url.port);<br>
-    https.use_ssl = true<br><br>
+    https = Net::HTTP.new(url.host, url.port);
+    https.use_ssl = true
 
-    request = Net::HTTP::Post.new(url)<br><br>
+    request = Net::HTTP::Post.new(url)
 
-    response = https.request(request)<br>
+    response = https.request(request)
     puts response.read_body
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{</ tabs >}}
@@ -602,146 +594,144 @@ __Usage and SDK Examples:__
 {{< tabs >}}
 
 {{< tab "cURL" >}} 
+{{< highlight js >}}
 curl --location --request GET 'https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999'
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "C" >}}
-    CURL *curl;<br>
-    CURLcode res;<br>
-    curl = curl_easy_init();<br>
-    if(curl) {<br>
-    curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");<br>
-    curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999");<br>
-    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);<br>
-    curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");<br>
-    struct curl_slist *headers = NULL;<br>
-    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);<br>
-    res = curl_easy_perform(curl);<br>
-    }<br>
+{{< highlight c >}}
+    CURL *curl;
+    CURLcode res;
+    curl = curl_easy_init();
+    if(curl) {
+    curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, "GET");
+    curl_easy_setopt(curl, CURLOPT_URL, "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999");
+    curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+    curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, "https");
+    struct curl_slist *headers = NULL;
+    curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+    res = curl_easy_perform(curl);
+    }
     curl_easy_cleanup(curl);
+{{< / highlight >}}
 {{< /tab >}}
 
 {{< tab "Go" >}}
-    package main<br><br>
+{{< highlight go >}}
+    package main
 
-    import (<br>
-    "fmt"<br>
-    "net/http"<br>
-    "io/ioutil"<br>
-    )<br><br>
+    import (
+    "fmt"
+    "net/http"
+    "io/ioutil"
+    )
 
-    func main() {<br><br>
+    func main() {
 
-    url := "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999"<br>
-    method := "GET"<br><br>
+    url := "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999"
+    method := "GET"
 
-    client := &http.Client {<br>
-    }<br>
-    req, err := http.NewRequest(method, url, nil)<br><br>
+    client := &http.Client {
+    }
+    req, err := http.NewRequest(method, url, nil)
 
-    if err != nil {<br>
-        fmt.Println(err)<br>
-    }<br>
-    res, err := client.Do(req)<br>
-    defer res.Body.Close()<br>
-    body, err := ioutil.ReadAll(res.Body)<br><br>
+    if err != nil {
+        fmt.Println(err)
+    }
+    res, err := client.Do(req)
+    defer res.Body.Close()
+    body, err := ioutil.ReadAll(res.Body)
 
     fmt.Println(string(body))
     }
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "Java" >}}
-    OkHttpClient client = new OkHttpClient().newBuilder()<br>
-    .build();<br>
-    Request request = new Request.Builder()<br>
-    .url("https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999")<br>
-    .method("GET", null)<br>
-    .build();<br>
+{{< highlight java >}}
+    OkHttpClient client = new OkHttpClient().newBuilder()
+    .build();
+    Request request = new Request.Builder()
+    .url("https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999")
+    .method("GET", null)
+    .build();
     Response response = client.newCall(request).execute();
-{{< /tab >}}
-
-{{< tab "JavaScript" >}}
-    var settings = {<br>
-    "url": "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999",<br>
-    "method": "GET",<br>
-    "timeout": 0,<br>
-    };<br><br>
-
-    $.ajax(settings).done(function (response) {<br>
-    console.log(response);<br>
-    });
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "NodeJS" >}} 
-
-    var request = require('request');<br>
-    var options = {<br>
-    'method': 'GET',<br>
-    'url': 'https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999',<br>
-    'headers': {<br>
-    }<br>
-    };<br>
-    request(options, function (error, response) { <br>
-    if (error) throw new Error(error);<br>
-    console.log(response.body);<br>
+{{< highlight js >}}
+    var request = require('request');
+    var options = {
+    'method': 'GET',
+    'url': 'https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999',
+    'headers': {
+    }
+    };
+    request(options, function (error, response) { 
+    if (error) throw new Error(error);
+    console.log(response.body);
     });
-
+{{< /highlight >}}
  {{< /tab >}}
 
 {{< tab "Python" >}} 
-    import requests<br><br>
+{{< highlight py >}}
+    import requests
 
-    url = "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999"<br><br>
+    url = "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999"
 
-    payload = {}<br>
-    headers= {}<br><br>
+    payload = {}
+    headers= {}
 
-    response = requests.request("GET", url, headers=headers, data = payload)<br><br>
+    response = requests.request("GET", url, headers=headers, data = payload)
 
     print(response.text.encode('utf8'))
 
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "PHP" >}}
+{{< highlight php >}}
+<?php
 
-&lt?php<br><br>
+    $curl = curl_init();
 
-    $curl = curl_init();<br><br>
+    curl_setopt_array($curl, array(
+    CURLOPT_URL => "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999",
+    CURLOPT_RETURNTRANSFER => true,
+    CURLOPT_ENCODING => "",
+    CURLOPT_MAXREDIRS => 10,
+    CURLOPT_TIMEOUT => 0,
+    CURLOPT_FOLLOWLOCATION => true,
+    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+    CURLOPT_CUSTOMREQUEST => "GET",
+    ));
 
-    curl_setopt_array($curl, array(<br>
-    CURLOPT_URL => "https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999",<br>
-    CURLOPT_RETURNTRANSFER => true,<br>
-    CURLOPT_ENCODING => "",<br>
-    CURLOPT_MAXREDIRS => 10,<br>
-    CURLOPT_TIMEOUT => 0,<br>
-    CURLOPT_FOLLOWLOCATION => true,<br>
-    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,<br>
-    CURLOPT_CUSTOMREQUEST => "GET",<br>
-    ));<br><br>
+    $response = curl_exec($curl);
 
-    $response = curl_exec($curl);<br><br>
-
-    curl_close($curl);<br>
+    curl_close($curl);
     echo $response;
 
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{< tab "Ruby" >}}
-    require "uri"<br>
-    require "net/http"<br><br>
+{{< highlight ruby >}}
+    require "uri"
+    require "net/http"
 
-    url = URI("https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999")<br><br>
+    url = URI("https://accucampus.net/api/v1/appsharesendtext?token=23773f5b-76ca-423f-86e5-77a13fa5438b&phonenumber=9999999999")
 
-    https = Net::HTTP.new(url.host, url.port);<br>
-    https.use_ssl = true<br><br>
+    https = Net::HTTP.new(url.host, url.port);
+    https.use_ssl = true
 
-    request = Net::HTTP::Get.new(url)<br><br>
+    request = Net::HTTP::Get.new(url)
 
-    response = https.request(request)<br>
+    response = https.request(request)
     puts response.read_body
-
+{{< /highlight >}}
 {{< /tab >}}
 
 {{</ tabs >}}
