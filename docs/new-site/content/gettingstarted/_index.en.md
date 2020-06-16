@@ -589,7 +589,7 @@ __Successful response:__
 
 Using the AccuCampus API, you can send a SMS message containing a link to the Accucampus app to the phone number of your choice or to the phone number linked to your account (default). 
 
-You will need to make a HTTP GET request to the 'appsharesendtext' endpoint:
+You will need to make a HTTP GET request to the `appsharesendtext` endpoint:
 
 ```ruby
 https://accucampus.net/api/v1/appsharesendtext 
