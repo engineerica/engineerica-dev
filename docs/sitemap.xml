@@ -3,13 +3,18 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>developers.engineerica.com/about/</loc>
+    <loc>developers.engineerica.com/gettingstarted/</loc>
+    <lastmod>2020-06-11T11:02:05+06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>developers.engineerica.com/gettingstarted/api-reference/</loc>
     <lastmod>2020-05-21T11:02:05+06:00</lastmod>
   </url>
   
   <url>
-    <loc>developers.engineerica.com/gettingstarted/</loc>
-    <lastmod>2020-06-11T11:02:05+06:00</lastmod>
+    <loc>developers.engineerica.com/gettingstarted/client-libraries/</loc>
+    <lastmod>2020-05-21T11:02:05+06:00</lastmod>
   </url>
   
   <url>
