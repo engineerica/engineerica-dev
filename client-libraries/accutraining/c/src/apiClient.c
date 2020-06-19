@@ -9,11 +9,13 @@ size_t writeDataCallback(void *buffer, size_t size, size_t nmemb, void *userp);
 apiClient_t *apiClient_create() {
     curl_global_init(CURL_GLOBAL_ALL);
     apiClient_t *apiClient = malloc(sizeof(apiClient_t));
-    apiClient->basePath = strdup("https://accucampus.net/api/v1");
+    apiClient->basePath = strdup("https://accutraining.net:443/api/v1");
     apiClient->sslConfig = NULL;
     apiClient->dataReceived = NULL;
     apiClient->dataReceivedLen = 0;
     apiClient->response_code = 0;
+    apiClient->username = NULL;
+    apiClient->password = NULL;
 
     return apiClient;
 }
@@ -26,7 +28,7 @@ apiClient_t *apiClient_create_with_base_path(const char *basePath
     if(basePath){
         apiClient->basePath = strdup(basePath);
     }else{
-        apiClient->basePath = strdup("https://accucampus.net/api/v1");
+        apiClient->basePath = strdup("https://accutraining.net:443/api/v1");
     }
 
     if(sslConfig){
@@ -38,6 +40,8 @@ apiClient_t *apiClient_create_with_base_path(const char *basePath
     apiClient->dataReceived = NULL;
     apiClient->dataReceivedLen = 0;
     apiClient->response_code = 0;
+    apiClient->username = NULL;
+    apiClient->password = NULL;
 
     return apiClient;
 }
@@ -45,6 +49,12 @@ apiClient_t *apiClient_create_with_base_path(const char *basePath
 void apiClient_free(apiClient_t *apiClient) {
     if(apiClient->basePath) {
         free(apiClient->basePath);
+    }
+    if(apiClient->username) {
+        free(apiClient->username);
+    }
+    if(apiClient->password) {
+        free(apiClient->password);
     }
     free(apiClient);
     curl_global_cleanup();
@@ -373,6 +383,29 @@ void apiClient_invoke(apiClient_t    *apiClient,
         curl_easy_setopt(handle, CURLOPT_HTTPHEADER, headers);
         curl_easy_setopt(handle, CURLOPT_VERBOSE, 0); // to get curl debug msg 0: to disable, 1L:to enable
 
+        // this would only be generated for basic authentication:
+        char *authenticationToken;
+
+        if((apiClient->username != NULL) &&
+           (apiClient->password != NULL) )
+        {
+            authenticationToken = malloc(strlen(
+                                 apiClient->username) +
+                                         strlen(
+                                 apiClient->password) +
+                                         2);
+            sprintf(authenticationToken,
+                    "%s:%s",
+                    apiClient->username,
+                    apiClient->password);
+
+            curl_easy_setopt(handle,
+                             CURLOPT_HTTPAUTH,
+                             CURLAUTH_BASIC);
+            curl_easy_setopt(handle,
+                             CURLOPT_USERPWD,
+                             authenticationToken);
+        }
 
         if(bodyParameters != NULL) {
             postData(handle, bodyParameters);
@@ -399,6 +432,11 @@ void apiClient_invoke(apiClient_t    *apiClient,
             curl_easy_getinfo(handle, CURLINFO_SCHEME, &scheme);
             fprintf(stderr, "curl_easy_perform() failed\n\nURL: %s\nIP: %s\nPORT: %li\nSCHEME: %s\nStrERROR: %s\n",url,ip,port,scheme,
             curl_easy_strerror(res));
+        }
+        if((apiClient->username != NULL) &&
+        (apiClient->password != NULL) )
+        {
+        free(authenticationToken);
         }
 
         curl_easy_cleanup(handle);

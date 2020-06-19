@@ -1,4 +1,4 @@
-# AccuCampusOpenApi3Documentation.ActionResult
+# AccuTrainingOpenApi3.ActionResult
 
 ## Properties
 

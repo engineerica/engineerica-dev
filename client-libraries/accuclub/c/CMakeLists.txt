@@ -21,7 +21,7 @@ else()
 	message (STATUS "OpenSSL Not found.")
 endif()
 
-set(pkgName "accucampus_openapi_3_documentation")
+set(pkgName "accuclub_openapi_3")
 
 find_package(CURL 7.58.0 REQUIRED)
 if(CURL_FOUND)
@@ -40,7 +40,53 @@ set(SRCS
     model/object.c
     model/action_result.c
     model/error_action_result.c
-    api/DefaultAPI.c
+    api/ActionlogAPI.c
+    api/AdvroleAPI.c
+    api/AdvrolesAPI.c
+    api/AppshareAPI.c
+    api/AttendancelogAPI.c
+    api/AttendancelogcommentAPI.c
+    api/BgjobAPI.c
+    api/CaptchaAPI.c
+    api/ClientAPI.c
+    api/CreditAPI.c
+    api/CreditplanAPI.c
+    api/EasyloginAPI.c
+    api/EventAPI.c
+    api/ExportAPI.c
+    api/FeatureAPI.c
+    api/GeneralAPI.c
+    api/HolidayAPI.c
+    api/ImportAPI.c
+    api/LicenseAPI.c
+    api/LocationAPI.c
+    api/MemorizedreportAPI.c
+    api/MenuAPI.c
+    api/MyAPI.c
+    api/NotificationAPI.c
+    api/NotificationtopicAPI.c
+    api/PushAPI.c
+    api/QrlabelsAPI.c
+    api/QrloginAPI.c
+    api/QuickpanelAPI.c
+    api/ReportAPI.c
+    api/RoleAPI.c
+    api/RuleAPI.c
+    api/SearchAPI.c
+    api/SecurityAPI.c
+    api/SessionregAPI.c
+    api/SettingAPI.c
+    api/SsoAPI.c
+    api/StationAPI.c
+    api/SwipeAPI.c
+    api/TagAPI.c
+    api/TemplateAPI.c
+    api/TermAPI.c
+    api/TextcreditAPI.c
+    api/TranslationAPI.c
+    api/UserAPI.c
+    api/UsergroupAPI.c
+    api/UsersettingsAPI.c
 
 )
 
@@ -53,7 +99,53 @@ set(HDRS
     model/object.h
     model/action_result.h
     model/error_action_result.h
-    api/DefaultAPI.h
+    api/ActionlogAPI.h
+    api/AdvroleAPI.h
+    api/AdvrolesAPI.h
+    api/AppshareAPI.h
+    api/AttendancelogAPI.h
+    api/AttendancelogcommentAPI.h
+    api/BgjobAPI.h
+    api/CaptchaAPI.h
+    api/ClientAPI.h
+    api/CreditAPI.h
+    api/CreditplanAPI.h
+    api/EasyloginAPI.h
+    api/EventAPI.h
+    api/ExportAPI.h
+    api/FeatureAPI.h
+    api/GeneralAPI.h
+    api/HolidayAPI.h
+    api/ImportAPI.h
+    api/LicenseAPI.h
+    api/LocationAPI.h
+    api/MemorizedreportAPI.h
+    api/MenuAPI.h
+    api/MyAPI.h
+    api/NotificationAPI.h
+    api/NotificationtopicAPI.h
+    api/PushAPI.h
+    api/QrlabelsAPI.h
+    api/QrloginAPI.h
+    api/QuickpanelAPI.h
+    api/ReportAPI.h
+    api/RoleAPI.h
+    api/RuleAPI.h
+    api/SearchAPI.h
+    api/SecurityAPI.h
+    api/SessionregAPI.h
+    api/SettingAPI.h
+    api/SsoAPI.h
+    api/StationAPI.h
+    api/SwipeAPI.h
+    api/TagAPI.h
+    api/TemplateAPI.h
+    api/TermAPI.h
+    api/TextcreditAPI.h
+    api/TranslationAPI.h
+    api/UserAPI.h
+    api/UsergroupAPI.h
+    api/UsersettingsAPI.h
 
 )
 
@@ -72,7 +164,53 @@ set(HDRS "")
 ## This section shows how to use the above compiled libary to compile the source files
 ## set source files
 #set(SRCS
-#    unit-tests/manual-DefaultAPI.c
+#    unit-tests/manual-ActionlogAPI.c
+#    unit-tests/manual-AdvroleAPI.c
+#    unit-tests/manual-AdvrolesAPI.c
+#    unit-tests/manual-AppshareAPI.c
+#    unit-tests/manual-AttendancelogAPI.c
+#    unit-tests/manual-AttendancelogcommentAPI.c
+#    unit-tests/manual-BgjobAPI.c
+#    unit-tests/manual-CaptchaAPI.c
+#    unit-tests/manual-ClientAPI.c
+#    unit-tests/manual-CreditAPI.c
+#    unit-tests/manual-CreditplanAPI.c
+#    unit-tests/manual-EasyloginAPI.c
+#    unit-tests/manual-EventAPI.c
+#    unit-tests/manual-ExportAPI.c
+#    unit-tests/manual-FeatureAPI.c
+#    unit-tests/manual-GeneralAPI.c
+#    unit-tests/manual-HolidayAPI.c
+#    unit-tests/manual-ImportAPI.c
+#    unit-tests/manual-LicenseAPI.c
+#    unit-tests/manual-LocationAPI.c
+#    unit-tests/manual-MemorizedreportAPI.c
+#    unit-tests/manual-MenuAPI.c
+#    unit-tests/manual-MyAPI.c
+#    unit-tests/manual-NotificationAPI.c
+#    unit-tests/manual-NotificationtopicAPI.c
+#    unit-tests/manual-PushAPI.c
+#    unit-tests/manual-QrlabelsAPI.c
+#    unit-tests/manual-QrloginAPI.c
+#    unit-tests/manual-QuickpanelAPI.c
+#    unit-tests/manual-ReportAPI.c
+#    unit-tests/manual-RoleAPI.c
+#    unit-tests/manual-RuleAPI.c
+#    unit-tests/manual-SearchAPI.c
+#    unit-tests/manual-SecurityAPI.c
+#    unit-tests/manual-SessionregAPI.c
+#    unit-tests/manual-SettingAPI.c
+#    unit-tests/manual-SsoAPI.c
+#    unit-tests/manual-StationAPI.c
+#    unit-tests/manual-SwipeAPI.c
+#    unit-tests/manual-TagAPI.c
+#    unit-tests/manual-TemplateAPI.c
+#    unit-tests/manual-TermAPI.c
+#    unit-tests/manual-TextcreditAPI.c
+#    unit-tests/manual-TranslationAPI.c
+#    unit-tests/manual-UserAPI.c
+#    unit-tests/manual-UsergroupAPI.c
+#    unit-tests/manual-UsersettingsAPI.c
 #)
 
 ##set header files

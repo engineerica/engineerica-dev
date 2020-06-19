@@ -60,18 +60,23 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 
 
-$apiInstance = new OpenAPI\Client\Api\DefaultApi(
+// Configure Bearer (string) authorization: bearerAuth
+$config = OpenAPI\Client\Configuration::getDefaultConfiguration()->setAccessToken('YOUR_ACCESS_TOKEN');
+
+
+$apiInstance = new OpenAPI\Client\Api\ActionassignmentApi(
     // If you want use custom http client, pass your client which implements `GuzzleHttp\ClientInterface`.
     // This is optional, `GuzzleHttp\Client` will be used as default.
-    new GuzzleHttp\Client()
+    new GuzzleHttp\Client(),
+    $config
 );
-$token = 'token_example'; // string | The authentication token.
 $id = 'id_example'; // string | The id of the action assignment to delete.
+$body = new \OpenAPI\Client\Model\AnyType(); // AnyType | 
 
 try {
-    $apiInstance->actionassignmentdelete($token, $id);
+    $apiInstance->actionassignmentDelete($id, $body);
 } catch (Exception $e) {
-    echo 'Exception when calling DefaultApi->actionassignmentdelete: ', $e->getMessage(), PHP_EOL;
+    echo 'Exception when calling ActionassignmentApi->actionassignmentDelete: ', $e->getMessage(), PHP_EOL;
 }
 
 ?>
@@ -79,247 +84,247 @@ try {
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *https://accucampus.net/api/v1*
+All URIs are relative to *https://accutraining.net:443/api/v1*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*DefaultApi* | [**actionassignmentdelete**](docs/Api/DefaultApi.md#actionassignmentdelete) | **GET** /actionassignmentdelete | Remove an action item from an action plan
-*DefaultApi* | [**actionassignmentget**](docs/Api/DefaultApi.md#actionassignmentget) | **GET** /actionassignmentget | Search and view details of an action item assigned to a user
-*DefaultApi* | [**actionassignmentlist**](docs/Api/DefaultApi.md#actionassignmentlist) | **GET** /actionassignmentlist | View a list of action items in a user&#39;s plan
-*DefaultApi* | [**actionassignmentlisthistory**](docs/Api/DefaultApi.md#actionassignmentlisthistory) | **GET** /actionassignmentlisthistory | View the history of an action item assigned to a user
-*DefaultApi* | [**actionassignmentlistmine**](docs/Api/DefaultApi.md#actionassignmentlistmine) | **GET** /actionassignmentlistmine | List public action assignments assigned to the logged user
-*DefaultApi* | [**actionassignmentlistpublichistory**](docs/Api/DefaultApi.md#actionassignmentlistpublichistory) | **GET** /actionassignmentlistpublichistory | List public action assignment history
-*DefaultApi* | [**actionassignmentmarkcomplete**](docs/Api/DefaultApi.md#actionassignmentmarkcomplete) | **GET** /actionassignmentmarkcomplete | Bulk complete action items
-*DefaultApi* | [**actionassignmentsave**](docs/Api/DefaultApi.md#actionassignmentsave) | **POST** /actionassignmentsave | Add an action item to a user&#39;s action plan
-*DefaultApi* | [**actionassignmentsavehistory**](docs/Api/DefaultApi.md#actionassignmentsavehistory) | **POST** /actionassignmentsavehistory | Update an action item assigned to a user
-*DefaultApi* | [**actionitemdelete**](docs/Api/DefaultApi.md#actionitemdelete) | **GET** /actionitemdelete | Delete an action item
-*DefaultApi* | [**actionitemget**](docs/Api/DefaultApi.md#actionitemget) | **GET** /actionitemget | Search and view details of an action item
-*DefaultApi* | [**actionitemlist**](docs/Api/DefaultApi.md#actionitemlist) | **GET** /actionitemlist | View a list of action items
-*DefaultApi* | [**actionitemsave**](docs/Api/DefaultApi.md#actionitemsave) | **POST** /actionitemsave | Create or edit an action item
-*DefaultApi* | [**actionloglist**](docs/Api/DefaultApi.md#actionloglist) | **GET** /actionloglist | View a list of users action logs
-*DefaultApi* | [**actionpackassign**](docs/Api/DefaultApi.md#actionpackassign) | **GET** /actionpackassign | Assign an action item pack to a user
-*DefaultApi* | [**actionpackdelete**](docs/Api/DefaultApi.md#actionpackdelete) | **GET** /actionpackdelete | Delete an action item pack
-*DefaultApi* | [**actionpackget**](docs/Api/DefaultApi.md#actionpackget) | **GET** /actionpackget | View details of an action item pack
-*DefaultApi* | [**actionpacklist**](docs/Api/DefaultApi.md#actionpacklist) | **GET** /actionpacklist | View a list of action item packs
-*DefaultApi* | [**actionpacksave**](docs/Api/DefaultApi.md#actionpacksave) | **POST** /actionpacksave | Create or edit an action item pack
-*DefaultApi* | [**actiontypedelete**](docs/Api/DefaultApi.md#actiontypedelete) | **GET** /actiontypedelete | Delete an action item type
-*DefaultApi* | [**actiontypeget**](docs/Api/DefaultApi.md#actiontypeget) | **GET** /actiontypeget | View details of an action item type
-*DefaultApi* | [**actiontypelist**](docs/Api/DefaultApi.md#actiontypelist) | **GET** /actiontypelist | View a list of action item types
-*DefaultApi* | [**actiontypesave**](docs/Api/DefaultApi.md#actiontypesave) | **POST** /actiontypesave | Create or edit an action item type
-*DefaultApi* | [**advroleaddmissing**](docs/Api/DefaultApi.md#advroleaddmissing) | **GET** /advroleaddmissing | Adds the missing permissions to a role. Requires access to advrole.save
-*DefaultApi* | [**advrolecheckperm**](docs/Api/DefaultApi.md#advrolecheckperm) | **GET** /advrolecheckperm | Checks the permissions are assigned for the given roles
-*DefaultApi* | [**advroledelete**](docs/Api/DefaultApi.md#advroledelete) | **GET** /advroledelete | Delete a role
-*DefaultApi* | [**advroledeletemapping**](docs/Api/DefaultApi.md#advroledeletemapping) | **GET** /advroledeletemapping | Delete a role mapping
-*DefaultApi* | [**advroleget**](docs/Api/DefaultApi.md#advroleget) | **GET** /advroleget | View details of a role
-*DefaultApi* | [**advrolelist**](docs/Api/DefaultApi.md#advrolelist) | **GET** /advrolelist | Lists the roles for the current account
-*DefaultApi* | [**advrolelistmaps**](docs/Api/DefaultApi.md#advrolelistmaps) | **GET** /advrolelistmaps | Lists the maps a roles is mapped to
-*DefaultApi* | [**advrolelistrolesmapped**](docs/Api/DefaultApi.md#advrolelistrolesmapped) | **GET** /advrolelistrolesmapped | Lists the roles mappings
-*DefaultApi* | [**advrolelisttemplates**](docs/Api/DefaultApi.md#advrolelisttemplates) | **GET** /advrolelisttemplates | View a list of role templates
-*DefaultApi* | [**advrolesave**](docs/Api/DefaultApi.md#advrolesave) | **POST** /advrolesave | Create or edit a role
-*DefaultApi* | [**advrolesavemapping**](docs/Api/DefaultApi.md#advrolesavemapping) | **POST** /advrolesavemapping | Saves a role mapping
-*DefaultApi* | [**advrolesuserlist**](docs/Api/DefaultApi.md#advrolesuserlist) | **GET** /advrolesuserlist | List users. Alias to user.list, use that one instead.
-*DefaultApi* | [**advroleuserupgrade**](docs/Api/DefaultApi.md#advroleuserupgrade) | **GET** /advroleuserupgrade | Upgrade a user to another role (requires permission to edit those roles)
-*DefaultApi* | [**appsharegetphone**](docs/Api/DefaultApi.md#appsharegetphone) | **GET** /appsharegetphone | Gets the phone number of the current user
-*DefaultApi* | [**appsharesendtext**](docs/Api/DefaultApi.md#appsharesendtext) | **GET** /appsharesendtext | Sends an SMS with the link to the app
-*DefaultApi* | [**attendancelogcommentdelete**](docs/Api/DefaultApi.md#attendancelogcommentdelete) | **GET** /attendancelogcommentdelete | Delete a comment on an attendance log
-*DefaultApi* | [**attendancelogcommentget**](docs/Api/DefaultApi.md#attendancelogcommentget) | **GET** /attendancelogcommentget | View a comment on an attendance log
-*DefaultApi* | [**attendancelogcommentlist**](docs/Api/DefaultApi.md#attendancelogcommentlist) | **GET** /attendancelogcommentlist | View all the comments on a specific attendance log
-*DefaultApi* | [**attendancelogcommentsave**](docs/Api/DefaultApi.md#attendancelogcommentsave) | **POST** /attendancelogcommentsave | Save a comment on an attendance log
-*DefaultApi* | [**attendancelogdelete**](docs/Api/DefaultApi.md#attendancelogdelete) | **GET** /attendancelogdelete | Delete an attendance log
-*DefaultApi* | [**attendancelogget**](docs/Api/DefaultApi.md#attendancelogget) | **GET** /attendancelogget | Search and view details of an attendance log
-*DefaultApi* | [**attendanceloggetchangehistory**](docs/Api/DefaultApi.md#attendanceloggetchangehistory) | **GET** /attendanceloggetchangehistory | Search and view details of an attendance log&#39;s swipe history
-*DefaultApi* | [**attendanceloglist**](docs/Api/DefaultApi.md#attendanceloglist) | **GET** /attendanceloglist | View a list of attendance logs
-*DefaultApi* | [**attendanceloglistmine**](docs/Api/DefaultApi.md#attendanceloglistmine) | **GET** /attendanceloglistmine | Gets the attendance logs of the current user
-*DefaultApi* | [**attendancelogsave**](docs/Api/DefaultApi.md#attendancelogsave) | **POST** /attendancelogsave | Create or edit an attendance log
-*DefaultApi* | [**attendancelogsignout**](docs/Api/DefaultApi.md#attendancelogsignout) | **GET** /attendancelogsignout | Sign out an attendance log
-*DefaultApi* | [**attendancelogwhosin**](docs/Api/DefaultApi.md#attendancelogwhosin) | **GET** /attendancelogwhosin | View who&#39;s in a location
-*DefaultApi* | [**bgjobgetstatus**](docs/Api/DefaultApi.md#bgjobgetstatus) | **GET** /bgjobgetstatus | Get background job status
-*DefaultApi* | [**captchagetchallenge**](docs/Api/DefaultApi.md#captchagetchallenge) | **GET** /captchagetchallenge | Gets a captcha challenge that the user must complete to do certain requests.
-*DefaultApi* | [**captchagetimage**](docs/Api/DefaultApi.md#captchagetimage) | **GET** /captchagetimage | Gets a captcha image that the user must complete to do certain requests.
-*DefaultApi* | [**changelog**](docs/Api/DefaultApi.md#changelog) | **GET** /changelog | Get the application change log
-*DefaultApi* | [**clientget**](docs/Api/DefaultApi.md#clientget) | **GET** /clientget | Get client
-*DefaultApi* | [**clientlist**](docs/Api/DefaultApi.md#clientlist) | **GET** /clientlist | Gets the clients of the specified conference
-*DefaultApi* | [**clientsave**](docs/Api/DefaultApi.md#clientsave) | **POST** /clientsave | Saves a client
-*DefaultApi* | [**clientsendmessage**](docs/Api/DefaultApi.md#clientsendmessage) | **GET** /clientsendmessage | Send a message to a client
-*DefaultApi* | [**departmentdelete**](docs/Api/DefaultApi.md#departmentdelete) | **GET** /departmentdelete | Delete a college department
-*DefaultApi* | [**departmentget**](docs/Api/DefaultApi.md#departmentget) | **GET** /departmentget | Search and view details of a college department
-*DefaultApi* | [**departmentlist**](docs/Api/DefaultApi.md#departmentlist) | **GET** /departmentlist | View a list of college departments
-*DefaultApi* | [**departmentsave**](docs/Api/DefaultApi.md#departmentsave) | **POST** /departmentsave | Create or edit a college department
-*DefaultApi* | [**doc**](docs/Api/DefaultApi.md#doc) | **GET** /doc | Get the documentation
-*DefaultApi* | [**easyloginaddbgimage**](docs/Api/DefaultApi.md#easyloginaddbgimage) | **GET** /easyloginaddbgimage | Adds background image for the login
-*DefaultApi* | [**eventdelete**](docs/Api/DefaultApi.md#eventdelete) | **GET** /eventdelete | Delete a course
-*DefaultApi* | [**eventget**](docs/Api/DefaultApi.md#eventget) | **GET** /eventget | Search and view details of a course
-*DefaultApi* | [**eventgetsessionsbydate**](docs/Api/DefaultApi.md#eventgetsessionsbydate) | **GET** /eventgetsessionsbydate | View a list of courses by date
-*DefaultApi* | [**eventlist**](docs/Api/DefaultApi.md#eventlist) | **GET** /eventlist | View a list of courses
-*DefaultApi* | [**eventsave**](docs/Api/DefaultApi.md#eventsave) | **POST** /eventsave | Create or edit a course
-*DefaultApi* | [**eventsearchgroup**](docs/Api/DefaultApi.md#eventsearchgroup) | **GET** /eventsearchgroup | Searches for the available event groups
-*DefaultApi* | [**export**](docs/Api/DefaultApi.md#export) | **GET** /export | Export AccuCampus data
-*DefaultApi* | [**exportlisttypes**](docs/Api/DefaultApi.md#exportlisttypes) | **GET** /exportlisttypes | Lists available export types
-*DefaultApi* | [**featurelist**](docs/Api/DefaultApi.md#featurelist) | **GET** /featurelist | Lists the available features.
-*DefaultApi* | [**holidaylist**](docs/Api/DefaultApi.md#holidaylist) | **GET** /holidaylist | View a list of entered holidays
-*DefaultApi* | [**holidaysave**](docs/Api/DefaultApi.md#holidaysave) | **POST** /holidaysave | Create or edit a list of holidays
-*DefaultApi* | [**holidaysuggest**](docs/Api/DefaultApi.md#holidaysuggest) | **GET** /holidaysuggest | View the holiday suggestions in the given term
-*DefaultApi* | [**import**](docs/Api/DefaultApi.md#import) | **GET** /import | Import data into AccuCampus
-*DefaultApi* | [**importlisttypes**](docs/Api/DefaultApi.md#importlisttypes) | **GET** /importlisttypes | Lists available import types
-*DefaultApi* | [**licenseacceptagreement**](docs/Api/DefaultApi.md#licenseacceptagreement) | **GET** /licenseacceptagreement | Accept the license agreement
-*DefaultApi* | [**licensegetagreementstatus**](docs/Api/DefaultApi.md#licensegetagreementstatus) | **GET** /licensegetagreementstatus | Check if license agreement has been accepted
-*DefaultApi* | [**licensegetcurrent**](docs/Api/DefaultApi.md#licensegetcurrent) | **GET** /licensegetcurrent | Gets the current license information
-*DefaultApi* | [**licenserenew**](docs/Api/DefaultApi.md#licenserenew) | **GET** /licenserenew | Contact Engineerica in order to renew the AccuCampus subscription
-*DefaultApi* | [**listtimezones**](docs/Api/DefaultApi.md#listtimezones) | **GET** /listtimezones | Lists the available timezones
-*DefaultApi* | [**locationdelete**](docs/Api/DefaultApi.md#locationdelete) | **GET** /locationdelete | Delete a location
-*DefaultApi* | [**locationget**](docs/Api/DefaultApi.md#locationget) | **GET** /locationget | Search and view details of a location
-*DefaultApi* | [**locationlist**](docs/Api/DefaultApi.md#locationlist) | **GET** /locationlist | View a list of locations
-*DefaultApi* | [**locationsave**](docs/Api/DefaultApi.md#locationsave) | **POST** /locationsave | Create or edit a location
-*DefaultApi* | [**login**](docs/Api/DefaultApi.md#login) | **GET** /login | Login
-*DefaultApi* | [**logout**](docs/Api/DefaultApi.md#logout) | **GET** /logout | Logout
-*DefaultApi* | [**memorizedreportdelete**](docs/Api/DefaultApi.md#memorizedreportdelete) | **GET** /memorizedreportdelete | Delete memorized report
-*DefaultApi* | [**memorizedreportget**](docs/Api/DefaultApi.md#memorizedreportget) | **GET** /memorizedreportget | View details of a memorized report
-*DefaultApi* | [**memorizedreportlist**](docs/Api/DefaultApi.md#memorizedreportlist) | **GET** /memorizedreportlist | View a list of all his memorized reports
-*DefaultApi* | [**memorizedreportsave**](docs/Api/DefaultApi.md#memorizedreportsave) | **POST** /memorizedreportsave | Create or edit a memorized report
-*DefaultApi* | [**menugetitems**](docs/Api/DefaultApi.md#menugetitems) | **GET** /menugetitems | Gets the items on the menu
-*DefaultApi* | [**myaccount**](docs/Api/DefaultApi.md#myaccount) | **GET** /myaccount | Gets the logged in user account.
-*DefaultApi* | [**myianatimezone**](docs/Api/DefaultApi.md#myianatimezone) | **GET** /myianatimezone | Gets the current time zone&#39;s iana name
-*DefaultApi* | [**myprofile**](docs/Api/DefaultApi.md#myprofile) | **GET** /myprofile | Gets the logged in user information.
-*DefaultApi* | [**myrights**](docs/Api/DefaultApi.md#myrights) | **GET** /myrights | Gets the list of actions the user can execute.
-*DefaultApi* | [**mysaveprofile**](docs/Api/DefaultApi.md#mysaveprofile) | **POST** /mysaveprofile | Updates logged user&#39;s profile information
-*DefaultApi* | [**notificationdelete**](docs/Api/DefaultApi.md#notificationdelete) | **GET** /notificationdelete | Delete a notification
-*DefaultApi* | [**notificationget**](docs/Api/DefaultApi.md#notificationget) | **GET** /notificationget | View a notification
-*DefaultApi* | [**notificationgetforstation**](docs/Api/DefaultApi.md#notificationgetforstation) | **GET** /notificationgetforstation | Gets all public (in station) notifications for the specific user
-*DefaultApi* | [**notificationgetunreadcount**](docs/Api/DefaultApi.md#notificationgetunreadcount) | **GET** /notificationgetunreadcount | Get the number of unread notifications
-*DefaultApi* | [**notificationlist**](docs/Api/DefaultApi.md#notificationlist) | **GET** /notificationlist | View a list of all sent notifications
-*DefaultApi* | [**notificationlistmine**](docs/Api/DefaultApi.md#notificationlistmine) | **GET** /notificationlistmine | View all the notifications sent to the current user
-*DefaultApi* | [**notificationmarkasread**](docs/Api/DefaultApi.md#notificationmarkasread) | **GET** /notificationmarkasread | Mark a notification as read
-*DefaultApi* | [**notificationmarkasunread**](docs/Api/DefaultApi.md#notificationmarkasunread) | **GET** /notificationmarkasunread | Mark a notification as unread
-*DefaultApi* | [**notificationsend**](docs/Api/DefaultApi.md#notificationsend) | **GET** /notificationsend | Send notifications on screen, via email or text to users
-*DefaultApi* | [**notificationsendonscreen**](docs/Api/DefaultApi.md#notificationsendonscreen) | **GET** /notificationsendonscreen | Send on-screen notifications
-*DefaultApi* | [**notificationtopicdelete**](docs/Api/DefaultApi.md#notificationtopicdelete) | **GET** /notificationtopicdelete | Delete a notification topic
-*DefaultApi* | [**notificationtopicget**](docs/Api/DefaultApi.md#notificationtopicget) | **GET** /notificationtopicget | Search and view details of a notification topic
-*DefaultApi* | [**notificationtopiclist**](docs/Api/DefaultApi.md#notificationtopiclist) | **GET** /notificationtopiclist | List all the notification topics
-*DefaultApi* | [**notificationtopiclistsubscribe**](docs/Api/DefaultApi.md#notificationtopiclistsubscribe) | **GET** /notificationtopiclistsubscribe | List all the notification topics available to subscribe
-*DefaultApi* | [**notificationtopicsave**](docs/Api/DefaultApi.md#notificationtopicsave) | **POST** /notificationtopicsave | Create or edit a notification topic
-*DefaultApi* | [**pushderegister**](docs/Api/DefaultApi.md#pushderegister) | **GET** /pushderegister | Deregisters the current device to receive push notifications
-*DefaultApi* | [**pushregister**](docs/Api/DefaultApi.md#pushregister) | **GET** /pushregister | Registers the current device to receive push notifications
-*DefaultApi* | [**qrlabelsprint**](docs/Api/DefaultApi.md#qrlabelsprint) | **GET** /qrlabelsprint | Print and email QR labels
-*DefaultApi* | [**qrloginget**](docs/Api/DefaultApi.md#qrloginget) | **GET** /qrloginget | Gets an image of a QR token
-*DefaultApi* | [**qrloginlogin**](docs/Api/DefaultApi.md#qrloginlogin) | **GET** /qrloginlogin | Login
-*DefaultApi* | [**quickpaneldeletewidget**](docs/Api/DefaultApi.md#quickpaneldeletewidget) | **GET** /quickpaneldeletewidget | Deletes a widget from the Quick Panel
-*DefaultApi* | [**quickpanelfetchwidget**](docs/Api/DefaultApi.md#quickpanelfetchwidget) | **GET** /quickpanelfetchwidget | Fetches the information for a specific widget.
-*DefaultApi* | [**quickpanelgetwidget**](docs/Api/DefaultApi.md#quickpanelgetwidget) | **GET** /quickpanelgetwidget | View details of a widget included in the Quick Panel
-*DefaultApi* | [**quickpanelinit**](docs/Api/DefaultApi.md#quickpanelinit) | **GET** /quickpanelinit | Returns the initial information required to show the quick panels
-*DefaultApi* | [**quickpanellistwidgets**](docs/Api/DefaultApi.md#quickpanellistwidgets) | **GET** /quickpanellistwidgets | Lists all the widgets that are added in the Quick Panel
-*DefaultApi* | [**quickpanellistwidgettypes**](docs/Api/DefaultApi.md#quickpanellistwidgettypes) | **GET** /quickpanellistwidgettypes | Lists all the widget types available in the system
-*DefaultApi* | [**quickpanelreorderwidgets**](docs/Api/DefaultApi.md#quickpanelreorderwidgets) | **GET** /quickpanelreorderwidgets | Reorders the widgets and moves them to a specific column
-*DefaultApi* | [**quickpanelsavewidget**](docs/Api/DefaultApi.md#quickpanelsavewidget) | **POST** /quickpanelsavewidget | Saves a widget for the Quick Panel
-*DefaultApi* | [**reportlist**](docs/Api/DefaultApi.md#reportlist) | **GET** /reportlist | View a list of available reports
-*DefaultApi* | [**reportpermissionsbyuser**](docs/Api/DefaultApi.md#reportpermissionsbyuser) | **GET** /reportpermissionsbyuser | Permissions by user report
-*DefaultApi* | [**reportprepare**](docs/Api/DefaultApi.md#reportprepare) | **GET** /reportprepare | Queries and loads the specified report, in background.
-*DefaultApi* | [**reportquery**](docs/Api/DefaultApi.md#reportquery) | **GET** /reportquery | Query and load a specified report
-*DefaultApi* | [**rolelist**](docs/Api/DefaultApi.md#rolelist) | **GET** /rolelist | Show a list of roles
-*DefaultApi* | [**ruledelete**](docs/Api/DefaultApi.md#ruledelete) | **GET** /ruledelete | Delete a rule
-*DefaultApi* | [**ruleget**](docs/Api/DefaultApi.md#ruleget) | **GET** /ruleget | View details of a rule
-*DefaultApi* | [**rulegeteventtype**](docs/Api/DefaultApi.md#rulegeteventtype) | **GET** /rulegeteventtype | View details of a rule event type
-*DefaultApi* | [**rulelist**](docs/Api/DefaultApi.md#rulelist) | **GET** /rulelist | View a list of user rules
-*DefaultApi* | [**rulelistactions**](docs/Api/DefaultApi.md#rulelistactions) | **GET** /rulelistactions | View a list of rule actions available
-*DefaultApi* | [**rulelisteventtypes**](docs/Api/DefaultApi.md#rulelisteventtypes) | **GET** /rulelisteventtypes | View a list of rule event types
-*DefaultApi* | [**rulelisthttprequests**](docs/Api/DefaultApi.md#rulelisthttprequests) | **GET** /rulelisthttprequests | View all the http requests sent as a result of a rule
-*DefaultApi* | [**rulesave**](docs/Api/DefaultApi.md#rulesave) | **POST** /rulesave | Create or edit a rule
-*DefaultApi* | [**search**](docs/Api/DefaultApi.md#search) | **GET** /search | Search
-*DefaultApi* | [**searchgetentities**](docs/Api/DefaultApi.md#searchgetentities) | **GET** /searchgetentities | Get the information of the entities that can be searched
-*DefaultApi* | [**securityassesspermission**](docs/Api/DefaultApi.md#securityassesspermission) | **GET** /securityassesspermission | Returns the list of users for a specific permission
-*DefaultApi* | [**securityassessrole**](docs/Api/DefaultApi.md#securityassessrole) | **GET** /securityassessrole | Returns the list of permissions for a specific role
-*DefaultApi* | [**securityassessscope**](docs/Api/DefaultApi.md#securityassessscope) | **GET** /securityassessscope | Returns the list of users for a specific user
-*DefaultApi* | [**securityassessuser**](docs/Api/DefaultApi.md#securityassessuser) | **GET** /securityassessuser | Returns the list of permissions for a specific user
-*DefaultApi* | [**sessionregaddcurrentuser**](docs/Api/DefaultApi.md#sessionregaddcurrentuser) | **GET** /sessionregaddcurrentuser | Register current user to an event session
-*DefaultApi* | [**sessionregadduser**](docs/Api/DefaultApi.md#sessionregadduser) | **GET** /sessionregadduser | Register users for events
-*DefaultApi* | [**sessionreggetmysessions**](docs/Api/DefaultApi.md#sessionreggetmysessions) | **GET** /sessionreggetmysessions | View all the sessions the logged user is registered to
-*DefaultApi* | [**sessionreggetsessions**](docs/Api/DefaultApi.md#sessionreggetsessions) | **GET** /sessionreggetsessions | Lists the registrations for a specific user
-*DefaultApi* | [**sessionreggetsettings**](docs/Api/DefaultApi.md#sessionreggetsettings) | **GET** /sessionreggetsettings | Get the settings for session registration
-*DefaultApi* | [**sessionreggetusers**](docs/Api/DefaultApi.md#sessionreggetusers) | **GET** /sessionreggetusers | Lists the registrations for a specific session
-*DefaultApi* | [**sessionreglistsessions**](docs/Api/DefaultApi.md#sessionreglistsessions) | **GET** /sessionreglistsessions | List the sessions available for a specific event
-*DefaultApi* | [**sessionreglistupcoming**](docs/Api/DefaultApi.md#sessionreglistupcoming) | **GET** /sessionreglistupcoming | View a list of upcoming event sessions
-*DefaultApi* | [**sessionreglistupcomingevent**](docs/Api/DefaultApi.md#sessionreglistupcomingevent) | **GET** /sessionreglistupcomingevent | View a list of upcoming sessions of a particular event
-*DefaultApi* | [**sessionregremovecurrentuser**](docs/Api/DefaultApi.md#sessionregremovecurrentuser) | **GET** /sessionregremovecurrentuser | Unregister current user from an event session
-*DefaultApi* | [**sessionregremoveuser**](docs/Api/DefaultApi.md#sessionregremoveuser) | **GET** /sessionregremoveuser | Removes a user from an event session
-*DefaultApi* | [**sessionregsavesettings**](docs/Api/DefaultApi.md#sessionregsavesettings) | **POST** /sessionregsavesettings | Save the settings for an event&#39;s session registration
-*DefaultApi* | [**settingaddlogo**](docs/Api/DefaultApi.md#settingaddlogo) | **GET** /settingaddlogo | Add a logo to the account
-*DefaultApi* | [**settingget**](docs/Api/DefaultApi.md#settingget) | **GET** /settingget | Get settings for the account or the specified scope
-*DefaultApi* | [**settingsave**](docs/Api/DefaultApi.md#settingsave) | **POST** /settingsave | Save settings for the account or the specified scope
-*DefaultApi* | [**settingviewgeneral**](docs/Api/DefaultApi.md#settingviewgeneral) | **GET** /settingviewgeneral | View general settings for the account
-*DefaultApi* | [**ssogeneratekey**](docs/Api/DefaultApi.md#ssogeneratekey) | **GET** /ssogeneratekey | Generate/reset single sign on access key.
-*DefaultApi* | [**ssogetsettings**](docs/Api/DefaultApi.md#ssogetsettings) | **GET** /ssogetsettings | View single sign on settings.
-*DefaultApi* | [**ssoissuetoken**](docs/Api/DefaultApi.md#ssoissuetoken) | **GET** /ssoissuetoken | Issue single sign-on token
-*DefaultApi* | [**ssosavesettings**](docs/Api/DefaultApi.md#ssosavesettings) | **POST** /ssosavesettings | Edit single sign-on settings.
-*DefaultApi* | [**stationdelete**](docs/Api/DefaultApi.md#stationdelete) | **GET** /stationdelete | Delete a sign-in station
-*DefaultApi* | [**stationget**](docs/Api/DefaultApi.md#stationget) | **GET** /stationget | View details of a sign-in station
-*DefaultApi* | [**stationgetcurrentterms**](docs/Api/DefaultApi.md#stationgetcurrentterms) | **GET** /stationgetcurrentterms | Get all the current terms
-*DefaultApi* | [**stationgetinfo**](docs/Api/DefaultApi.md#stationgetinfo) | **GET** /stationgetinfo | Gets a the info to display in the sign-in station by it&#39;s ID.
-*DefaultApi* | [**stationgetlicense**](docs/Api/DefaultApi.md#stationgetlicense) | **GET** /stationgetlicense | Gets the current license information
-*DefaultApi* | [**stationlist**](docs/Api/DefaultApi.md#stationlist) | **GET** /stationlist | View a list of sign-in stations
-*DefaultApi* | [**stationsave**](docs/Api/DefaultApi.md#stationsave) | **POST** /stationsave | Create or edit a sign-in station
-*DefaultApi* | [**stationunlock**](docs/Api/DefaultApi.md#stationunlock) | **GET** /stationunlock | Unlocks the sign-in station.
-*DefaultApi* | [**swipedelete**](docs/Api/DefaultApi.md#swipedelete) | **GET** /swipedelete | Delete a swipe
-*DefaultApi* | [**swipeget**](docs/Api/DefaultApi.md#swipeget) | **GET** /swipeget | Search and view details of a swipe
-*DefaultApi* | [**swipelist**](docs/Api/DefaultApi.md#swipelist) | **GET** /swipelist | View a list of swipes
-*DefaultApi* | [**swipesave**](docs/Api/DefaultApi.md#swipesave) | **POST** /swipesave | Create or edit a swipe, and if possible, save the related attendance log
-*DefaultApi* | [**swipesaveanonym**](docs/Api/DefaultApi.md#swipesaveanonym) | **POST** /swipesaveanonym | Creates a new swipe from a sign-in station, and if possible, creates the attendance log
-*DefaultApi* | [**tagdelete**](docs/Api/DefaultApi.md#tagdelete) | **GET** /tagdelete | Delete a tag
-*DefaultApi* | [**tagget**](docs/Api/DefaultApi.md#tagget) | **GET** /tagget | View details of a specified tag
-*DefaultApi* | [**taglist**](docs/Api/DefaultApi.md#taglist) | **GET** /taglist | View a list of tags
-*DefaultApi* | [**taglistgroups**](docs/Api/DefaultApi.md#taglistgroups) | **GET** /taglistgroups | View a list of entities that can be tagged
-*DefaultApi* | [**tagsave**](docs/Api/DefaultApi.md#tagsave) | **POST** /tagsave | Create or edit a tag
-*DefaultApi* | [**tagsearch**](docs/Api/DefaultApi.md#tagsearch) | **GET** /tagsearch | Search for tags in the account
-*DefaultApi* | [**templateaddimage**](docs/Api/DefaultApi.md#templateaddimage) | **GET** /templateaddimage | Add an image to a template
-*DefaultApi* | [**templatedelete**](docs/Api/DefaultApi.md#templatedelete) | **GET** /templatedelete | Delete a template
-*DefaultApi* | [**templateemail**](docs/Api/DefaultApi.md#templateemail) | **GET** /templateemail | Send generated templates by email
-*DefaultApi* | [**templategenerate**](docs/Api/DefaultApi.md#templategenerate) | **GET** /templategenerate | Generate specified templates
-*DefaultApi* | [**templateget**](docs/Api/DefaultApi.md#templateget) | **GET** /templateget | View details of a template
-*DefaultApi* | [**templategetgenerated**](docs/Api/DefaultApi.md#templategetgenerated) | **GET** /templategetgenerated | View generated templates
-*DefaultApi* | [**templatelist**](docs/Api/DefaultApi.md#templatelist) | **GET** /templatelist | View a list of defined templates
-*DefaultApi* | [**templatelistsources**](docs/Api/DefaultApi.md#templatelistsources) | **GET** /templatelistsources | View a list of templates&#39; data sources
-*DefaultApi* | [**templatesave**](docs/Api/DefaultApi.md#templatesave) | **POST** /templatesave | Create or edit a template
-*DefaultApi* | [**templatesavelayout**](docs/Api/DefaultApi.md#templatesavelayout) | **POST** /templatesavelayout | Save the layout of a template
-*DefaultApi* | [**termdelete**](docs/Api/DefaultApi.md#termdelete) | **GET** /termdelete | Delete a term
-*DefaultApi* | [**termget**](docs/Api/DefaultApi.md#termget) | **GET** /termget | Search and view details of a term
-*DefaultApi* | [**termlist**](docs/Api/DefaultApi.md#termlist) | **GET** /termlist | Search and view details of all terms
-*DefaultApi* | [**termsave**](docs/Api/DefaultApi.md#termsave) | **POST** /termsave | Create and edit terms
-*DefaultApi* | [**textcreditremaining**](docs/Api/DefaultApi.md#textcreditremaining) | **GET** /textcreditremaining | Gets the remaining text credits for the account
-*DefaultApi* | [**texttoimage**](docs/Api/DefaultApi.md#texttoimage) | **GET** /texttoimage | Generates a dynamic image from text
-*DefaultApi* | [**translationget**](docs/Api/DefaultApi.md#translationget) | **GET** /translationget | Gets the translations of the specified values
-*DefaultApi* | [**translationgetcachefile**](docs/Api/DefaultApi.md#translationgetcachefile) | **GET** /translationgetcachefile | Get the file containing the translations
-*DefaultApi* | [**translationlist**](docs/Api/DefaultApi.md#translationlist) | **GET** /translationlist | Lists all the available translations in the system
-*DefaultApi* | [**translationsave**](docs/Api/DefaultApi.md#translationsave) | **POST** /translationsave | Edit a translation
-*DefaultApi* | [**userchangepwd**](docs/Api/DefaultApi.md#userchangepwd) | **GET** /userchangepwd | Change user&#39;s own password
-*DefaultApi* | [**userchangepwdbyreq**](docs/Api/DefaultApi.md#userchangepwdbyreq) | **GET** /userchangepwdbyreq | Changes the user password using a change password request id
-*DefaultApi* | [**userdelete**](docs/Api/DefaultApi.md#userdelete) | **GET** /userdelete | Delete a user
-*DefaultApi* | [**userfindsimilar**](docs/Api/DefaultApi.md#userfindsimilar) | **GET** /userfindsimilar | Finds similar users to prevent duplicates
-*DefaultApi* | [**userget**](docs/Api/DefaultApi.md#userget) | **GET** /userget | Search and view details of a user
-*DefaultApi* | [**usergetbycard**](docs/Api/DefaultApi.md#usergetbycard) | **GET** /usergetbycard | Search user by card number
-*DefaultApi* | [**usergroupaddmember**](docs/Api/DefaultApi.md#usergroupaddmember) | **GET** /usergroupaddmember | Add a user to a group
-*DefaultApi* | [**usergroupdelete**](docs/Api/DefaultApi.md#usergroupdelete) | **GET** /usergroupdelete | Delete a group
-*DefaultApi* | [**usergroupget**](docs/Api/DefaultApi.md#usergroupget) | **GET** /usergroupget | Search and view details of a user group
-*DefaultApi* | [**usergroupgetmembers**](docs/Api/DefaultApi.md#usergroupgetmembers) | **GET** /usergroupgetmembers | View the members of a user group
-*DefaultApi* | [**usergroupgetuser**](docs/Api/DefaultApi.md#usergroupgetuser) | **GET** /usergroupgetuser | View the groups which a user is registered to
-*DefaultApi* | [**usergrouplist**](docs/Api/DefaultApi.md#usergrouplist) | **GET** /usergrouplist | View a list of user groups
-*DefaultApi* | [**usergrouprefresh**](docs/Api/DefaultApi.md#usergrouprefresh) | **GET** /usergrouprefresh | Refresh the dynamic group
-*DefaultApi* | [**usergroupremovemember**](docs/Api/DefaultApi.md#usergroupremovemember) | **GET** /usergroupremovemember | Remove a user from a group
-*DefaultApi* | [**usergroupsave**](docs/Api/DefaultApi.md#usergroupsave) | **POST** /usergroupsave | Create or edit a group
-*DefaultApi* | [**userlist**](docs/Api/DefaultApi.md#userlist) | **GET** /userlist | View a list of users
-*DefaultApi* | [**userloadphoto**](docs/Api/DefaultApi.md#userloadphoto) | **GET** /userloadphoto | Upload a photo for a specific user
-*DefaultApi* | [**usermovedata**](docs/Api/DefaultApi.md#usermovedata) | **GET** /usermovedata | Move data between users
-*DefaultApi* | [**userrequestpwdchange**](docs/Api/DefaultApi.md#userrequestpwdchange) | **GET** /userrequestpwdchange | Requests a password change
-*DefaultApi* | [**usersave**](docs/Api/DefaultApi.md#usersave) | **POST** /usersave | Create or edit a user
-*DefaultApi* | [**usersavepwdchange**](docs/Api/DefaultApi.md#usersavepwdchange) | **POST** /usersavepwdchange | Send email to the specified user(s) to set/change their passwords
-*DefaultApi* | [**usersettingsget**](docs/Api/DefaultApi.md#usersettingsget) | **GET** /usersettingsget | Lists available user settings
-*DefaultApi* | [**usersettingsgetmultiple**](docs/Api/DefaultApi.md#usersettingsgetmultiple) | **GET** /usersettingsgetmultiple | Get multiple user settings
-*DefaultApi* | [**usersettingssave**](docs/Api/DefaultApi.md#usersettingssave) | **POST** /usersettingssave | Saves a user setting
-*DefaultApi* | [**usersettingssavemultiple**](docs/Api/DefaultApi.md#usersettingssavemultiple) | **POST** /usersettingssavemultiple | Save multiple user settings at once
-*DefaultApi* | [**usertaskdeleteplan**](docs/Api/DefaultApi.md#usertaskdeleteplan) | **GET** /usertaskdeleteplan | Deletes a task plan
-*DefaultApi* | [**usertaskgetmine**](docs/Api/DefaultApi.md#usertaskgetmine) | **GET** /usertaskgetmine | Lists the task plans of the logged user
-*DefaultApi* | [**usertaskgetplan**](docs/Api/DefaultApi.md#usertaskgetplan) | **GET** /usertaskgetplan | Gets a task plan by Id
-*DefaultApi* | [**usertasklistdefs**](docs/Api/DefaultApi.md#usertasklistdefs) | **GET** /usertasklistdefs | Lists task types or definitions
-*DefaultApi* | [**usertasklistplan**](docs/Api/DefaultApi.md#usertasklistplan) | **GET** /usertasklistplan | Lists task plans
-*DefaultApi* | [**usertasksaveplan**](docs/Api/DefaultApi.md#usertasksaveplan) | **POST** /usertasksaveplan | Saves a task plan
-*DefaultApi* | [**version**](docs/Api/DefaultApi.md#version) | **GET** /version | Get current version information
+*ActionassignmentApi* | [**actionassignmentDelete**](docs/Api/ActionassignmentApi.md#actionassignmentdelete) | **DELETE** /actionassignment/{id} | Remove an action item from an action plan
+*ActionassignmentApi* | [**actionassignmentGet**](docs/Api/ActionassignmentApi.md#actionassignmentget) | **GET** /actionassignment/{id} | Search and view details of an action item assigned to a user
+*ActionassignmentApi* | [**actionassignmentList**](docs/Api/ActionassignmentApi.md#actionassignmentlist) | **GET** /actionassignment/list | View a list of action items in a user&#39;s plan
+*ActionassignmentApi* | [**actionassignmentListhistory**](docs/Api/ActionassignmentApi.md#actionassignmentlisthistory) | **GET** /actionassignment/listhistory | View the history of an action item assigned to a user
+*ActionassignmentApi* | [**actionassignmentListmine**](docs/Api/ActionassignmentApi.md#actionassignmentlistmine) | **GET** /actionassignment/listmine | List public action assignments assigned to the logged user
+*ActionassignmentApi* | [**actionassignmentListpublichistory**](docs/Api/ActionassignmentApi.md#actionassignmentlistpublichistory) | **GET** /actionassignment/listpublichistory | List public action assignment history
+*ActionassignmentApi* | [**actionassignmentMarkcomplete**](docs/Api/ActionassignmentApi.md#actionassignmentmarkcomplete) | **GET** /actionassignment/markcomplete | Bulk complete action items
+*ActionassignmentApi* | [**actionassignmentSave**](docs/Api/ActionassignmentApi.md#actionassignmentsave) | **POST** /actionassignment/save | Add an action item to a user&#39;s action plan
+*ActionassignmentApi* | [**actionassignmentSavehistory**](docs/Api/ActionassignmentApi.md#actionassignmentsavehistory) | **POST** /actionassignment/savehistory | Update an action item assigned to a user
+*ActionitemApi* | [**actionitemDelete**](docs/Api/ActionitemApi.md#actionitemdelete) | **DELETE** /actionitem/{id} | Delete an action item
+*ActionitemApi* | [**actionitemGet**](docs/Api/ActionitemApi.md#actionitemget) | **GET** /actionitem/{id} | Search and view details of an action item
+*ActionitemApi* | [**actionitemList**](docs/Api/ActionitemApi.md#actionitemlist) | **GET** /actionitem/list | View a list of action items
+*ActionitemApi* | [**actionitemSave**](docs/Api/ActionitemApi.md#actionitemsave) | **POST** /actionitem/{id} | Create or edit an action item
+*ActionlogApi* | [**actionlogList**](docs/Api/ActionlogApi.md#actionloglist) | **GET** /actionlog/list | View a list of users action logs
+*ActionpackApi* | [**actionpackAssign**](docs/Api/ActionpackApi.md#actionpackassign) | **GET** /actionpack/assign | Assign an action item pack to a user
+*ActionpackApi* | [**actionpackDelete**](docs/Api/ActionpackApi.md#actionpackdelete) | **DELETE** /actionpack/{id} | Delete an action item pack
+*ActionpackApi* | [**actionpackGet**](docs/Api/ActionpackApi.md#actionpackget) | **GET** /actionpack/{id} | View details of an action item pack
+*ActionpackApi* | [**actionpackList**](docs/Api/ActionpackApi.md#actionpacklist) | **GET** /actionpack/list | View a list of action item packs
+*ActionpackApi* | [**actionpackSave**](docs/Api/ActionpackApi.md#actionpacksave) | **POST** /actionpack/{id} | Create or edit an action item pack
+*ActiontypeApi* | [**actiontypeDelete**](docs/Api/ActiontypeApi.md#actiontypedelete) | **DELETE** /actiontype/{id} | Delete an action item type
+*ActiontypeApi* | [**actiontypeGet**](docs/Api/ActiontypeApi.md#actiontypeget) | **GET** /actiontype/{id} | View details of an action item type
+*ActiontypeApi* | [**actiontypeList**](docs/Api/ActiontypeApi.md#actiontypelist) | **GET** /actiontype/list | View a list of action item types
+*ActiontypeApi* | [**actiontypeSave**](docs/Api/ActiontypeApi.md#actiontypesave) | **POST** /actiontype/{id} | Create or edit an action item type
+*AdvroleApi* | [**advroleAddmissing**](docs/Api/AdvroleApi.md#advroleaddmissing) | **GET** /advrole/addmissing | Adds the missing permissions to a role. Requires access to advrole.save
+*AdvroleApi* | [**advroleCheckperm**](docs/Api/AdvroleApi.md#advrolecheckperm) | **GET** /advrole/checkperm | Checks the permissions are assigned for the given roles
+*AdvroleApi* | [**advroleDelete**](docs/Api/AdvroleApi.md#advroledelete) | **DELETE** /advrole/{id} | Delete a role
+*AdvroleApi* | [**advroleDeletemapping**](docs/Api/AdvroleApi.md#advroledeletemapping) | **DELETE** /advrole/deletemapping | Delete a role mapping
+*AdvroleApi* | [**advroleGet**](docs/Api/AdvroleApi.md#advroleget) | **GET** /advrole/{id} | View details of a role
+*AdvroleApi* | [**advroleList**](docs/Api/AdvroleApi.md#advrolelist) | **GET** /advrole/list | Lists the roles for the current account
+*AdvroleApi* | [**advroleListmaps**](docs/Api/AdvroleApi.md#advrolelistmaps) | **GET** /advrole/listmaps | Lists the maps a roles is mapped to
+*AdvroleApi* | [**advroleListrolesmapped**](docs/Api/AdvroleApi.md#advrolelistrolesmapped) | **GET** /advrole/listrolesmapped | Lists the roles mappings
+*AdvroleApi* | [**advroleListtemplates**](docs/Api/AdvroleApi.md#advrolelisttemplates) | **GET** /advrole/listtemplates | View a list of role templates
+*AdvroleApi* | [**advroleSave**](docs/Api/AdvroleApi.md#advrolesave) | **POST** /advrole/{id} | Create or edit a role
+*AdvroleApi* | [**advroleSavemapping**](docs/Api/AdvroleApi.md#advrolesavemapping) | **POST** /advrole/savemapping | Saves a role mapping
+*AdvroleApi* | [**advroleUserupgrade**](docs/Api/AdvroleApi.md#advroleuserupgrade) | **GET** /advrole/userupgrade | Upgrade a user to another role (requires permission to edit those roles)
+*AdvrolesApi* | [**advrolesUserlist**](docs/Api/AdvrolesApi.md#advrolesuserlist) | **GET** /advroles/userlist | List users. Alias to user.list, use that one instead.
+*AppshareApi* | [**appshareGetphone**](docs/Api/AppshareApi.md#appsharegetphone) | **GET** /appshare/getphone | Gets the phone number of the current user
+*AppshareApi* | [**appshareSendtext**](docs/Api/AppshareApi.md#appsharesendtext) | **GET** /appshare/sendtext | Sends an SMS with the link to the app
+*AttendancelogApi* | [**attendancelogDelete**](docs/Api/AttendancelogApi.md#attendancelogdelete) | **DELETE** /attendancelog/{id} | Delete an attendance log
+*AttendancelogApi* | [**attendancelogGet**](docs/Api/AttendancelogApi.md#attendancelogget) | **GET** /attendancelog/{id} | Search and view details of an attendance log
+*AttendancelogApi* | [**attendancelogGetchangehistory**](docs/Api/AttendancelogApi.md#attendanceloggetchangehistory) | **GET** /attendancelog/getchangehistory | Search and view details of an attendance log&#39;s swipe history
+*AttendancelogApi* | [**attendancelogList**](docs/Api/AttendancelogApi.md#attendanceloglist) | **GET** /attendancelog/list | View a list of attendance logs
+*AttendancelogApi* | [**attendancelogListmine**](docs/Api/AttendancelogApi.md#attendanceloglistmine) | **GET** /attendancelog/listmine | Gets the attendance logs of the current user
+*AttendancelogApi* | [**attendancelogSave**](docs/Api/AttendancelogApi.md#attendancelogsave) | **POST** /attendancelog/{id} | Create or edit an attendance log
+*AttendancelogApi* | [**attendancelogSignout**](docs/Api/AttendancelogApi.md#attendancelogsignout) | **GET** /attendancelog/signout | Sign out an attendance log
+*AttendancelogApi* | [**attendancelogWhosin**](docs/Api/AttendancelogApi.md#attendancelogwhosin) | **GET** /attendancelog/whosin | View who&#39;s in a location
+*AttendancelogcommentApi* | [**attendancelogcommentDelete**](docs/Api/AttendancelogcommentApi.md#attendancelogcommentdelete) | **DELETE** /attendancelogcomment/{id} | Delete a comment on an attendance log
+*AttendancelogcommentApi* | [**attendancelogcommentGet**](docs/Api/AttendancelogcommentApi.md#attendancelogcommentget) | **GET** /attendancelogcomment/{id} | View a comment on an attendance log
+*AttendancelogcommentApi* | [**attendancelogcommentList**](docs/Api/AttendancelogcommentApi.md#attendancelogcommentlist) | **GET** /attendancelogcomment/list | View all the comments on a specific attendance log
+*AttendancelogcommentApi* | [**attendancelogcommentSave**](docs/Api/AttendancelogcommentApi.md#attendancelogcommentsave) | **POST** /attendancelogcomment/{id} | Save a comment on an attendance log
+*BgjobApi* | [**bgjobGetstatus**](docs/Api/BgjobApi.md#bgjobgetstatus) | **GET** /bgjob/getstatus | Get background job status
+*CaptchaApi* | [**captchaGetchallenge**](docs/Api/CaptchaApi.md#captchagetchallenge) | **GET** /captcha/getchallenge | Gets a captcha challenge that the user must complete to do certain requests.
+*CaptchaApi* | [**captchaGetimage**](docs/Api/CaptchaApi.md#captchagetimage) | **GET** /captcha/getimage | Gets a captcha image that the user must complete to do certain requests.
+*ClientApi* | [**clientGet**](docs/Api/ClientApi.md#clientget) | **GET** /client/get | Get client
+*ClientApi* | [**clientList**](docs/Api/ClientApi.md#clientlist) | **GET** /client/list | Gets the clients of the specified conference
+*ClientApi* | [**clientSave**](docs/Api/ClientApi.md#clientsave) | **POST** /client/save | Saves a client
+*ClientApi* | [**clientSendmessage**](docs/Api/ClientApi.md#clientsendmessage) | **GET** /client/sendmessage | Send a message to a client
+*DepartmentApi* | [**departmentDelete**](docs/Api/DepartmentApi.md#departmentdelete) | **DELETE** /department/{id} | Delete a college department
+*DepartmentApi* | [**departmentGet**](docs/Api/DepartmentApi.md#departmentget) | **GET** /department/{id} | Search and view details of a college department
+*DepartmentApi* | [**departmentList**](docs/Api/DepartmentApi.md#departmentlist) | **GET** /department/list | View a list of college departments
+*DepartmentApi* | [**departmentSave**](docs/Api/DepartmentApi.md#departmentsave) | **POST** /department/{id} | Create or edit a college department
+*EasyloginApi* | [**easyloginAddbgimage**](docs/Api/EasyloginApi.md#easyloginaddbgimage) | **GET** /easylogin/addbgimage | Adds background image for the login
+*EventApi* | [**eventDelete**](docs/Api/EventApi.md#eventdelete) | **DELETE** /event/{id} | Delete a course
+*EventApi* | [**eventGet**](docs/Api/EventApi.md#eventget) | **GET** /event/{id} | Search and view details of a course
+*EventApi* | [**eventGetsessionsbydate**](docs/Api/EventApi.md#eventgetsessionsbydate) | **GET** /event/getsessionsbydate | View a list of courses by date
+*EventApi* | [**eventList**](docs/Api/EventApi.md#eventlist) | **GET** /event/list | View a list of courses
+*EventApi* | [**eventSave**](docs/Api/EventApi.md#eventsave) | **POST** /event/{id} | Create or edit a course
+*EventApi* | [**eventSearchgroup**](docs/Api/EventApi.md#eventsearchgroup) | **GET** /event/searchgroup | Searches for the available event groups
+*ExportApi* | [**exportListtypes**](docs/Api/ExportApi.md#exportlisttypes) | **GET** /export/listtypes | Lists available export types
+*FeatureApi* | [**featureList**](docs/Api/FeatureApi.md#featurelist) | **GET** /feature/list | Lists the available features.
+*GeneralApi* | [**changelog**](docs/Api/GeneralApi.md#changelog) | **GET** /changelog | Get the application change log
+*GeneralApi* | [**doc**](docs/Api/GeneralApi.md#doc) | **GET** /doc | Get the documentation
+*GeneralApi* | [**export**](docs/Api/GeneralApi.md#export) | **GET** /export | Export AccuTraining data
+*GeneralApi* | [**import**](docs/Api/GeneralApi.md#import) | **GET** /import | Import data into AccuTraining
+*GeneralApi* | [**listtimezones**](docs/Api/GeneralApi.md#listtimezones) | **GET** /listtimezones | Lists the available timezones
+*GeneralApi* | [**login**](docs/Api/GeneralApi.md#login) | **GET** /login | Login
+*GeneralApi* | [**logout**](docs/Api/GeneralApi.md#logout) | **GET** /logout | Logout
+*GeneralApi* | [**search**](docs/Api/GeneralApi.md#search) | **GET** /search | Search
+*GeneralApi* | [**texttoimage**](docs/Api/GeneralApi.md#texttoimage) | **GET** /texttoimage | Generates a dynamic image from text
+*GeneralApi* | [**version**](docs/Api/GeneralApi.md#version) | **GET** /version | Get current version information
+*HolidayApi* | [**holidayList**](docs/Api/HolidayApi.md#holidaylist) | **GET** /holiday/list | View a list of entered holidays
+*HolidayApi* | [**holidaySave**](docs/Api/HolidayApi.md#holidaysave) | **POST** /holiday/save | Create or edit a list of holidays
+*HolidayApi* | [**holidaySuggest**](docs/Api/HolidayApi.md#holidaysuggest) | **GET** /holiday/suggest | View the holiday suggestions in the given term
+*ImportApi* | [**importListtypes**](docs/Api/ImportApi.md#importlisttypes) | **GET** /import/listtypes | Lists available import types
+*LicenseApi* | [**licenseAcceptagreement**](docs/Api/LicenseApi.md#licenseacceptagreement) | **GET** /license/acceptagreement | Accept the license agreement
+*LicenseApi* | [**licenseGetagreementstatus**](docs/Api/LicenseApi.md#licensegetagreementstatus) | **GET** /license/getagreementstatus | Check if license agreement has been accepted
+*LicenseApi* | [**licenseGetcurrent**](docs/Api/LicenseApi.md#licensegetcurrent) | **GET** /license/getcurrent | Gets the current license information
+*LicenseApi* | [**licenseRenew**](docs/Api/LicenseApi.md#licenserenew) | **GET** /license/renew | Contact Engineerica in order to renew the AccuTraining subscription
+*LocationApi* | [**locationDelete**](docs/Api/LocationApi.md#locationdelete) | **DELETE** /location/{id} | Delete a location
+*LocationApi* | [**locationGet**](docs/Api/LocationApi.md#locationget) | **GET** /location/{id} | Search and view details of a location
+*LocationApi* | [**locationList**](docs/Api/LocationApi.md#locationlist) | **GET** /location/list | View a list of locations
+*LocationApi* | [**locationSave**](docs/Api/LocationApi.md#locationsave) | **POST** /location/{id} | Create or edit a location
+*MemorizedreportApi* | [**memorizedreportDelete**](docs/Api/MemorizedreportApi.md#memorizedreportdelete) | **DELETE** /memorizedreport/{id} | Delete memorized report
+*MemorizedreportApi* | [**memorizedreportGet**](docs/Api/MemorizedreportApi.md#memorizedreportget) | **GET** /memorizedreport/{id} | View details of a memorized report
+*MemorizedreportApi* | [**memorizedreportList**](docs/Api/MemorizedreportApi.md#memorizedreportlist) | **GET** /memorizedreport/list | View a list of all his memorized reports
+*MemorizedreportApi* | [**memorizedreportSave**](docs/Api/MemorizedreportApi.md#memorizedreportsave) | **POST** /memorizedreport/{id} | Create or edit a memorized report
+*MenuApi* | [**menuGetitems**](docs/Api/MenuApi.md#menugetitems) | **GET** /menu/getitems | Gets the items on the menu
+*MyApi* | [**myAccount**](docs/Api/MyApi.md#myaccount) | **GET** /my/account | Gets the logged in user account.
+*MyApi* | [**myIanatimezone**](docs/Api/MyApi.md#myianatimezone) | **GET** /my/ianatimezone | Gets the current time zone&#39;s iana name
+*MyApi* | [**myProfile**](docs/Api/MyApi.md#myprofile) | **GET** /my/profile | Gets the logged in user information.
+*MyApi* | [**myRights**](docs/Api/MyApi.md#myrights) | **GET** /my/rights | Gets the list of actions the user can execute.
+*MyApi* | [**mySaveprofile**](docs/Api/MyApi.md#mysaveprofile) | **POST** /my/saveprofile | Updates logged user&#39;s profile information
+*NotificationApi* | [**notificationDelete**](docs/Api/NotificationApi.md#notificationdelete) | **DELETE** /notification/{id} | Delete a notification
+*NotificationApi* | [**notificationGet**](docs/Api/NotificationApi.md#notificationget) | **GET** /notification/{id} | View a notification
+*NotificationApi* | [**notificationGetforstation**](docs/Api/NotificationApi.md#notificationgetforstation) | **GET** /notification/getforstation | Gets all public (in station) notifications for the specific user
+*NotificationApi* | [**notificationGetunreadcount**](docs/Api/NotificationApi.md#notificationgetunreadcount) | **GET** /notification/getunreadcount | Get the number of unread notifications
+*NotificationApi* | [**notificationList**](docs/Api/NotificationApi.md#notificationlist) | **GET** /notification/list | View a list of all sent notifications
+*NotificationApi* | [**notificationListmine**](docs/Api/NotificationApi.md#notificationlistmine) | **GET** /notification/listmine | View all the notifications sent to the current user
+*NotificationApi* | [**notificationMarkasread**](docs/Api/NotificationApi.md#notificationmarkasread) | **GET** /notification/markasread | Mark a notification as read
+*NotificationApi* | [**notificationMarkasunread**](docs/Api/NotificationApi.md#notificationmarkasunread) | **GET** /notification/markasunread | Mark a notification as unread
+*NotificationApi* | [**notificationSend**](docs/Api/NotificationApi.md#notificationsend) | **GET** /notification/send | Send notifications on screen, via email or text to users
+*NotificationApi* | [**notificationSendonscreen**](docs/Api/NotificationApi.md#notificationsendonscreen) | **GET** /notification/sendonscreen | Send on-screen notifications
+*NotificationtopicApi* | [**notificationtopicDelete**](docs/Api/NotificationtopicApi.md#notificationtopicdelete) | **DELETE** /notificationtopic/{id} | Delete a notification topic
+*NotificationtopicApi* | [**notificationtopicGet**](docs/Api/NotificationtopicApi.md#notificationtopicget) | **GET** /notificationtopic/{id} | Search and view details of a notification topic
+*NotificationtopicApi* | [**notificationtopicList**](docs/Api/NotificationtopicApi.md#notificationtopiclist) | **GET** /notificationtopic/list | List all the notification topics
+*NotificationtopicApi* | [**notificationtopicListsubscribe**](docs/Api/NotificationtopicApi.md#notificationtopiclistsubscribe) | **GET** /notificationtopic/listsubscribe | List all the notification topics available to subscribe
+*NotificationtopicApi* | [**notificationtopicSave**](docs/Api/NotificationtopicApi.md#notificationtopicsave) | **POST** /notificationtopic/{id} | Create or edit a notification topic
+*PushApi* | [**pushDeregister**](docs/Api/PushApi.md#pushderegister) | **GET** /push/deregister | Deregisters the current device to receive push notifications
+*PushApi* | [**pushRegister**](docs/Api/PushApi.md#pushregister) | **GET** /push/register | Registers the current device to receive push notifications
+*QrlabelsApi* | [**qrlabelsPrint**](docs/Api/QrlabelsApi.md#qrlabelsprint) | **GET** /qrlabels/print | Print and email QR labels
+*QrloginApi* | [**qrloginGet**](docs/Api/QrloginApi.md#qrloginget) | **GET** /qrlogin/get | Gets an image of a QR token
+*QrloginApi* | [**qrloginLogin**](docs/Api/QrloginApi.md#qrloginlogin) | **GET** /qrlogin/login | Login
+*QuickpanelApi* | [**quickpanelDeletewidget**](docs/Api/QuickpanelApi.md#quickpaneldeletewidget) | **DELETE** /quickpanel/deletewidget | Deletes a widget from the Quick Panel
+*QuickpanelApi* | [**quickpanelFetchwidget**](docs/Api/QuickpanelApi.md#quickpanelfetchwidget) | **GET** /quickpanel/fetchwidget | Fetches the information for a specific widget.
+*QuickpanelApi* | [**quickpanelGetwidget**](docs/Api/QuickpanelApi.md#quickpanelgetwidget) | **GET** /quickpanel/getwidget | View details of a widget included in the Quick Panel
+*QuickpanelApi* | [**quickpanelInit**](docs/Api/QuickpanelApi.md#quickpanelinit) | **GET** /quickpanel/init | Returns the initial information required to show the quick panels
+*QuickpanelApi* | [**quickpanelListwidgets**](docs/Api/QuickpanelApi.md#quickpanellistwidgets) | **GET** /quickpanel/listwidgets | Lists all the widgets that are added in the Quick Panel
+*QuickpanelApi* | [**quickpanelListwidgettypes**](docs/Api/QuickpanelApi.md#quickpanellistwidgettypes) | **GET** /quickpanel/listwidgettypes | Lists all the widget types available in the system
+*QuickpanelApi* | [**quickpanelReorderwidgets**](docs/Api/QuickpanelApi.md#quickpanelreorderwidgets) | **GET** /quickpanel/reorderwidgets | Reorders the widgets and moves them to a specific column
+*QuickpanelApi* | [**quickpanelSavewidget**](docs/Api/QuickpanelApi.md#quickpanelsavewidget) | **POST** /quickpanel/savewidget | Saves a widget for the Quick Panel
+*ReportApi* | [**reportList**](docs/Api/ReportApi.md#reportlist) | **GET** /report/list | View a list of available reports
+*ReportApi* | [**reportPermissionsbyuser**](docs/Api/ReportApi.md#reportpermissionsbyuser) | **GET** /report/permissionsbyuser | Permissions by user report
+*ReportApi* | [**reportPrepare**](docs/Api/ReportApi.md#reportprepare) | **GET** /report/prepare | Queries and loads the specified report, in background.
+*ReportApi* | [**reportQuery**](docs/Api/ReportApi.md#reportquery) | **GET** /report/query | Query and load a specified report
+*RoleApi* | [**roleList**](docs/Api/RoleApi.md#rolelist) | **GET** /role/list | Show a list of roles
+*RuleApi* | [**ruleDelete**](docs/Api/RuleApi.md#ruledelete) | **DELETE** /rule/{id} | Delete a rule
+*RuleApi* | [**ruleGet**](docs/Api/RuleApi.md#ruleget) | **GET** /rule/{id} | View details of a rule
+*RuleApi* | [**ruleGeteventtype**](docs/Api/RuleApi.md#rulegeteventtype) | **GET** /rule/geteventtype | View details of a rule event type
+*RuleApi* | [**ruleList**](docs/Api/RuleApi.md#rulelist) | **GET** /rule/list | View a list of user rules
+*RuleApi* | [**ruleListactions**](docs/Api/RuleApi.md#rulelistactions) | **GET** /rule/listactions | View a list of rule actions available
+*RuleApi* | [**ruleListeventtypes**](docs/Api/RuleApi.md#rulelisteventtypes) | **GET** /rule/listeventtypes | View a list of rule event types
+*RuleApi* | [**ruleListhttprequests**](docs/Api/RuleApi.md#rulelisthttprequests) | **GET** /rule/listhttprequests | View all the http requests sent as a result of a rule
+*RuleApi* | [**ruleSave**](docs/Api/RuleApi.md#rulesave) | **POST** /rule/{id} | Create or edit a rule
+*SearchApi* | [**searchGetentities**](docs/Api/SearchApi.md#searchgetentities) | **GET** /search/getentities | Get the information of the entities that can be searched
+*SecurityApi* | [**securityAssesspermission**](docs/Api/SecurityApi.md#securityassesspermission) | **GET** /security/assesspermission | Returns the list of users for a specific permission
+*SecurityApi* | [**securityAssessrole**](docs/Api/SecurityApi.md#securityassessrole) | **GET** /security/assessrole | Returns the list of permissions for a specific role
+*SecurityApi* | [**securityAssessscope**](docs/Api/SecurityApi.md#securityassessscope) | **GET** /security/assessscope | Returns the list of users for a specific user
+*SecurityApi* | [**securityAssessuser**](docs/Api/SecurityApi.md#securityassessuser) | **GET** /security/assessuser | Returns the list of permissions for a specific user
+*SessionregApi* | [**sessionregAddcurrentuser**](docs/Api/SessionregApi.md#sessionregaddcurrentuser) | **GET** /sessionreg/addcurrentuser | Register current user to an event session
+*SessionregApi* | [**sessionregAdduser**](docs/Api/SessionregApi.md#sessionregadduser) | **GET** /sessionreg/adduser | Register users for events
+*SessionregApi* | [**sessionregGetmysessions**](docs/Api/SessionregApi.md#sessionreggetmysessions) | **GET** /sessionreg/getmysessions | View all the sessions the logged user is registered to
+*SessionregApi* | [**sessionregGetsessions**](docs/Api/SessionregApi.md#sessionreggetsessions) | **GET** /sessionreg/getsessions | Lists the registrations for a specific user
+*SessionregApi* | [**sessionregGetsettings**](docs/Api/SessionregApi.md#sessionreggetsettings) | **GET** /sessionreg/getsettings | Get the settings for session registration
+*SessionregApi* | [**sessionregGetusers**](docs/Api/SessionregApi.md#sessionreggetusers) | **GET** /sessionreg/getusers | Lists the registrations for a specific session
+*SessionregApi* | [**sessionregListsessions**](docs/Api/SessionregApi.md#sessionreglistsessions) | **GET** /sessionreg/listsessions | List the sessions available for a specific event
+*SessionregApi* | [**sessionregListupcoming**](docs/Api/SessionregApi.md#sessionreglistupcoming) | **GET** /sessionreg/listupcoming | View a list of upcoming event sessions
+*SessionregApi* | [**sessionregListupcomingevent**](docs/Api/SessionregApi.md#sessionreglistupcomingevent) | **GET** /sessionreg/listupcomingevent | View a list of upcoming sessions of a particular event
+*SessionregApi* | [**sessionregRemovecurrentuser**](docs/Api/SessionregApi.md#sessionregremovecurrentuser) | **GET** /sessionreg/removecurrentuser | Unregister current user from an event session
+*SessionregApi* | [**sessionregRemoveuser**](docs/Api/SessionregApi.md#sessionregremoveuser) | **GET** /sessionreg/removeuser | Removes a user from an event session
+*SessionregApi* | [**sessionregSavesettings**](docs/Api/SessionregApi.md#sessionregsavesettings) | **POST** /sessionreg/savesettings | Save the settings for an event&#39;s session registration
+*SettingApi* | [**settingAddlogo**](docs/Api/SettingApi.md#settingaddlogo) | **GET** /setting/addlogo | Add a logo to the account
+*SettingApi* | [**settingGet**](docs/Api/SettingApi.md#settingget) | **GET** /setting/get | Get settings for the account or the specified scope
+*SettingApi* | [**settingSave**](docs/Api/SettingApi.md#settingsave) | **POST** /setting/save | Save settings for the account or the specified scope
+*SettingApi* | [**settingViewgeneral**](docs/Api/SettingApi.md#settingviewgeneral) | **GET** /setting/viewgeneral | View general settings for the account
+*SsoApi* | [**ssoGeneratekey**](docs/Api/SsoApi.md#ssogeneratekey) | **GET** /sso/generatekey | Generate/reset single sign on access key.
+*SsoApi* | [**ssoGetsettings**](docs/Api/SsoApi.md#ssogetsettings) | **GET** /sso/getsettings | View single sign on settings.
+*SsoApi* | [**ssoIssuetoken**](docs/Api/SsoApi.md#ssoissuetoken) | **GET** /sso/issuetoken | Issue single sign-on token
+*SsoApi* | [**ssoSavesettings**](docs/Api/SsoApi.md#ssosavesettings) | **POST** /sso/savesettings | Edit single sign-on settings.
+*StationApi* | [**stationDelete**](docs/Api/StationApi.md#stationdelete) | **DELETE** /station/{id} | Delete a sign-in station
+*StationApi* | [**stationGet**](docs/Api/StationApi.md#stationget) | **GET** /station/{id} | View details of a sign-in station
+*StationApi* | [**stationGetcurrentterms**](docs/Api/StationApi.md#stationgetcurrentterms) | **GET** /station/getcurrentterms | Get all the current terms
+*StationApi* | [**stationGetinfo**](docs/Api/StationApi.md#stationgetinfo) | **GET** /station/getinfo | Gets a the info to display in the sign-in station by it&#39;s ID.
+*StationApi* | [**stationGetlicense**](docs/Api/StationApi.md#stationgetlicense) | **GET** /station/getlicense | Gets the current license information
+*StationApi* | [**stationList**](docs/Api/StationApi.md#stationlist) | **GET** /station/list | View a list of sign-in stations
+*StationApi* | [**stationSave**](docs/Api/StationApi.md#stationsave) | **POST** /station/{id} | Create or edit a sign-in station
+*StationApi* | [**stationUnlock**](docs/Api/StationApi.md#stationunlock) | **GET** /station/unlock | Unlocks the sign-in station.
+*SwipeApi* | [**swipeDelete**](docs/Api/SwipeApi.md#swipedelete) | **DELETE** /swipe/{id} | Delete a swipe
+*SwipeApi* | [**swipeGet**](docs/Api/SwipeApi.md#swipeget) | **GET** /swipe/{id} | Search and view details of a swipe
+*SwipeApi* | [**swipeList**](docs/Api/SwipeApi.md#swipelist) | **GET** /swipe/list | View a list of swipes
+*SwipeApi* | [**swipeSave**](docs/Api/SwipeApi.md#swipesave) | **POST** /swipe/save | Create or edit a swipe, and if possible, save the related attendance log
+*SwipeApi* | [**swipeSaveanonym**](docs/Api/SwipeApi.md#swipesaveanonym) | **POST** /swipe/saveanonym | Creates a new swipe from a sign-in station, and if possible, creates the attendance log
+*TagApi* | [**tagDelete**](docs/Api/TagApi.md#tagdelete) | **DELETE** /tag/{id} | Delete a tag
+*TagApi* | [**tagGet**](docs/Api/TagApi.md#tagget) | **GET** /tag/{id} | View details of a specified tag
+*TagApi* | [**tagList**](docs/Api/TagApi.md#taglist) | **GET** /tag/list | View a list of tags
+*TagApi* | [**tagListgroups**](docs/Api/TagApi.md#taglistgroups) | **GET** /tag/listgroups | View a list of entities that can be tagged
+*TagApi* | [**tagSave**](docs/Api/TagApi.md#tagsave) | **POST** /tag/{id} | Create or edit a tag
+*TagApi* | [**tagSearch**](docs/Api/TagApi.md#tagsearch) | **GET** /tag/search | Search for tags in the account
+*TemplateApi* | [**templateAddimage**](docs/Api/TemplateApi.md#templateaddimage) | **GET** /template/addimage | Add an image to a template
+*TemplateApi* | [**templateDelete**](docs/Api/TemplateApi.md#templatedelete) | **DELETE** /template/{id} | Delete a template
+*TemplateApi* | [**templateEmail**](docs/Api/TemplateApi.md#templateemail) | **GET** /template/email | Send generated templates by email
+*TemplateApi* | [**templateGenerate**](docs/Api/TemplateApi.md#templategenerate) | **GET** /template/generate | Generate specified templates
+*TemplateApi* | [**templateGet**](docs/Api/TemplateApi.md#templateget) | **GET** /template/{id} | View details of a template
+*TemplateApi* | [**templateGetgenerated**](docs/Api/TemplateApi.md#templategetgenerated) | **GET** /template/getgenerated | View generated templates
+*TemplateApi* | [**templateList**](docs/Api/TemplateApi.md#templatelist) | **GET** /template/list | View a list of defined templates
+*TemplateApi* | [**templateListsources**](docs/Api/TemplateApi.md#templatelistsources) | **GET** /template/listsources | View a list of templates&#39; data sources
+*TemplateApi* | [**templateSave**](docs/Api/TemplateApi.md#templatesave) | **POST** /template/{id} | Create or edit a template
+*TemplateApi* | [**templateSavelayout**](docs/Api/TemplateApi.md#templatesavelayout) | **POST** /template/savelayout | Save the layout of a template
+*TermApi* | [**termDelete**](docs/Api/TermApi.md#termdelete) | **DELETE** /term/{id} | Delete a term
+*TermApi* | [**termGet**](docs/Api/TermApi.md#termget) | **GET** /term/{id} | Search and view details of a term
+*TermApi* | [**termList**](docs/Api/TermApi.md#termlist) | **GET** /term/list | Search and view details of all terms
+*TermApi* | [**termSave**](docs/Api/TermApi.md#termsave) | **POST** /term/{id} | Create and edit terms
+*TextcreditApi* | [**textcreditRemaining**](docs/Api/TextcreditApi.md#textcreditremaining) | **GET** /textcredit/remaining | Gets the remaining text credits for the account
+*TranslationApi* | [**translationGet**](docs/Api/TranslationApi.md#translationget) | **GET** /translation/get | Gets the translations of the specified values
+*TranslationApi* | [**translationGetcachefile**](docs/Api/TranslationApi.md#translationgetcachefile) | **GET** /translation/getcachefile | Get the file containing the translations
+*TranslationApi* | [**translationList**](docs/Api/TranslationApi.md#translationlist) | **GET** /translation/list | Lists all the available translations in the system
+*TranslationApi* | [**translationSave**](docs/Api/TranslationApi.md#translationsave) | **POST** /translation/{id} | Edit a translation
+*UserApi* | [**userChangepwd**](docs/Api/UserApi.md#userchangepwd) | **GET** /user/changepwd | Change user&#39;s own password
+*UserApi* | [**userChangepwdbyreq**](docs/Api/UserApi.md#userchangepwdbyreq) | **GET** /user/changepwdbyreq | Changes the user password using a change password request id
+*UserApi* | [**userDelete**](docs/Api/UserApi.md#userdelete) | **DELETE** /user/{id} | Delete a user
+*UserApi* | [**userFindsimilar**](docs/Api/UserApi.md#userfindsimilar) | **GET** /user/findsimilar | Finds similar users to prevent duplicates
+*UserApi* | [**userGet**](docs/Api/UserApi.md#userget) | **GET** /user/{id} | Search and view details of a user
+*UserApi* | [**userGetbycard**](docs/Api/UserApi.md#usergetbycard) | **GET** /user/getbycard | Search user by card number
+*UserApi* | [**userList**](docs/Api/UserApi.md#userlist) | **GET** /user/list | View a list of users
+*UserApi* | [**userLoadphoto**](docs/Api/UserApi.md#userloadphoto) | **GET** /user/loadphoto | Upload a photo for a specific user
+*UserApi* | [**userMovedata**](docs/Api/UserApi.md#usermovedata) | **GET** /user/movedata | Move data between users
+*UserApi* | [**userRequestpwdchange**](docs/Api/UserApi.md#userrequestpwdchange) | **GET** /user/requestpwdchange | Requests a password change
+*UserApi* | [**userSave**](docs/Api/UserApi.md#usersave) | **POST** /user/{id} | Create or edit a user
+*UserApi* | [**userSavepwdchange**](docs/Api/UserApi.md#usersavepwdchange) | **POST** /user/savepwdchange | Send email to the specified user(s) to set/change their passwords
+*UsergroupApi* | [**usergroupAddmember**](docs/Api/UsergroupApi.md#usergroupaddmember) | **GET** /usergroup/addmember | Add a user to a group
+*UsergroupApi* | [**usergroupDelete**](docs/Api/UsergroupApi.md#usergroupdelete) | **DELETE** /usergroup/{id} | Delete a group
+*UsergroupApi* | [**usergroupGet**](docs/Api/UsergroupApi.md#usergroupget) | **GET** /usergroup/{id} | Search and view details of a user group
+*UsergroupApi* | [**usergroupGetmembers**](docs/Api/UsergroupApi.md#usergroupgetmembers) | **GET** /usergroup/getmembers | View the members of a user group
+*UsergroupApi* | [**usergroupGetuser**](docs/Api/UsergroupApi.md#usergroupgetuser) | **GET** /usergroup/getuser | View the groups which a user is registered to
+*UsergroupApi* | [**usergroupList**](docs/Api/UsergroupApi.md#usergrouplist) | **GET** /usergroup/list | View a list of user groups
+*UsergroupApi* | [**usergroupRefresh**](docs/Api/UsergroupApi.md#usergrouprefresh) | **GET** /usergroup/refresh | Refresh the dynamic group
+*UsergroupApi* | [**usergroupRemovemember**](docs/Api/UsergroupApi.md#usergroupremovemember) | **GET** /usergroup/removemember | Remove a user from a group
+*UsergroupApi* | [**usergroupSave**](docs/Api/UsergroupApi.md#usergroupsave) | **POST** /usergroup/{id} | Create or edit a group
+*UsersettingsApi* | [**usersettingsGet**](docs/Api/UsersettingsApi.md#usersettingsget) | **GET** /usersettings/get | Lists available user settings
+*UsersettingsApi* | [**usersettingsGetmultiple**](docs/Api/UsersettingsApi.md#usersettingsgetmultiple) | **GET** /usersettings/getmultiple | Get multiple user settings
+*UsersettingsApi* | [**usersettingsSave**](docs/Api/UsersettingsApi.md#usersettingssave) | **POST** /usersettings/save | Saves a user setting
+*UsersettingsApi* | [**usersettingsSavemultiple**](docs/Api/UsersettingsApi.md#usersettingssavemultiple) | **POST** /usersettings/savemultiple | Save multiple user settings at once
+*UsertaskApi* | [**usertaskDeleteplan**](docs/Api/UsertaskApi.md#usertaskdeleteplan) | **DELETE** /usertask/deleteplan | Deletes a task plan
+*UsertaskApi* | [**usertaskGetmine**](docs/Api/UsertaskApi.md#usertaskgetmine) | **GET** /usertask/getmine | Lists the task plans of the logged user
+*UsertaskApi* | [**usertaskGetplan**](docs/Api/UsertaskApi.md#usertaskgetplan) | **GET** /usertask/getplan | Gets a task plan by Id
+*UsertaskApi* | [**usertaskListdefs**](docs/Api/UsertaskApi.md#usertasklistdefs) | **GET** /usertask/listdefs | Lists task types or definitions
+*UsertaskApi* | [**usertaskListplan**](docs/Api/UsertaskApi.md#usertasklistplan) | **GET** /usertask/listplan | Lists task plans
+*UsertaskApi* | [**usertaskSaveplan**](docs/Api/UsertaskApi.md#usertasksaveplan) | **POST** /usertask/saveplan | Saves a task plan
 
 
 ## Documentation For Models
@@ -330,7 +335,13 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Authorization
 
-All endpoints do not require authorization.
+
+
+## bearerAuth
+
+
+- **Type**: Bearer authentication (string)
+
 
 ## Author
 
