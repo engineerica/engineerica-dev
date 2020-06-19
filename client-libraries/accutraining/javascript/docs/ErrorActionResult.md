@@ -1,4 +1,4 @@
-# AccuCampusOpenApi3Documentation.ErrorActionResult
+# AccuTrainingOpenApi3.ErrorActionResult
 
 ## Properties
 

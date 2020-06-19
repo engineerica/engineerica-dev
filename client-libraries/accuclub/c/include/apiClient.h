@@ -24,6 +24,8 @@ typedef struct apiClient_t {
     void *dataReceived;
     long dataReceivedLen;
     long response_code;
+    char *username;
+    char *password;
 } apiClient_t;
 
 apiClient_t* apiClient_create();

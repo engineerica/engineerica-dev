@@ -24,7 +24,7 @@ namespace Org.OpenAPITools.Client
         /// Initializes a new instance of the <see cref="ApiClient" /> class.
         /// </summary>
         /// <param name="basePath">The base path.</param>
-        public ApiClient(String basePath="https://accucampus.net/api/v1")
+        public ApiClient(String basePath="https://accucampus.net:443/api/v1")
         {
             BasePath = basePath;
             RestClient = new RestClient(BasePath);
@@ -259,6 +259,9 @@ namespace Org.OpenAPITools.Client
                 // determine which one to use
                 switch(auth)
                 {
+                    case "bearerAuth":
+                        headerParams["Authorization"] = "Bearer " + Configuration.AccessToken;
+                        break;
                     default:
                         //TODO show warning about security definition not found
                         break;
