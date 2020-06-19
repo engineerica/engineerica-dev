@@ -1,6 +1,6 @@
 ################################# Default configuration ###################
 # provide your domain here
-baseURL = "developers.engineerica.com"
+baseURL = "https://developers.engineerica.com"
 # theme
 theme = "dot-theme"
 # site title

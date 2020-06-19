@@ -2,14 +2,14 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Engineerica Developer Hub</title>
-    <link>developers.engineerica.com/</link>
+    <link>https://developers.engineerica.com/</link>
     <description>Recent content on Engineerica Developer Hub</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright Engineerica 2020. Theme Copyright Hugo © [gethugothemes](https://gethugothemes.com/) 2020.</copyright>
     <lastBuildDate>Thu, 11 Jun 2020 11:02:05 +0600</lastBuildDate>
     
-	<atom:link href="developers.engineerica.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://developers.engineerica.com/index.xml" rel="self" type="application/rss+xml" />
     
     
   </channel>
