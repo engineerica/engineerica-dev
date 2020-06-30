@@ -1,7 +1,7 @@
 ---
 title: "Client Libraries"
 icon: "ti-layout-slider"
-description: "View the REST API docs"
+description: "Use our client libraries"
 date: 2020-05-21T11:02:05+06:00
 type : "docs"
 weight: 3
