@@ -46,7 +46,7 @@ This document describes how to use the _thehebster/engineerica-cl-generator_ Doc
 
     \* Note: _The container ID can be substituted with the container name_
 
-**4. Creating an image from the DockerFile**
+   **4. Creating an image from the DockerFile**
 
    If the DockerFile is updated or changed, you can rebuild the image with the following command (assuming you are in the same directory as the DockerFile):
 
