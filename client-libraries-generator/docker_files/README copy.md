@@ -1,6 +1,6 @@
 # Engineerica Client Libraries Generator
 
-This document describes how to use the _thehebster/engineerica-cl-generator_ Docker image to automatically generate Engineerica&#39;s client libraries. After reading this guide, you will gain knowledge on how to 1) run the published Docker image, 2) transfer files from the Docker container to your local machine, and 3) make changes to the DockerFile.
+This document describes how to use the _thehebster/engineerica-cl-generator_ Docker       image to automatically generate Engineerica&#39;s client libraries. After reading this guide, you will gain knowledge on how to 1) run the published Docker image, 2) transfer files from the Docker container to your local machine, and 3) make changes to the DockerFile.
 
 1. **Required Software**
 
@@ -18,7 +18,7 @@ This document describes how to use the _thehebster/engineerica-cl-generator_ Doc
     
     `docker ps -a`
     
-    ![ScreenShot](docker_ps_command.png)
+    ![ScreenShot](docker_manual_pics\docker_ps_command.png)
 
 3. **Downloading the client-libraries folder**
 
@@ -32,11 +32,11 @@ This document describes how to use the _thehebster/engineerica-cl-generator_ Doc
     
     You will be prompted to enter the container ID and a path on your local machine to save the client libraries to. The path can be specified as a relative path or as an absolute path.
 
-    ![ScreenShot](script_command.JPG)
+    ![ScreenShot](docker_manual_pics\script_command.JPG)
     
     After the script terminates, you will find the client-libraries folder in the specified directory.
     
-    ![ScreenShot](directory_structure.JPG)
+    ![ScreenShot](docker_manual_pics\directory_structure.JPG)
     
     Alternatively, instead of running the *cl-downloader* script, you can manually enter the docker cp command like this:
     
