@@ -24,7 +24,7 @@ weight = 1
 
 [[menu.main]]
 name = "Client Libraries"
-url = "/gettingstarted/client-libraries"
+url = "client-libraries"
 weight = 2
 
 [[menu.main]]
@@ -36,7 +36,7 @@ weight = 3
 [[menu.main]]
 weight = 4
 name = "API Reference"
-url = "contactus"
+url = "api-reference"
 hasChildren = true
 
   [[menu.main]]

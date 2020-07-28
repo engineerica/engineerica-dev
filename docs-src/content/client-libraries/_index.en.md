@@ -8,8 +8,8 @@ weight: 3
 keywords: ["about", "navigate", "where", "directory", "structure"]
 ---
 
-In order to connect to our services and read or update data, you can use any REST API client. Automatic generated client libraries are also
-available for simplicity. Please select the preferred language under the product you would like to connect below:
+In order to connect to our services and read or update data, you can use any REST API client. Automatically generated client libraries are also
+available for simplicity. Please select the preferred language under the product you would like to connect to below:
 
 ### AccuCampus
 
