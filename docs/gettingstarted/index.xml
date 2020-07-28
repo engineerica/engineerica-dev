@@ -12,5 +12,49 @@
 	<atom:link href="https://developers.engineerica.com/gettingstarted/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>Login</title>
+      <link>https://developers.engineerica.com/gettingstarted/login/</link>
+      <pubDate>Tue, 28 Jul 2020 11:02:05 +0600</pubDate>
+      
+      <guid>https://developers.engineerica.com/gettingstarted/login/</guid>
+      <description>To login to your AccuCampus account through the AccuCampus API, you will need to make a HTTP GET request. The AccuCampus API is authenticated with bearer tokens- a type of security token represented as a cryptic string. When you make a login request to AccuCampus, the server will generate a bearer token in response to the login request. You must include the bearer token in the Authorization header, or, alternatively, you can specify the token directly in the URL when making requests to protected resources.</description>
+    </item>
+    
+    <item>
+      <title>Create or edit a user</title>
+      <link>https://developers.engineerica.com/gettingstarted/create-user/</link>
+      <pubDate>Tue, 28 Jul 2020 11:02:05 +0600</pubDate>
+      
+      <guid>https://developers.engineerica.com/gettingstarted/create-user/</guid>
+      <description>To create a new user or edit an existing one, you must make a HTTP POST request to the usersave endpoint:
+https://accucampus.net/api/v1/usersave When creating a new user through the AccuCampus API, include the following required parameters: token, firstname, lastname, and email.
+Usage and SDK Examples:
+ curl --location --request POST &amp;#39;https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&amp;amp;firstname=baby&amp;amp;lastname=yoda&amp;amp;email=babyyoda@sw.com&amp;#39;   CURL *curl; CURLcode res; curl = curl_easy_init(); if(curl) { curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, &amp;#34;POST&amp;#34;); curl_easy_setopt(curl, CURLOPT_URL, &amp;#34;https://accucampus.net/api/v1/usersave?token=78ee4a54-1afe-4769-b48f-52c8805da2a3&amp;amp;firstname=baby&amp;amp;lastname=yoda&amp;amp;email=babyyoda@sw.com&amp;#34;); curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L); curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, &amp;#34;https&amp;#34;); struct curl_slist *headers = NULL; curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers); res = curl_easy_perform(curl); } curl_easy_cleanup(curl);  var client = new RestClient(&amp;#34;https://accucampus.</description>
+    </item>
+    
+    <item>
+      <title>Create or edit a college department</title>
+      <link>https://developers.engineerica.com/gettingstarted/create-department/</link>
+      <pubDate>Tue, 28 Jul 2020 11:02:05 +0600</pubDate>
+      
+      <guid>https://developers.engineerica.com/gettingstarted/create-department/</guid>
+      <description>To create a new college department or edit an existing one, you must make a HTTP POST request to the departmentsave endpoint:
+https://accucampus.net/api/v1/departmentsave When creating a new college department through the AccuCampus API, include the following required parameters: token and name.
+Usage and SDK Examples:
+ curl --location --request POST &amp;#39;https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&amp;amp;name=Fantastic%20Beasts&amp;amp;details=We%20have%20unicorns!&amp;#39;   CURL *curl; CURLcode res; curl = curl_easy_init(); if(curl) { curl_easy_setopt(curl, CURLOPT_CUSTOMREQUEST, &amp;#34;POST&amp;#34;); curl_easy_setopt(curl, CURLOPT_URL, &amp;#34;https://accucampus.net/api/v1/departmentsave?token=23773f5b-76ca-423f-86e5-77a13fa5438b&amp;amp;name=Fantastic%20Beasts&amp;amp;details=We%20have%20unicorns!&amp;#34;); curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L); curl_easy_setopt(curl, CURLOPT_DEFAULT_PROTOCOL, &amp;#34;https&amp;#34;); struct curl_slist *headers = NULL; curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers); res = curl_easy_perform(curl); } curl_easy_cleanup(curl);  var client = new RestClient(&amp;#34;https://accucampus.</description>
+    </item>
+    
+    <item>
+      <title>Send a SMS</title>
+      <link>https://developers.engineerica.com/gettingstarted/send-sms/</link>
+      <pubDate>Tue, 28 Jul 2020 11:02:05 +0600</pubDate>
+      
+      <guid>https://developers.engineerica.com/gettingstarted/send-sms/</guid>
+      <description>Using the AccuCampus API, you can send a SMS message containing a link to the Accucampus app to the phone number of your choice or to the phone number linked to your account (default).
+You will need to make a HTTP GET request to the appsharesendtext endpoint:
+https://accucampus.net/api/v1/appsharesendtext To send a SMS to a phone number other than the one linked to your account, you will need to specify the phonenumber parameter.</description>
+    </item>
+    
   </channel>
 </rss>
