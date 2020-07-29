@@ -11,12 +11,13 @@ This document describes how to use the _thehebster/engineerica-cl-generator_ Doc
     The Engineerica client libraries generator is publicly available on Docker Hub&#39;s remote registry. To run the published image, open a terminal window (we will be using the Docker QuickStart shell) and enter the following command:
     
     `docker run -v host_path:container_path thehebster/engineerica-cl-generator:1.0`
+
     Example: `docker run -v "${PWD}:/client-libraries" thehebster/engineerica-cl-generator:1.0`
 
      
     The generation of the client libraries will begin automatically; give the process about 10 minutes to complete. After the client libraries have been generated, the client-libraries folder will be downloaded to the specified host directory and the container will exit. 
     
-    If you see the client-libraries folder on your host machine, congratulations, you are finished! If you are having trouble using the -v argument to establish a mount point on your host machine, enter the following command and continue on to step 3 to manually download the client-libraries folder:
+    If you see the client-libraries folder on your host machine, congratulations, you are finished! If you are having trouble using the -v argument to establish a mount point on your host machine, enter the following command and continue on to Step 3 to manually download the client-libraries folder:
 
     `docker run thehebster/engineerica-cl-generator:1.0`
 
