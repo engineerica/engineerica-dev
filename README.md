@@ -4,12 +4,20 @@ This project provides a framework for connecting to **AccuClass**, **Conference 
 
 Accudemia users, please visit: https://github.com/engineerica/accudemiaext/
 
+You can also check out [Engineerica's Developer Hub](https://developers.engineerica.com/) to explore the RESTful APIs and resources for our products and services. Follow our [quickstart guide](https://developers.engineerica.com/gettingstarted/) to view code examples that will guide you in interacting with our APIs.
+
 
 # Download #
 
 Download the latest compiled version from here:
 
 https://drive.google.com/folderview?id=0B5S-aT-V07k-R2paV0FKRzNZVUE&usp=sharing
+
+Download the latest client libraries from here (optional): 
+
+https://github.com/engineerica/engineerica-dev/tree/master/client-libraries
+
+Deprecated files are located here: https://github.com/engineerica/engineerica-dev/tree/master/deprecated
 
 
 # How to use it? #
