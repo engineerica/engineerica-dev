@@ -17,7 +17,7 @@ Download the latest client libraries from here (optional):
 
 https://github.com/engineerica/engineerica-dev/tree/master/client-libraries
 
-Deprecated files are located here: https://github.com/engineerica/engineerica-dev/tree/master/deprecated
+Deprecated libraries are located here: https://github.com/engineerica/engineerica-dev/tree/master/deprecated
 
 
 # How to use it? #
